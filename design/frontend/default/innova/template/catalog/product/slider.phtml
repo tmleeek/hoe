@@ -1,0 +1,92 @@
+<?php /* Home page slider */ ?>
+
+<script>
+/**
+* Function that tracks a click on an outbound link in Google Analytics.
+* This function takes a valid URL string as an argument, and uses that URL string
+* as the event label.
+*/
+var trackOutboundLink = function(url) {
+   ga('send', 'event', 'outbound', 'click', url, {'hitCallback':
+     function () {
+     document.location = url;
+     }
+   });
+}
+</script>
+
+<section class="slider-intro">
+    <div class="the-slideshow-wrapper-outer">
+        <div class="the-slideshow-wrapper">
+            <div class="slider-arrows2 slider-pagination2 pagination-pos-over-bottom-centered">
+                <div style="opacity: 1; display: block;" id="slideshow-2a8563bc02a4b60056d3d8725ac94351" class="slides owl-carousel owl-theme">
+                    <div class="owl-item">
+                        <?php if (Mage::getStoreConfig('mm_extra/banners/slide1_button')==""){?><a href="<?php echo Mage::getStoreConfig('mm_extra/banners/slide1_link') ?>" onclick="trackOutboundLink('<?php echo Mage::getStoreConfig('mm_extra/banners/slide1_link') ?>'); return false;"><?php }?>
+                            <div class="item slide" style="background-color: transparent; background-image: url(<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'theme/' . Mage::getStoreConfig('mm_extra/banners/slide1_image') ?>);background-position: center top; background-repeat: no-repeat; background-size: cover; height: 490px; width: 100%; position:relative">
+                                <div class="caption light1 <?php if(Mage::getStoreConfig('mm_extra/banners/slide1_position')) echo 'top-right'; else echo 'bottom-left';?>">
+                                    <div class="caption-inner">
+                                        <h2 class="heading permanent" style="color: #<?php echo Mage::getStoreConfig('mm_extra/banners/slide1_text_color')?>!important; background-color: rgba(255, 255, 255, 0)!important"><?php echo Mage::getStoreConfig('mm_extra/banners/slide1_title') ?></h2>
+                                        <p class="normal-text" style="color: #<?php echo Mage::getStoreConfig('mm_extra/banners/slide1_text_color')?>!important;"><?php echo Mage::getStoreConfig('mm_extra/banners/slide1_text') ?></p>
+                                        <?php if (Mage::getStoreConfig('mm_extra/banners/slide1_button')!=""){?>
+                                        <p class="intro-btn"><a href="<?php echo Mage::getStoreConfig('mm_extra/banners/slide1_link') ?>"  onclick="trackOutboundLink('<?php echo Mage::getStoreConfig('mm_extra/banners/slide1_link') ?>'); return false;"><?php echo Mage::getStoreConfig('mm_extra/banners/slide1_button') ?></a> </p>
+                                        <?php }?>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="owl-item">
+                        <?php if (Mage::getStoreConfig('mm_extra/banners/slide2_button')==""){?><a href="<?php echo Mage::getStoreConfig('mm_extra/banners/slide2_link') ?>" onclick="trackOutboundLink('<?php echo Mage::getStoreConfig('mm_extra/banners/slide2_link') ?>'); return false;"><?php }?>
+                            <div class="item slide" style="background-color: transparent; background-image: url(<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'theme/' . Mage::getStoreConfig('mm_extra/banners/slide2_image') ?>);background-position: center top; background-repeat: no-repeat; background-size: cover; height: 490px; width: 100%; position:relative">
+                                <div class="caption light1 <?php if(Mage::getStoreConfig('mm_extra/banners/slide2_position')) echo 'top-right'; else echo 'bottom-left';?>">
+                                    <div class="caption-inner">
+                                        <h2 class="heading permanent" style="color: #<?php echo Mage::getStoreConfig('mm_extra/banners/slide2_text_color')?>!important; background-color: rgba(255, 255, 255, 0)!important"><?php echo Mage::getStoreConfig('mm_extra/banners/slide2_title') ?></h2>
+                                        <p class="normal-text" style="color: #<?php echo Mage::getStoreConfig('mm_extra/banners/slide2_text_color')?>!important;"><?php echo Mage::getStoreConfig('mm_extra/banners/slide2_text') ?></p>
+                                        <?php if (Mage::getStoreConfig('mm_extra/banners/slide2_button')!=""){?>
+                                        <p class="intro-btn"><a href="<?php echo Mage::getStoreConfig('mm_extra/banners/slide2_link') ?>" onclick="trackOutboundLink('<?php echo Mage::getStoreConfig('mm_extra/banners/slide2_link') ?>'); return false;"><?php echo Mage::getStoreConfig('mm_extra/banners/slide2_button') ?></a> </p>
+                                        <?php }?>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="owl-item">
+                        <?php if (Mage::getStoreConfig('mm_extra/banners/slide3_button')==""){?><a href="<?php echo Mage::getStoreConfig('mm_extra/banners/slide3_link') ?>" onclick="trackOutboundLink('<?php echo Mage::getStoreConfig('mm_extra/banners/slide3_link') ?>'); return false;"><?php }?>
+                            <div class="item slide" style="background-color: transparent; background-image: url(<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'theme/' . Mage::getStoreConfig('mm_extra/banners/slide3_image') ?>);background-position: center top; background-repeat: no-repeat; background-size: cover; height: 490px; width: 100%; position:relative">
+                                <div class="caption light1 <?php if(Mage::getStoreConfig('mm_extra/banners/slide3_position')) echo 'top-right'; else echo 'bottom-left';?>">
+                                    <div class="caption-inner">
+                                        <h2 class="heading permanent" style="color: #<?php echo Mage::getStoreConfig('mm_extra/banners/slide3_text_color')?>!important; background-color: rgba(255, 255, 255, 0)!important"><?php echo Mage::getStoreConfig('mm_extra/banners/slide3_title') ?></h2>
+                                        <p class="normal-text" style="color: #<?php echo Mage::getStoreConfig('mm_extra/banners/slide3_text_color')?>!important;"><?php echo Mage::getStoreConfig('mm_extra/banners/slide3_text') ?></p>
+                                        <?php if (Mage::getStoreConfig('mm_extra/banners/slide3_button')!=""){?>
+                                        <p class="intro-btn"><a href="<?php echo Mage::getStoreConfig('mm_extra/banners/slide3_link') ?>" onclick="trackOutboundLink('<?php echo Mage::getStoreConfig('mm_extra/banners/slide3_link') ?>'); return false;"><?php echo Mage::getStoreConfig('mm_extra/banners/slide3_button') ?></a> </p>
+                                        <?php }?>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- end: slides -->
+                </div>
+                <!-- end: the-slideshow -->
+            </div>
+            <!-- end: the-slideshow-wrapper -->
+        </div>
+        <!-- end: the-slideshow-wrapper-outer -->
+        <script type="text/javascript">
+            jQuery(function($) {
+                var owl = $('#slideshow-2a8563bc02a4b60056d3d8725ac94351');
+                owl.owlCarousel({
+                    singleItem: true,
+                    slideSpeed: 200,
+                    paginationSpeed: 500,
+                    autoPlay: 8000,
+                    stopOnHover: true,
+                    rewindNav: true,
+                    rewindSpeed: 600,
+                    transitionStyle: 'fadeUp',
+                    navigation: true
+                }); //end: owl
+            });
+        </script>
+    </div>
+</section> 

@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    Innobyte
+ * @package     Innobyte_Plationline
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Innobyte_Plationline>
+            <version>1.1.1</version>
+        </Innobyte_Plationline>
+    </modules>
+    <global>
+        <models>
+            <plationline>
+                <class>Innobyte_Plationline_Model</class>
+                <resourceModel>plationline_mysql4</resourceModel>
+            </plationline>
+            <plationline_mysql4>
+                <class>Innobyte_Plationline_Model_Mysql4</class>
+                <entities>
+                    <api_debug><table>plationline_api_debug</table></api_debug>
+                </entities>
+            </plationline_mysql4>
+        </models>
+        <resources>
+           <plationline_setup>
+                <setup>
+                    <module>Innobyte_Plationline</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </plationline_setup>
+            <plationline_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </plationline_write>
+            <plationline_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </plationline_read>
+        </resources>
+        <blocks>
+            <plationline>
+                <class>Innobyte_Plationline_Block</class>
+            </plationline>
+        </blocks>
+        <helpers>
+            <plationline>
+                <class>Innobyte_Plationline_Helper</class>
+            </plationline>
+        </helpers>
+        <sales>
+            <order>
+                <statuses>
+                    <pending_plationline translate="label"><label>Pending PlatiOnline</label></pending_plationline>
+                    <cancel_plationline translate="label"><label>Cancelled PlatiOnline</label></cancel_plationline>
+                    <decline_plationline translate="label"><label>Declined PlatiOnline</label></decline_plationline>
+                    <processing_plationline translate="label"><label>Processing PlatiOnline</label></processing_plationline>
+                    <processed_plationline translate="label"><label>Authorized PlatiOnline</label></processed_plationline>
+                    <onhold_plationline translate="label"><label>Additional checking (On-hold) Plati Online</label></onhold_plationline>
+                    <error_plationline translate="label"><label>Authorization error Plati Online</label></error_plationline>
+                    <settled_plationline translate="label"><label>Settled PlatiOnline</label></settled_plationline>
+                    <credited_plationline translate="label"><label>Credited PlatiOnline</label></credited_plationline>
+                    <payment_refused_plationline translate="label"><label>Payment Refused PlatiOnline</label></payment_refused_plationline>
+                    <expired30_plationline translate="label"><label>Payment Expired 30 days PlatiOnline</label></expired30_plationline>
+                    <pending_settled_plationline translate="label"><label>Pending Settlement PlatiOnline</label></pending_settled_plationline>
+                    <pending_credited_plationline translate="label"><label>Pending Credit PlatiOnline</label></pending_credited_plationline>
+                    <pending_cancel_plationline translate="label"><label>Pending Cancel PlatiOnline</label></pending_cancel_plationline>
+                </statuses>
+                <states>
+                    <pending_payment>
+                        <statuses>
+                            <pending_plationline/>
+                        </statuses>
+                    </pending_payment>
+                    <processing>
+                        <statuses>
+                            <processing_plationline/>
+                        </statuses>
+                    </processing>
+                </states>
+            </order>
+        </sales>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <plationline>
+                    <file>plationline.xml</file>
+                </plationline>
+            </updates>
+        </layout>
+        <secure_url>
+            <plationline_api>/plationline/api</plationline_api>
+        </secure_url>
+        <routers>
+            <plationline>
+                <use>standard</use>
+                <args>
+                    <module>Innobyte_Plationline</module>
+                    <frontName>plationline</frontName>
+                </args>
+            </plationline>
+        </routers>
+        <translate>
+			<modules>
+				<Innobyte_Plationline>
+					<files>
+						<default>Innobyte_Plationline.csv</default>
+					</files>
+				</Innobyte_Plationline>
+			</modules>
+		</translate>
+    </frontend>
+
+    <default>
+        <payment>
+            <plationline>
+                <model>plationline/api</model>
+                <title>Plati Online</title>
+                <secret_key backend_model="adminhtml/system_config_backend_encrypted"/>
+                <payment_action>2</payment_action>
+                <template>plationline</template>
+                <plationline_gateway>https://secure2.plationline.ro/trans30.asp</plationline_gateway>
+                <pending_plationline>pending_plationline</pending_plationline>
+                <cancel_plationline>cancel_plationline</cancel_plationline>
+                <decline_plationline>decline_plationline</decline_plationline>
+                <processing_plationline>processing_plationline</processing_plationline>
+                <processed_plationline>processed_plationline</processed_plationline>
+                <onhold_plationline>onhold_plationline</onhold_plationline>
+                <error_plationline>error_plationline</error_plationline>
+                <settled_plationline>settled_plationline</settled_plationline>
+                <credited_plationline>credited_plationline</credited_plationline>
+                <payment_refused_plationline>payment_refused_plationline</payment_refused_plationline>
+                <expired30_plationline>expired30_plationline</expired30_plationline>
+                <pending_settled_plationline>pending_settled_plationline</pending_settled_plationline>
+                <pending_credited_plationline>pending_credited_plationline</pending_credited_plationline>
+                <pending_cancel_plationline>pending_cancel_plationline</pending_cancel_plationline>
+            </plationline>
+        </payment>
+    </default>
+</config>

@@ -1,0 +1,92 @@
+<?php
+/**
+ * Header template
+ */
+ ?>
+<header>
+<div class="top-links">
+  <div class="inner">
+     <?php echo $this->getChildHtml('store_language') ?>
+     <?php echo $this->getChildHtml('custom_currency_selector') ?>
+     <p class="welcome-msg"><?php echo substr($this->getWelcome().$this->getAdditionalHtml(),0,45)?></p>
+     <?php if (! isset($_COOKIE['click_code'])) :   ?>
+		 <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('innova_call_us_block ')->toHtml(); ?>
+	 <?php endif; ?>
+
+     
+     <!-- Call Us Static Block -->
+     <div class="toplinks">
+        <div class="links">
+          <div class="blog-magik">
+            <!-- <a href="<?php // echo Mage::helper('core/url')->getHomeUrl().'blog/';?>" title="<?php // echo $this->__('Blog') ?>">
+              <span><?php // echo $this->__('Blog') ?></span>
+            </a> -->
+            <a href="http://www.handsoneducation.ro/blog/" title="<?php echo $this->__('Blog') ?>">
+              <span><?php echo $this->__('Blog') ?></span>
+            </a>
+          </div>
+          <div class="myaccount"><a title="<?php echo $this->__('My Account');?>" href="<?php echo $this->getUrl('')?>customer/account/"><span><?php echo $this->__('My Account');?></span></a></div>
+          <div class="check"><a title="<?php echo $this->__('Checkout') ?>" href="<?php echo $this->getUrl('checkout') ?>"><span><?php echo $this->__('Checkout') ?></span></a></div>
+          <!-- Company links static block -->
+          
+          <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('innova_toplinks_company_block')->toHtml(); ?>
+
+          <?php if(!Mage::getSingleton( 'customer/session' )->isLoggedIn()) { ?>
+              <div class="login"><a title="<?php echo $this->__('Log In') ?>" href="<?php echo $this->getUrl('')?>customer/account/login/"><span><?php echo $this->__('Log In') ?></span></a></div>
+          <?php } ?>
+          <?php if(Mage::getSingleton( 'customer/session' )->isLoggedIn()) { ?>
+              <div class="logout"><a title="<?php echo $this->__('Log Out') ?>" href="<?php echo $this->getUrl('')?>customer/account/logout/"><span><?php echo $this->__('Log Out') ?></span></a></div>
+          <?php } ?>    
+        </div> <!--links-->
+<!-- Mobile Links -->
+        <div class="mob-links">
+           <div class="account">
+              <div class="click-nav">
+                 <ul class="no-js">
+                    <li>
+                      <a class="clicker" title="<?php echo $this->__('Account');?>"><?php echo $this->__('Account');?><span class="caret"></span></a>
+                      <ul class="link">
+                         <li><a title="<?php echo $this->__('My Account');?>" href="<?php echo $this->getUrl('')?>customer/account/"><?php echo $this->__('My Account');?></a></li>
+                         <li><a title="<?php echo $this->__('Checkout') ?>" href="<?php echo $this->getUrl('checkout') ?>"><?php echo $this->__('Checkout') ?></a></li>
+                         <li><a title="<?php echo $this->__('My Wishlist') ?>" href="<?php echo $this->getUrl('wishlist')?>"><?php echo $this->__('My Wishlist') ?></a></li>
+                         <li><a title="<?php echo $this->__('My Cart') ?>" href="<?php echo $this->getUrl('')?>checkout/cart/"><?php echo $this->__('My Cart') ?></a></li>
+                         <li><a title="<?php echo $this->__('Blog') ?>" href="<?php echo Mage::helper('core/url')->getHomeUrl().'blog/';?>"><span><?php echo $this->__('Blog') ?></span></a></li>
+                       <?php if(!Mage::getSingleton( 'customer/session' )->isLoggedIn()) { ?>
+                         <li class="last"><a title="<?php echo $this->__('Log In') ?>" href="<?php echo $this->getUrl('')?>customer/account/login/"><span><?php echo $this->__('Log In') ?></span></a></li>
+                       <?php } ?>
+                       <?php if(Mage::getSingleton( 'customer/session' )->isLoggedIn()) { ?>
+                         <li class="last"><a title="<?php echo $this->__('Log Out') ?>" href="<?php echo $this->getUrl('')?>customer/account/logout/"><span><?php echo $this->__('Log Out') ?></span></a></li>
+                       <?php } ?>  
+                      </ul>
+                    </li>
+                 </ul> <!--no-js-->
+              </div> <!--click-nav-->
+           </div> <!--account-->
+        </div> <!--mob-links-->
+     </div> <!--toplinks-->
+  </div> <!--inner-->
+</div> <!--top-links-->
+<div class="header">
+  <?php echo $this->getChildHtml('topSearch') ?>
+
+  <!--compare btn removed
+  <div class="top-link-compare"><i class="compare"></i><span class="compare-items"><?php // echo $this->helper('catalog/product_compare')->getItemCount(); ?></span></div> -->
+
+  <a href="<?php echo $this->getUrl('wishlist')?>" title="<?php echo $this->__('My Wishlist') ?>" class="top-link-wishlist"><i class="fa fa-heart-o"></i><span class="wishlist-items"><?php echo $this->helper('wishlist')->getItemCount(); ?> </span></a>
+  <?php if (Mage::getStoreConfig('innovasettings/innovasettings_shoppingcart/shoppingcart_top')): ?>
+      <?php echo $this->getChildHtml('cartTop') ?>
+  <?php endif; ?>
+  <?php if ($this->getIsHomePage()):?>
+       <div class="logo"><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>"><?php echo $this->getChildHtml('innovaLogo', false) ?></a></div>
+  <?php else:?>
+       <div class="logo"><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>"><?php echo $this->getChildHtml('innovaLogo', false) ?></a></div>
+  <?php endif?>
+</div> <!--header-->
+<?php echo $this->getChildHtml('topContainer'); ?>
+</header>
+<nav>
+<?php echo $this->getChildHtml('topMenu') ?>
+<?php echo $this->getChildHtml('topMenuMob'); ?>
+</nav>
+
+

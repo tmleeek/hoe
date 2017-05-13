@@ -1,0 +1,76 @@
+-
+  - test_id: test_1
+    affiliate_id: 10001
+    request:
+      report_type: sales
+      date_period: last_seven_days
+      period_from: 10/3/13
+      period_to: 10/4/13
+      detalization: day
+      campaigns:
+        - 20001
+        - 20002
+    columns:
+      - name: date
+        type: string
+        label: Date
+      - name: profit
+        type: number
+        label: Profit
+    report:
+      -
+        10/3/13
+        0
+      -
+        11/3/13
+        10
+      -
+        12/3/13
+        100
+-
+  - test_id: test_2
+    affiliate_id: 10001
+    request:
+      report_type: sales
+      date_period: last_seven_days
+      period_from: 10/3/13
+      period_to: 10/4/13
+      detalization: day
+      campaigns:
+        - 20001
+        - 20002
+    columns:
+      - name: date
+        type: string
+        label: Date
+      - name: profit
+        type: number
+        label: Profit
+      - name: sales
+        type: number
+        label: Sales
+      - name: cr
+        type: number
+        label: CR
+      - name: fake
+        type: number
+        label: Fake
+    report:
+      -
+        10/3/13
+        0
+        0
+        0
+        0
+      -
+        11/3/13
+        10
+        1
+        0.01
+        0
+      -
+        12/3/13
+        100
+        10
+        0.1
+        0

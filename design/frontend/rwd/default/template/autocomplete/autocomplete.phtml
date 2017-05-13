@@ -1,0 +1,47 @@
+<?php
+/**
+ * Magedelight
+ * Copyright (C) 2014  Magedelight <info@krishinc.com>
+ *
+ * NOTICE OF LICENSE
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see http://opensource.org/licenses/gpl-3.0.html.
+ *
+ * @category   Ktpl
+ * @package    Ktpl_Autocomplete
+ * @copyright  Copyright (c) 2014 Magedelight (http://www.magedelight.com/)
+ * @license    http://opensource.org/licenses/gpl-3.0.html GNU General Public License, version 3 (GPL-3.0)
+ * @author     Magedelight <info@krishinc.com>
+ */
+?>
+<script type="text/javascript">
+	//<![CDATA[
+		var ajaxUrl='<?php echo Mage::helper('autocomplete')->getAjaxurl(); ?>';
+		var queryDelay = 0.5;
+		var progressImage ='<?php echo $this->getSkinUrl('images/ajax-rwd-loader.gif');?>';
+		var minCharacters = '<?php echo Mage::helper('autocomplete')->getMinChar(); ?>';
+
+		document.observe('dom:loaded',function(){
+                        //$("header-search").setStyle({width:'30%'});
+			//require(["autocomplete"], function(){
+				$$('.form-search')[0].insert({
+					after:'<div id="search-autocomplete"><div id="searchr-result-containter"><div id="autocomplete-content"><div id="search-result"></div></div></div></div>'
+				});
+				$('searchr-result-containter').hide();
+				var acLayout = new Autocomplete();
+				acLayout.initAutocomplete(ajaxUrl, 'search-result');
+			//});
+		})
+	//]]>
+</script>

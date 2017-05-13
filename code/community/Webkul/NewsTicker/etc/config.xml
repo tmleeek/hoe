@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Webkul_NewsTicker>
+            <version>1.0.0</version>
+        </Webkul_NewsTicker>
+    </modules>
+    <frontend>
+        <routers>
+            <newsticker>
+                <use>standard</use>
+                <args>
+                    <module>Webkul_NewsTicker</module>
+                    <frontName>newsticker</frontName>
+                </args>
+            </newsticker>
+        </routers>
+    </frontend>
+    <admin>
+        <routers>
+            <newsticker>
+                <use>admin</use>
+                <args>
+                    <module>Webkul_NewsTicker</module>
+                    <frontName>newsticker</frontName>
+                </args>
+            </newsticker>
+        </routers>
+    </admin>
+    <adminhtml>
+        <menu>
+            <newsticker module="newsticker">
+                <title>News Ticker</title>
+                <sort_order>75</sort_order>
+                <children>
+                    <newsticker module="newsticker">
+                        <title>Add News</title>
+                        <sort_order>0</sort_order>
+                        <action>newsticker/adminhtml_newsticker</action>
+                    </newsticker>
+                    <newstickergroup module="newsticker">
+                        <title>Add/Manage News Group</title>
+                        <sort_order>1</sort_order>
+                        <action>newsticker/adminhtml_newstickergroup</action>
+                    </newstickergroup>
+                </children>
+            </newsticker>
+        </menu>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+						<newsticker module="newsticker">
+							<title>News Ticker</title>
+							<sort_order>75</sort_order>
+							<children>
+								 <newsticker module="newsticker">
+									<title>Add News</title>
+									<sort_order>0</sort_order>
+									<action>newsticker/adminhtml_newsticker</action>
+								 </newsticker>
+								 <newstickergroup module="newsticker">
+									<title>Add/Manage News Group</title>
+									<sort_order>1</sort_order>
+									<action>newsticker/adminhtml_newstickergroup</action>
+								 </newstickergroup>
+							</children>
+						</newsticker>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <newsticker>
+                    <file>newsticker.xml</file>
+                </newsticker>
+            </updates>
+        </layout>
+    </adminhtml>
+    <global>
+        <models>
+            <newsticker>
+                <class>Webkul_NewsTicker_Model</class>
+                <resourceModel>newsticker_mysql4</resourceModel>
+            </newsticker>
+            <newsticker_mysql4>
+                <class>Webkul_NewsTicker_Model_Mysql4</class>
+                <entities>
+                    <newsticker>
+                        <table>wk_newsticker</table>
+                    </newsticker>
+                    <newstickergroup>
+                        <table>wk_newstickergroup</table>
+                    </newstickergroup>
+                </entities>
+            </newsticker_mysql4>
+        </models>
+        <blocks>
+            <newsticker>
+                <class>Webkul_NewsTicker_Block</class>
+            </newsticker>            
+        </blocks>
+        <helpers>
+            <newsticker>
+                <class>Webkul_NewsTicker_Helper</class>
+            </newsticker>
+        </helpers>
+        <resources>
+            <newsticker_setup>
+                <setup>
+                    <module>Webkul_NewsTicker</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </newsticker_setup>
+            <newsticker_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </newsticker_write>
+            <newsticker_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </newsticker_read>
+        </resources>
+    </global>
+</config>

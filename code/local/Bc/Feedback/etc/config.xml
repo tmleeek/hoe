@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+* @category   Bc
+* @package    Bc_Feedback
+* @author     ModuleCreator
+* @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config>
+    <modules>
+        <Bc_Feedback>
+            <version>1.0.0.6</version>
+        </Bc_Feedback>
+    </modules>
+    <frontend>
+        <routers>
+            <feedback>
+                <use>standard</use>
+                <args>
+                    <module>Bc_Feedback</module>
+                    <frontName>feedback</frontName>
+                </args>
+            </feedback>
+        </routers>
+        <layout>
+            <updates>
+                <feedback>
+                    <file>feedback.xml</file>
+                </feedback>
+            </updates>
+        </layout>
+    </frontend>
+
+    <global>
+     <template>
+        <email>
+            <feedback_email_template translate="label" module="feedback">
+                <label>Feedback</label>
+                <file>feedback/feedback.html</file>
+                <type>html</type>
+            </feedback_email_template>
+        </email>
+    </template>   
+        <resources>
+            <feedback_setup>
+                <setup>
+                    <module>Bc_Feedback</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </feedback_setup>
+            <feedback_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </feedback_write>
+            <feedback_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </feedback_read>
+        </resources>
+        <blocks>
+            <feedback>
+                <class>Bc_Feedback_Block</class>
+            </feedback>
+        </blocks>
+        <helpers>
+            <feedback>
+                <class>Bc_Feedback_Helper</class>
+            </feedback>
+        </helpers>
+    </global>
+</config>

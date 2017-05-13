@@ -1,0 +1,124 @@
+<?php $footer_type = Mage::getStoreConfig('innovasettings/innovasettings_appearance/footer'); ?>
+<!-- Footer Free Shipping Banner Block -->
+<!-- BEGIN FOOTER -->
+<footer>
+  <div class="footer <?php echo $footer_type;?>">
+        <?php switch ($footer_type) {
+            case 'informative' :
+                ?>
+<div class="inner">
+   <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('innova_footer_about_us_block')->toHtml() ?>
+   <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('innova_footer_information_links_block')->toHtml() ?>
+</div> <!--inner-->
+<div class="footer-row">
+    <?php if (Mage::getStoreConfig('innovasettings/innovasettings_social/social_link')) { ?>
+      <div class="social">
+        <ul class="link">
+            <?php if (Mage::getStoreConfig('innovasettings/innovasettings_social/facebook_social_link')) { ?>
+          <li class="fb"><a  target="_blank" rel="nofollow" href="<?php echo Mage::getStoreConfig('innovasettings/innovasettings_social/facebook_social_link_path') ?>" title="<?php echo $this->__('Facebook');?>"></a></li>
+        <?php } if (Mage::getStoreConfig('innovasettings/innovasettings_social/twitter_social_link')) {?>
+            <li class="tw"><a target="_blank" rel="nofollow"  href="<?php echo Mage::getStoreConfig('innovasettings/innovasettings_social/twitter_social_link_path') ?>" title="<?php echo $this->__('Twitter');?>"></a></li>
+        <?php } 
+              if (Mage::getStoreConfig('innovasettings/innovasettings_social/googleplus_social_link')) {
+        ?>
+           <li class="googleplus"><a target="_blank" rel="nofollow" href="<?php echo Mage::getStoreConfig('innovasettings/innovasettings_social/googleplus_social_link_path') ?>" title="<?php echo $this->__('GooglePlus');?>"></a></li>
+        <?php } 
+              if (Mage::getStoreConfig('innovasettings/innovasettings_social/rss_social_link')) {
+        ?>
+          <li class="rss"><a target="_blank" rel="nofollow" href="<?php echo Mage::getStoreConfig('innovasettings/innovasettings_social/rss_social_link_path') ?>" title="<?php echo $this->__('RSS');?>"></a></li>
+        <?php } 
+              if (Mage::getStoreConfig('innovasettings/innovasettings_social/pinterest_social_link')) {
+        ?>
+            <li class="pintrest"><a target="_blank" rel="nofollow" href="<?php echo Mage::getStoreConfig('innovasettings/innovasettings_social/pinterest_social_link_path') ?>" title="<?php echo $this->__('PInterest');?>"></a></li>
+        <?php } 
+              if (Mage::getStoreConfig('innovasettings/innovasettings_social/linkedin_social_link')) {
+        ?>
+             <li class="linkedin"><a  target="_blank" rel="nofollow" href="<?php echo Mage::getStoreConfig('innovasettings/innovasettings_social/linkedin_social_link_path') ?>" title="<?php echo $this->__('Linkedin');?>"></a></li>
+        <?php } 
+              if (Mage::getStoreConfig('innovasettings/innovasettings_social/youtube_social_link')) {
+        ?>
+           <li class="youtube"><a target="_blank" rel="nofollow" href="<?php echo Mage::getStoreConfig('innovasettings/innovasettings_social/youtube_social_link_path') ?>" title="<?php echo $this->__('Youtube');?>"></a></li>
+        <?php } ?>
+        </ul> <!--link-->
+      </div> <!--social-->
+    <?php } ?>
+    <!-- Payment method static block -->
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('innova_payment_method_block')->toHtml() ?>    
+</div> <!--footer-row-->   
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('innova_footer_links')->toHtml() ?>
+          
+                <?php
+                break;
+            case 'simple' :
+            default: ?>
+
+<div class="footer-row">
+    <?php if (Mage::getStoreConfig('innovasettings/innovasettings_social/social_link')) { ?>
+      <div class="social">
+        <ul class="link">
+            <?php if (Mage::getStoreConfig('innovasettings/innovasettings_social/facebook_social_link')) { ?>
+          <li class="fb"><a  target="_blank" rel="nofollow" href="<?php echo Mage::getStoreConfig('innovasettings/innovasettings_social/facebook_social_link_path') ?>" title="<?php echo $this->__('Facebook');?>"></a></li>
+        <?php } if (Mage::getStoreConfig('innovasettings/innovasettings_social/twitter_social_link')) {?>
+            <li class="tw"><a target="_blank" rel="nofollow"  href="<?php echo Mage::getStoreConfig('innovasettings/innovasettings_social/twitter_social_link_path') ?>" title="<?php echo $this->__('Twitter');?>"></a></li>
+        <?php } 
+              if (Mage::getStoreConfig('innovasettings/innovasettings_social/googleplus_social_link')) {
+        ?>
+           <li class="googleplus"><a target="_blank" rel="nofollow" href="<?php echo Mage::getStoreConfig('innovasettings/innovasettings_social/googleplus_social_link_path') ?>" title="<?php echo $this->__('GooglePlus');?>"></a></li>
+        <?php } 
+              if (Mage::getStoreConfig('innovasettings/innovasettings_social/rss_social_link')) {
+        ?>
+          <li class="rss"><a target="_blank" rel="nofollow" href="<?php echo Mage::getStoreConfig('innovasettings/innovasettings_social/rss_social_link_path') ?>" title="<?php echo $this->__('RSS');?>"></a></li>
+        <?php } 
+              if (Mage::getStoreConfig('innovasettings/innovasettings_social/pinterest_social_link')) {
+        ?>
+            <li class="pintrest"><a target="_blank" rel="nofollow" href="<?php echo Mage::getStoreConfig('innovasettings/innovasettings_social/pinterest_social_link_path') ?>" title="<?php echo $this->__('PInterest');?>"></a></li>
+        <?php } 
+              if (Mage::getStoreConfig('innovasettings/innovasettings_social/linkedin_social_link')) {
+        ?>
+             <li class="linkedin"><a  target="_blank" rel="nofollow" href="<?php echo Mage::getStoreConfig('innovasettings/innovasettings_social/linkedin_social_link_path') ?>" title="<?php echo $this->__('Linkedin');?>"></a></li>
+        <?php } 
+              if (Mage::getStoreConfig('innovasettings/innovasettings_social/youtube_social_link')) {
+        ?>
+           <li class="youtube"><a target="_blank" rel="nofollow" href="<?php echo Mage::getStoreConfig('innovasettings/innovasettings_social/youtube_social_link_path') ?>" title="<?php echo $this->__('Youtube');?>"></a></li>
+        <?php } ?>
+        </ul> <!--link-->
+      </div> <!--social-->
+    <?php } ?>
+    <!-- Payment method static block -->
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('innova_payment_method_block')->toHtml() ?>
+</div> <!--footer-row-->   
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('innova_footer_links')->toHtml() ?>
+
+           <?php     
+        }
+        ?> 
+    </div> <!--footer-->
+</footer> 
+
+
+<?php if (Mage::getStoreConfig('innovasettings/innovasettings_footer/footer_google_analytics')): ?>
+      <?php echo Mage::getStoreConfig('innovasettings/innovasettings_footer/footer_google_analytics_path') ?>       
+<?php endif; ?>
+
+<!--popup_contact_start (reuse fonduri_europene code)-->
+
+<script type="text/javascript">
+function hide_contact(){
+      document.getElementById('contact_wrapper').style.display = "none";
+      document.getElementById('mask_blur').style.display = "none";
+    }
+</script>
+
+<div id="contact_wrapper" style="position:absolute; left:50%; top:15%; display:none">
+  <div id="contact_popup" class="mm-popup" onblur="hide_fonduri();" style="width: 365px!important;">
+    <a id="contact_close" class="mm-popup-close" href="#" onclick="hide_contact();">X</a>
+    <div style="padding: 25px;">
+        <?php // echo Mage::app()->getLayout()->createBlock('cms/block')->setBlockId('contact_us_form')->toHtml(); ?>
+        <?php echo $this->getChildHtml('contactFormProductView'); ?>
+    </div>
+  </div>
+</div>
+
+<div onclick="hide_contact();" id="mask_blur" style="display:none; background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5); position: fixed; height:100%; width: 100%; top: 0; z-index: 5000;"></div>
+
+<!--popup_contact_end-->

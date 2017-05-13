@@ -1,0 +1,83 @@
+<?php 
+    $config = Mage::getStoreConfig('feedback/feedback/active'); 
+    $customer=Mage::helper('customer');
+    $name = '';
+    $email = '';
+    if($customer->isLoggedIn()){
+        $name=Mage::getSingleton('customer/session')->getCustomer()->getName();
+        $email=Mage::getSingleton('customer/session')->getCustomer()->getEmail();
+    }
+    $publickey = Mage::getStoreConfig("feedback/recaptcha_settings/public_key");
+?>
+<script type="text/javascript">
+    var RecaptchaOptions = {
+        theme : '<?php echo Mage::getStoreConfig("feedback/recaptcha_settings/theme"); ?>',
+        lang : '<?php echo Mage::getStoreConfig("feedback/recaptcha_settings/lang"); ?>',
+    };
+</script>
+<?php if($config=="1") { ?>
+    <div class="side-feedback">
+        <a href="javascript:void(0)" onclick="openFeedbackWindow('feedback_information')" title="Feedback" id="link_feedback"></a>
+    </div>
+    <div id="backgroundpopup" class="background-opacity" style="display: none; background: none repeat scroll 0% 0% rgb(0, 0, 0);"></div>  
+    
+    <?php
+        if(Mage::getStoreConfig("feedback/recaptcha_settings/theme") == 'clean'){
+            $class = 'xlarge';
+        }else{$class = '';}
+    ?>
+    <?php
+        if(!Mage::getStoreConfig("feedback/recaptcha_settings/enable_recaptcha")){
+            $class_cap = 'no-captcha';
+        }else{$class_cap = '';}
+    ?>
+    <div style="display: none;" id="feedback_information" class="feedback-container <?php echo $class ." ". $class_cap ?> ">
+        <a class="feedback_close" title="close" href="#" onclick="closeFeedbackWindow('feedback_information'); return false;"></a>
+        <div class="feedback-popup-content">
+            <div class="feedback-title"> <?php echo $this->__('Feedback') ?>  </div>
+            <div class="feedback-content">
+                <form action="<?php echo $this->getUrl("feedback/index/post") ?>" method="post" id="frm_feedback">
+                    <div id="success_message" style="display: none;" class="feedback-success-msg"></div>
+                    <div id="loader" class="loader-feedback" style="text-align: center;display: none;"><p><img src='<?php echo $this->getSkinUrl('feedback/images/ajax-loader-onestep.gif') ?>' alt='' title=''/></p></div>
+                    <br/>
+                    <ul class="form-list" id="feedback_options">
+                        <li>
+                            <label for="fname"><?php echo $this->__('Your Full Name').":" ?> <span class="required">*</span></label>
+                            <input name="feedbackbuname" value="<?php echo $this->htmlEscape($name) ?>" title="<?php echo $this->__('Name') ?>" id="fname" type="text" class="input-text required-entry"  />
+                        </li>
+                        <li>      
+                            <label for="email"><?php echo $this->__('Your E-mail').":" ?> <span class="required">*</span></label>
+                            <input name="feedbackmail" value="<?php echo $this->htmlEscape($email) ?>" title="<?php echo $this->__('Email Address') ?>" id="email" type="text" class="input-text required-entry validate-email" />
+                        </li> 
+                        <li>      
+                            <label for="heard_about_us"><?php echo $this->__('Where did you hear about us')."?" ?></label>
+                            <input name="feedbackheard" value="" title="<?php echo $this->__('Email Address') ?>" id="heard_about_us" type="text" class="input-text" />
+                        </li> 
+                        <li>
+                            <label for="details"><?php echo $this->__('Details').":" ?> <span class="required">*</span></label>
+                            <textarea id="details" class="input-text required-entry"  name="feedbackdetails" rows="10" col="50"></textarea>
+                        </li> 
+                        <?php if(Mage::getStoreConfig("feedback/recaptcha_settings/enable_recaptcha")):  ?>
+                            <?php
+                                if( !(Mage::getStoreConfig("feedback/recaptcha_settings/loggedin_customer")  && (Mage::getSingleton('customer/session')->isLoggedIn())) ):
+                                ?>
+                                <li>
+                                    <div class="input-box">
+                                        <?php echo Mage::helper("feedback")->recaptcha_get_html($publickey, null, Mage::app()->getRequest()->isSecure()); ?>
+                                    </div>
+                                </li> 
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        <li>
+                            <button id="btnsubmit" name="btnsubmit"  type="button" class="button-feedback" onclick="sendFeedback('<?php echo $this->getUrl("feedback/index/post"); ?>')">
+                                <span><span><?php echo $this->__('Submit') ?></span></span></button>
+                        </li>    
+                    </ul>
+                </form>
+                <script type="text/javascript">
+                    var feedback_form = new Validation($('frm_feedback'));
+                </script>
+            </div>
+        </div>
+    </div>
+    <?php } ?>

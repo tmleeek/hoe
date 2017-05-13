@@ -1,0 +1,53 @@
+<config>
+	<sections>
+		<dev>
+			<groups>
+				<js>
+					<fields>
+						<minify_method translate="label" module="minify">
+							<label>Minify Method</label>
+							<frontend_type>select</frontend_type>
+							<source_model>minify/source_JSMinOptions</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<merge_files>1</merge_files>
+								<minify_files>1</minify_files>
+							</depends>
+						</minify_method>
+						<minify_files translate="label" module="minify">
+							<label>Minify JavaScript Files</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<merge_files>1</merge_files>
+							</depends>
+						</minify_files>
+					</fields>
+				</js>
+				<css>
+					<fields>
+						<minify_files translate="label" module="minify">
+							<label>Minify CSS Files</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+								<merge_css_files>1</merge_css_files>
+							</depends>
+						</minify_files>
+					</fields>
+				</css>
+			</groups>
+		</dev>
+	</sections>
+</config>

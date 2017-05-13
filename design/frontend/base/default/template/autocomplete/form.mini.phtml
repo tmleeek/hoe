@@ -1,0 +1,107 @@
+<?php
+/**
+ * Magedelight
+ * Copyright (C) 2014  Magedelight <info@krishinc.com>
+ *
+ * NOTICE OF LICENSE
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see http://opensource.org/licenses/gpl-3.0.html.
+ *
+ * @category   Ktpl
+ * @package    Ktpl_Autocomplete
+ * @copyright  Copyright (c) 2014 Magedelight (http://www.magedelight.com/)
+ * @license    http://opensource.org/licenses/gpl-3.0.html GNU General Public License, version 3 (GPL-3.0)
+ * @author     Magedelight <info@krishinc.com>
+ */
+?>
+<?php $catalogSearchHelper =  $this->helper('catalogsearch'); ?>
+
+<?php 
+    $category = Mage::getModel('catalog/category'); 
+    if(is_object(Mage::registry('current_category'))){ 
+        $currentCategoryPath=Mage::registry('current_category')->getPathIds(); 
+    }else{ 
+        $currentCategoryPath = array(); 
+    } 
+    $category->load(Mage::app()->getStore()->getRootCategoryId()); 
+    $childrenString = $category->getChildren(); 
+    $children = explode(',',$childrenString); 
+    $categoryOptions=''; 
+    foreach($children as $c){ 
+        if($this->getRequest()->getParam('cat')==""){ 
+            $selected = (in_array($c, $currentCategoryPath))?'SELECTED':''; 
+        }else{ 
+            $selected = ($this->getRequest()->getParam('cat')==$c)?'SELECTED':''; 
+    } 
+    $categoryOptions.= '<option value="' . $c . '" ' . $selected . '>' . $category->load($c)->getName() . '</option>' . "\n"; 
+    } 
+?>
+
+<div class="search-box">
+<form id="search_mini_form" action="<?php echo $catalogSearchHelper->getResultUrl() ?>" method="get">
+	<div class="form-search form-search-autocomplete">
+		<input id="search" type="text" name="<?php echo $catalogSearchHelper->getQueryParamName() ?>" value="<?php echo $catalogSearchHelper->getEscapedQueryText() ?>" class="input-text" maxlength="<?php echo $catalogSearchHelper->getMaxQueryLength();?>" />
+		<select name="cat" id="cat" class="search-cat"> 
+            <option value=""><?php echo $this->__('All') ?></option> 
+            <?php echo $categoryOptions ?> 
+        </select>
+		<button id="basic-search" type="submit" title="<?php echo $this->__('Search') ?>" class="button-common search-btn-bg"><span class="searchIconNew"></span></button> 
+		<script type="text/javascript">
+			//<![CDATA[
+				var searchForm = new Varien.searchForm('search_mini_form', 'search', '<?php echo $this->__('Search') ?>');
+				//searchForm.initAutocomplete('<?php //echo $catalogSearchHelper->getSuggestUrl() ?>', 'search_autocomplete');
+				$('basic-search').observe('click',function(event){
+					var searchTerm = $('search').value;
+					searchTerm = searchTerm.strip();
+					if(searchTerm == null || searchTerm == ''){
+						alert("Please enter search term");
+						Event.stop(event);
+						return false;
+					}
+				});
+				$('search').observe('focus',function(){
+					if(navigator.appName == "Microsoft Internet Explorer"){
+						var appVer = navigator.appVersion;	
+						if(appVer.indexOf("MSIE 7.0") != -1){
+							$('search').setStyle({"background-color":"#EDF7FD"});
+						}
+					}
+				});
+				$('search').observe('blur',function(){
+					if(navigator.appName == "Microsoft Internet Explorer"){
+						var appVer = navigator.appVersion;		
+						if(appVer.indexOf("MSIE 7.0") != -1){
+							$('search').setStyle({"background-color":"#FFFFFF"});
+						}
+					}
+				});
+				if(navigator.appName == "Microsoft Internet Explorer"){
+					$('search').observe('keypress',function(){
+						var searchTerm = $('search').value;
+						searchTerm = searchTerm.strip();
+						if(window.event && window.event.keyCode == '13'){
+							if(document.createEventObject){
+								// dispatch for IE
+								var evt = document.createEventObject();
+								return $('basic-search').fireEvent('onclick', evt);
+							}
+						}
+					});
+				}
+			//]]>
+		</script>
+	</div>
+	<?php echo $this->getLayout()->createBlock('core/template')->setTemplate('autocomplete/autocomplete.phtml')->toHtml(); ?>
+</form>
+</div>

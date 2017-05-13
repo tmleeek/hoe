@@ -1,0 +1,190 @@
+scope:
+  website:
+    - website_id: 1
+      code: usa_website
+      name: USA Website
+      default_group_id: 1
+  group:
+    - group_id: 1
+      website_id: 1
+      name: USA Store Group
+      default_store_id: 1
+      root_category_id: 2 # Default Category
+  store:
+    - store_id: 1
+      website_id: 1
+      group_id: 1
+      code: usa
+      name: USA Store
+      is_active: 1
+config:
+  awaffiliate/general/consider_tax: 0
+tables:
+  customer/entity:
+    -
+      entity_id: 500011 # Customer is created here because when creating in EAV they won't appear in the database right away, causing constraint error when attempting to insert order.
+      email: affiliate@example.com
+      website_id: 1
+      store_id: 1
+      group_id: 1
+      is_active: 1
+    -
+      entity_id: 500012
+      email: referral@example.com
+      website_id: 1
+      store_id: 1
+      group_id: 1
+      is_active: 1
+  awaffiliate/affiliate:
+    -
+      id: 10001
+      customer_id: 500011
+      rate: 0
+      status: active
+      current_balance: 0
+      active_balance: 0
+  awaffiliate/campaign:
+    -
+      id: 20001
+      name: unit test percent rate campaign 1
+      status: 1
+      store_ids: 1
+      active_from:
+      active_to:
+      allowed_groups: 1
+      product_selection_rule:
+      type:
+      description: test entity
+    -
+      id: 20002
+      name: unit test percent rate campaign 2
+      status: 1
+      store_ids: 1
+      active_from:
+      active_to:
+      allowed_groups: 1
+      product_selection_rule:
+      type:
+      description: test entity
+  awaffiliate/client:
+    -
+      id: 30001
+      customer_id: 500012
+      campaign_id: 20001
+      affiliate_id: 10001
+      traffic_id: 40001
+      created_at:
+  awaffiliate/traffic_source:
+    -
+      id: 40001
+      affiliate_id: 10001
+      traffic_name: no_matter
+  awaffiliate/profit:
+    -
+      id: 50001
+      campaign_id: 20001
+      type: fixed
+      rate_settings: a:3:{s:21:"rate_calculation_type";s:10:"last_month";s:11:"profit_rate";d:5;s:15:"profit_rate_cur";d:0;}
+    -
+      id: 50002
+      campaign_id: 20002
+      type: fixed
+      rate_settings: a:3:{s:21:"rate_calculation_type";s:10:"last_month";s:11:"profit_rate";d:2;s:15:"profit_rate_cur";d:0;}
+  awaffiliate/client_history:
+    -
+      id: 60001
+      client_id: 30001
+      created_at: 2013-10-01 09:32:17
+      action: order_placed
+      linked_item_type:
+      linked_item_id: 2
+      params:
+    -
+      id: 60002
+      client_id: 30001
+      created_at: 2013-10-02 00:32:17
+      action: order_placed
+      linked_item_type:
+      linked_item_id: 2
+      params:
+    -
+      id: 60003
+      client_id: 30001
+      created_at: 2013-10-03 20:32:17
+      action: order_placed
+      linked_item_type:
+      linked_item_id: 2
+      params:
+  awaffiliate/transaction_profit:
+    -
+      id: 70001
+      created_at: 2013-10-01 09:32:18
+      description:
+      notice:
+      amount: 25
+      campaign_id: 20001
+      type: trx_customer_purchase
+      linked_entity_type: invoice_item
+      linked_entity_id: 100000001
+      affiliate_id: 10001
+      traffic_id: 40001
+      client_id: 30001
+      rate: 5
+      currency_code: USD
+      attracted_amount: 500
+    -
+      id: 70002
+      created_at: 2013-10-02 00:32:18
+      description:
+      notice:
+      amount: 50
+      campaign_id: 20001
+      type: trx_customer_purchase
+      linked_entity_type: invoice_item
+      linked_entity_id: 100000002
+      affiliate_id: 10001
+      traffic_id: 40001
+      client_id: 30001
+      rate: 5
+      currency_code: USD
+      attracted_amount: 1000
+    -
+      id: 70003
+      created_at: 2013-10-04 08:00:00
+      description:
+      notice:
+      amount: 40
+      campaign_id: 20002
+      type: trx_customer_purchase
+      linked_entity_type: invoice_item
+      linked_entity_id: 100000003
+      affiliate_id: 10001
+      traffic_id: 40001
+      client_id: 30001
+      rate: 2
+      currency_code: USD
+      attracted_amount: 2000
+eav:
+  customer:
+    -
+      entity_id: 500011
+      attribute_set_id: 0
+      email: affiliate@example.com
+      firstname: affiliate
+      lastname: affiliate
+      is_active: 1
+      group_id: 1
+      store_id: 1
+      website_id: 1
+      created_in: Default Store
+    -
+      entity_id: 500012
+      attribute_set_id: 0
+      email: referral@example.com
+      firstname: referral
+      lastname: referral
+      is_active: 1
+      group_id: 1
+      store_id: 1
+      website_id: 1
+      created_in: Default Store

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <MindMagnet_Erp>
+            <version>1.0.0</version>
+        </MindMagnet_Erp>
+    </modules>
+    <global>
+        <models>
+            <mmerp>
+                <class>MindMagnet_Erp_Model</class>
+            </mmerp>
+        </models>
+        <helpers>
+            <mmerp>
+                <class>MindMagnet_Erp_Helper</class>
+            </mmerp>
+        </helpers>
+    </global>
+</config>

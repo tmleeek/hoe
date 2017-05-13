@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <profitshare_adminhtml_profitshare_index>
+        <reference name="content">
+            <block type="profitshare/adminhtml_profitshare_edit" name="profitshare" />
+        </reference>
+    </profitshare_adminhtml_profitshare_index>
+</layout>

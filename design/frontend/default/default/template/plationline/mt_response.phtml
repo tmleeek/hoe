@@ -1,0 +1,32 @@
+<?php header("Content-type: text/html; charset=utf-8");?>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	</head>
+
+	<body>
+
+		<?php if ($this->order): ?>
+
+		<?php $orderId = $this->order->getId(); ?>
+
+		<h2>
+			Stare comanda #<?php echo $this->order->getIncrementId() ?>: <?php echo $this->__($this->po_data['X_RESPONSE_REASON_TEXT']); ?>
+		</h2>
+
+		<p>Click <a href="<?php echo Mage::getBaseUrl(); ?>">aici</a> pentru a te intoarce la site.</p>
+		<?php endif; ?>
+
+		<?php if ($this->po_data): ?>
+			<?php if ($this->po_data['F_TEST_REQUEST'] == 1): ?>
+				<h3>Debug (disable test mode to hide)</h3>
+				<p>PO Data:</p>
+				<pre><?php echo var_dump($this->po_data) ?></pre>
+				<p>Order:</p>
+				<pre><?php echo var_dump($this->order->getData()) ?></pre>
+			<?php endif; ?>
+		<?php endif; ?>
+
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<?php header("Content-type: text/html; charset=utf-8");?>
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	</head>
+
+	<body>
+
+		<h2>Eroare!</h2>
+		<p>Motiv: <?php echo $this->exception; ?></p>
+		<p>Click <a href="<?php echo Mage::getBaseUrl(); ?>">aici</a> pentru a te intoarce la site.</p>
+
+		<?php if ($this->po_data): ?>
+			<?php if ($this->po_data['F_TEST_REQUEST'] == 1): ?>
+				<h3>Debug (disable test mode to hide)</h3>
+				<p>PO Data:</p>
+				<pre><?php echo var_dump($this->po_data) ?></pre>
+				<p>Order:</p>
+				<pre><?php echo var_dump($this->order->getData()) ?></pre>
+			<?php endif; ?>
+		<?php endif; ?>
+
+	</body>
+</html>

@@ -1,0 +1,12 @@
+<div class="box-collateral" id="amfile-list">
+    <h2><?php echo $this->getBlockTitle(); ?></h2>
+
+    <?php foreach ($this->getFiles() as $file): ?>
+        <a class='file' href="<?php echo $file->getFileUrl() ? $this->getUrl('amfile_front/file/download', array('file_id' => $file->getId())) : $file->getFileLink()?>" target="_blank">
+            <?php if ($icon = $file->getIcon()):?>
+                <img src="<?php echo $icon?>" />
+            <?php endif?>
+            <span><?php echo $file->title()?></span>
+        </a>
+    <?php endforeach ?>
+</div>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Module activation/deactivation file.
+ *
+ * @category    Innobyte
+ * @package     Innobyte_PayULite
+ * @author      Bogdan Constantinescu <bogdan.constantinescu@innobyte.com>
+ */
+-->
+<config>
+    <modules>
+        <Innobyte_PayULite>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Payment/>
+                <Innobyte_Core/>
+            </depends>
+        </Innobyte_PayULite>
+    </modules>
+</config>

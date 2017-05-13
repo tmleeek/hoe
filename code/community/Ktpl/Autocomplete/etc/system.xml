@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magedelight
+ * Copyright (C) 2014  Magedelight <info@krishinc.com>
+ *
+ * NOTICE OF LICENSE
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see http://opensource.org/licenses/gpl-3.0.html.
+ *
+ * @category   Ktpl
+ * @package    Ktpl_Autocomplete
+ * @copyright  Copyright (c) 2014 Mage Delight (http://www.magedelight.com/)
+ * @license    http://opensource.org/licenses/gpl-3.0.html GNU General Public License, version 3 (GPL-3.0)
+ * @author     Magedelight <info@krishinc.com>
+ */
+-->
+<config>
+	<tabs>
+		<search_autocomplete translate="label" module="autocomplete">
+			<label>Search Autocomplete</label>			
+			<sort_order>300</sort_order>
+		</search_autocomplete>
+	</tabs>
+	<sections>
+		<autocomplete translate="label" module="autocomplete">
+			<label>Search Settings</label>
+			<tab>search_autocomplete</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>10</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<general>
+					<label>Search Autocomplete Settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enabled translate="label">
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enabled>
+						<result_list_mode translate="label">
+							<label>List Mode</label>
+							<frontend_type>select</frontend_type>
+							<source_model>autocomplete/system_config_source_catalog_listMode</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</result_list_mode>
+						<minchar translate="label">
+							<label>Minimum Character</label>
+							<!--<comment><![CDATA[Enter minimum character for getting the search result. If it is not specified then it will search on 3rd character of the string]]></comment>-->
+							<frontend_type>text</frontend_type>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</minchar>
+						<product_limit>
+							<label>Show Products</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</product_limit>
+						<show_outstock_products>
+							<label>Show OutOfStock Products</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_outstock_products>
+						<open_new_window>
+							<label>Open in a new window</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</open_new_window>
+						<search_attributes>
+							<label>Select Search Attributes</label>
+							<frontend_type>multiselect</frontend_type>
+							<source_model>autocomplete/system_config_source_catalog_productAttributes</source_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</search_attributes>
+                        <sort_attributes>
+                            <label>Sort Attributes</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>autocomplete/system_config_source_catalog_sortAttributes</source_model>
+                            <sort_order>71</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sort_attributes>
+						<not_found_notice>
+							<label>Not Found Notice</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>80</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</not_found_notice>
+					</fields>
+				</general>
+			</groups>
+		</autocomplete>
+	</sections>
+</config>

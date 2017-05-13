@@ -1,0 +1,50 @@
+-
+  - test_id: test_1
+    invoice_id: 40001
+    campaign_id: 20001
+    affiliate_id: 10001
+    traffic_id: 70001
+    client_id: 500012
+    entity_type: invoice_item
+    type: trx_customer_purchase
+    consider_tax: 0
+-
+  - test_id: test_2
+    invoice_id: 40001
+    campaign_id: 20001
+    affiliate_id: 10001
+    traffic_id: 70001
+    client_id: 500012
+    entity_type: invoice_item
+    type: trx_customer_purchase
+    consider_tax: 1
+-
+  - test_id: test_3
+    invoice_id: 40002
+    campaign_id: 20001
+    affiliate_id: 10001
+    traffic_id: 70001
+    client_id: 500012
+    entity_type: invoice_item
+    type: trx_customer_purchase
+    consider_tax: 0
+-
+  - test_id: test_4
+    invoice_id: 40003
+    campaign_id: 20002
+    affiliate_id: 10001
+    traffic_id: 70001
+    client_id: 500012
+    entity_type: invoice_item
+    type: trx_customer_purchase
+    consider_tax: 0
+-
+  - test_id: test_5
+    invoice_id: 40004
+    campaign_id: 20002
+    affiliate_id: 10001
+    traffic_id: 70001
+    client_id: 500012
+    entity_type: invoice_item
+    type: trx_customer_purchase
+    consider_tax: 0

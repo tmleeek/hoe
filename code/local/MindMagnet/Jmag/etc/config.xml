@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <MindMagnet_Jmag>
+            <version>1.0.1</version>
+        </MindMagnet_Jmag>
+    </modules>
+    <global>
+        <helpers>
+            <mm_jmag>
+                <class>MindMagnet_Jmag_Helper</class>
+            </mm_jmag>
+        </helpers>
+        <resources>
+            <mindmagnetjmag_setup>
+                <setup>
+                    <module>MindMagnet_Jmag</module>
+                    <class>Mage_Catalog_Model_Resource_Setup</class>
+                </setup>
+            </mindmagnetjmag_setup>
+        </resources>
+    </global>
+</config>

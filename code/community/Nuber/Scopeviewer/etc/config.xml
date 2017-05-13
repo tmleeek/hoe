@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * @category    Nuber
+ * @package     Nuber_Scopeviewer
+ * @author      Martin Nuber
+ * @copyright   Copyright (c) 2014 Martin Nuber
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Nuber_Scopeviewer>
+            <version>0.1.0</version>
+        </Nuber_Scopeviewer>
+    </modules>
+    <global>
+        <blocks>
+            <adminhtml>
+                <rewrite>
+                    <system_config_form_field>Nuber_Scopeviewer_Block_Adminhtml_System_Config_Form_Field</system_config_form_field>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <nuber_scopeviewer>
+                    <file>nuber_scopeviewer.xml</file>
+                </nuber_scopeviewer>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

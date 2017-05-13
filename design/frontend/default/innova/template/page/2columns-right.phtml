@@ -1,0 +1,43 @@
+
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+?>
+<!DOCTYPE html>
+<html lang="<?php echo $this->getLang() ?>">
+<head>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+
+<body class="<?php echo Mage::getStoreConfig('innovasettings/innovasettings_appearance/width');  echo $this->getBodyClass()?' '.$this->getBodyClass().'':'' ?>" itemscope itemtype="http://schema.org/WebPage">
+<!-- BEGIN PAGE -->
+<?php echo $this->getChildHtml('after_body_start') ?>
+
+       <?php echo $this->getChildHtml('global_notices') ?>      
+       <?php echo $this->getChildHtml('header') ?>
+
+
+<!-- BEGIN MAIN CONTAINER COL2 LEFT LAYOUT -->             
+       <section class="main-container col2-right-layout">  
+         <div class="main-container-inner">
+           <div class="checkout-page">
+<!-- BEGIN COL MAIN -->
+          <article class="col-main">        
+              <?php echo $this->getChildHtml('breadcrumbs') ?>       
+              <?php echo $this->getChildHtml('global_messages') ?>
+              <?php echo $this->getChildHtml('content') ?>                   
+          </article> <!--col-main-->
+<!-- BEGIN COL RIGHT SIDEBAR -->
+          <aside class="col-right sidebar">               
+              <?php echo $this->getChildHtml('right') ?>                 
+          </aside> <!--col-right sidebar-->
+           </div> <!--checkout-page-->
+         </div> <!--main-container-inner-->
+       </section> <!--main-container col2-right-layout-->
+
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+        <?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>

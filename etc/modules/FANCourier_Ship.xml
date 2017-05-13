@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <FANCourier_Ship>
+            <active>true</active>
+            <codePool>local</codePool>
+        </FANCourier_Ship>
+    </modules>
+</config> 

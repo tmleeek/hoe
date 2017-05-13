@@ -1,0 +1,37 @@
+
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+?>
+<!DOCTYPE html>
+<html lang="<?php echo $this->getLang() ?>">
+<head>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+
+<body class="<?php echo Mage::getStoreConfig('innovasettings/innovasettings_appearance/width'); echo $this->getBodyClass()?' '.$this->getBodyClass().'':'' ?>" itemscope itemtype="http://schema.org/WebPage">
+<!-- BEGIN PAGE -->
+    <?php echo $this->getChildHtml('after_body_start') ?>
+    <?php echo $this->getChildHtml('global_notices') ?>      
+       <?php echo $this->getChildHtml('header') ?> 
+<!-- BEGIN MAIN CONTAINER -->     
+            <section class="main-container">                    
+                <article class="main-container-inner">
+                    <?php echo $this->getChildHtml('breadcrumbs') ?>
+                    <?php echo $this->getChildHtml('global_messages') ?>
+                    <?php echo $this->getChildHtml('content') ?>
+                </article> <!--main-container-inner-->
+            </section> <!--main-container-->
+<!-- Home offer banner block -->
+
+       <?php if((Mage::getSingleton('cms/page')->getIdentifier() == 'home' && Mage::app()->getFrontController()->getRequest()->getRouteName() == 'cms') || Mage::helper('core/url')->getCurrentUrl() == '')
+       {
+        echo $this->getLayout()->createBlock('cms/block')->setBlockId('innova_home_offer_banner_block')->toHtml();
+    } ?>
+        <?php //echo $this->getChildHtml('right') ?>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+        <?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>

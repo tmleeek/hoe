@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<CommerceExtensions_HideProductPrice>
+			<active>true</active>
+			<codePool>local</codePool>
+		</CommerceExtensions_HideProductPrice>
+	</modules>
+</config>

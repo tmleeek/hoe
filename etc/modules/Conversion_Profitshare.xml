@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Conversion_Profitshare>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Conversion_Profitshare>
+    </modules>
+</config> 

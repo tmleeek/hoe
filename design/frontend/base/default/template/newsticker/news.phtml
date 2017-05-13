@@ -1,0 +1,71 @@
+<script type="text/javascript">
+	if (typeof jQuery == 'undefined'){
+		document.write(unescape("%3Cscript src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' type='text/javascript'%3E%3C/script%3E"));
+	}
+</script>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('newsticker/css/styles.css') ?>"/>
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('newsticker/js/ticker.js') ?>"></script>
+<?php
+$newsGroupCode = $this->getNewstickerGroupCode();
+$data = $this->getDataByGroupCode($newsGroupCode);
+$newsGroupData = $data["group_data"];
+if(count($newsGroupData)){
+	$newsData = $data["newsticker_data"];
+	if(count($newsData)){
+		$speed_info = $newsGroupData->getSpeed();
+		$speed = $speed_info/1000;
+		$displayType = $newsGroupData->getDisplaytype();
+		$controls = $newsGroupData->getControls();
+		$titleText = $newsGroupData->getTexttitle();
+		$tickerwidth = $newsGroupData->getTickerwidth();
+		$direction = $newsGroupData->getDirection();
+		$fadeInSpeed = $newsGroupData->getFadeinspeed();
+		$fadeOutSpeed = $newsGroupData->getFadeoutspeed();		?>
+		<div id="ticker-wrapper" class="no-js">
+			<ul id="js-news" class="js-hidden">
+				<?php  foreach($newsData as $key){	?>
+				<li>
+					<?php echo $key["newsticker"];	} ?>
+				</li>
+			</ul>
+		</div>
+		<style type="text/css">
+			#ticker-wrapper.has-js {
+				width: <?php echo $tickerwidth;?>px;
+			}
+			#ticker {
+				width: <?php echo ($tickerwidth-69);?>px;
+			}
+		</style>
+		<script type="text/javascript">
+			var $j = jQuery.noConflict(); 
+			$j.fn.ticker.defaults = {
+				speed: <?php echo $speed; ?>,
+				ajaxFeed: false,
+				feedUrl: "",
+				feedType: "xml",
+				displayType: "<?php if($displayType == 0) echo 'reveal'; else echo 'fade'; ?>",
+				htmlFeed: true,
+				debugMode: true,
+				controls: <?php if($controls == 0) echo "false"; else echo "true"; ?>,
+				titleText: "<?php echo $titleText; ?>",
+				direction: "<?php if($direction == 0) echo 'ltr'; else echo 'rtl'; ?>",
+				pauseOnItems: 3000,
+				fadeInSpeed: <?php echo $fadeInSpeed; ?>,
+				fadeOutSpeed: <?php echo $fadeOutSpeed;?>
+			};
+			$j("#js-news").ticker();
+			$j("#release-wrapper").css("margin-top","-" + ($j("#release-wrapper").height() + 20) + "px");
+			$j('a[href="#release-history"]').toggle(function () {
+				$j("#release-wrapper").animate({
+					marginTop: "0px"
+				}, 600, "linear");
+			}, function () {
+				$j("#release-wrapper").animate({
+					marginTop: "-" + ($j("#release-wrapper").height() + 20) + "px"
+				}, 600, "linear");
+			});
+		</script>
+<?php
+	}
+}

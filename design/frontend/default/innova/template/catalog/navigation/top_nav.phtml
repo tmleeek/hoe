@@ -1,0 +1,226 @@
+<?php
+/**
+ * $this->renderCategoriesMenuHtml() supports optional arguments:
+ * int Level number for list item class to start from
+ * string Extra class of outermost list items
+ * string If specified wraps children list in div with this class
+ */
+?>
+<div class="nav-inner">
+    <?php $_helper = Mage::helper('catalog/category') ?>
+    <?php $_categories = $_helper->getStoreCategories() ?>
+
+<?php $menu_type = Mage::getStoreConfig('innovasettings/innovasettings_menu/navigation_menu_type'); ?>
+
+    <?php if (count($_categories) > 0): ?>
+             <!-- BEGIN NAV -->  
+            <ul id="nav" class="nav navbar-nav full-menu active">
+              <?php if (Mage::getStoreConfig('innovasettings/innovasettings_header/navigation_home')): ?>
+                <li class="level0 full-menu home-active"><a href="<?php echo $this->getUrl('') ?>"><span><?php echo $this->__('Acasă'); ?></span></a></li>
+              <?php endif; ?>
+              <li class="level0 full-menu"><a href="<?php echo $this->getBaseUrl().'magazin?gen=112,111'; ?>"><span><?php echo $this->__('Fete'); ?></span></a></li>
+              <li class="level0 full-menu"><a href="<?php echo $this->getBaseUrl().'magazin?gen=110,111'; ?>"><span><?php echo $this->__('Băieți'); ?></span></a></li>
+              <li class="level0 full-menu varsta">
+                <a><span><?php echo $this->__('Vârstă'); ?></span></a>
+                <div class="level1">
+                  <div class="menu-content">
+                    <div class="content-block grid12">
+                      <ul class="level1">
+                        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('lista_varsta')->toHtml(); ?>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="level0 full-menu"><a href="<?php echo $this->getUrl('producatorii'); ?>"><span><?php echo $this->__('Brand'); ?></span></a></li>
+              <li class="level0 full-menu"><a href="<?php echo $this->getBaseUrl().'magazin/'; ?>"><span><?php echo $this->__('Produse'); ?></span></a></li>
+
+            <?php foreach($_categories as $_category): ?>
+                    
+                  <?php if($this->getCurrentCategory()->getId()==$_category->getId()) { ?>
+                    
+                     <?php if($menu_type == 'mega-menu') { ?> 
+                       <li class="level0 parent full-menu active"> 
+                     <?php } else { ?>
+                         <li class="level0 parent drop-menu active">  
+                     <?php } ?>
+
+                  <?php } else { ?> 
+
+                     <?php if($menu_type == 'mega-menu') { ?>                   
+                         <li class="level0 parent full-menu">  
+                     <?php } else { ?>
+                         <li class="level0 parent drop-menu">  
+                     <?php } ?>
+             
+                  <?php } ?>
+                    <a href="<?php echo $_helper->getCategoryUrl($_category) ?>"><span><?php echo $_category->getName() ?></span><?php if($_category->getId() == Mage::getStoreConfig('innovasettings/innovasettings_menu/category_label1')) { ?><span class="category-label"><?php echo Mage::getStoreConfig('innovasettings/innovasettings_menu/category_label_text1') ?></span><?php } if($_category->getId() == Mage::getStoreConfig('innovasettings/innovasettings_menu/category_label2')) { ?><span class="category-label-hot"><?php echo Mage::getStoreConfig('innovasettings/innovasettings_menu/category_label_text2') ?></span><?php } ?></a>
+                    <?php $_category = Mage::getModel('catalog/category')->load($_category->getId()) ?>
+                    <?php $_subcategories = $_category->getChildrenCategories() ?>
+                    <?php if (count($_subcategories) > 0): ?>
+
+<?php if($menu_type == 'mega-menu') { ?>
+                        <div class="level1" style="display: none;">
+                          <div class="menu-content">
+  
+                           <?php if($_category->getId() == Mage::getStoreConfig('innovasettings/innovasettings_menu/ecategory')) { ?>
+                            <div class="content-block grid12">
+                           <?php } else { ?>
+                            <div class="content-block grid12"> 
+                           <?php } ?>   
+<?php } ?>                         
+                                <ul class="level1">
+                        
+                         <?php foreach($_subcategories as $_subcategory):
+                         $_secondLevelCat = Mage::getModel('catalog/category')->load($_subcategory->getId());
+                                if (!$_secondLevelCat->getData("include_in_menu")) continue;
+ ?>
+
+ <?php $_subcategory = Mage::getModel('catalog/category')->load($_subcategory->getId()) ?>                             
+                                <?php $_subsubcategories = $_subcategory->getChildrenCategories() ?>
+
+<?php if($menu_type == 'mega-menu') { ?>
+    <?php if($_subcategory->getThumbnail()) { ?>
+                            <li class="level1 parent grid_5">
+    <?php } elseif($_category->getId() == Mage::getStoreConfig('innovasettings/innovasettings_menu/ecategory')) { ?> 
+                            <li class="level1 parent grid_5">
+    <?php } else { ?>
+                           <li class="level1 parent grid_5">
+    <?php } ?> 
+
+<?php } else { ?>
+                            <li class="level1 parent">
+<?php } ?>
+
+                               
+
+<?php if($menu_type == 'mega-menu') { ?>
+         <?php if($_subcategory->getThumbnail()) { ?>
+            <?php
+            $dimensions = @getimagesize(Mage::getBaseUrl('media').'catalog/category/'.$_subcategory->getThumbnail());
+            ?>
+             <a class="thumbnail-img" href="<?php echo $_helper->getCategoryUrl($_subcategory) ?>"><img src="<?php echo Mage::getBaseUrl('media').'catalog/category/'.$_subcategory->getThumbnail()  ?>" alt="<?php echo $_subcategory->getName() ?>" <?php echo $dimensions[3]; ?> /></a>
+         <?php } ?>
+<?php } ?>                                                            
+                                <a href="<?php echo $_helper->getCategoryUrl($_subcategory) ?>"><span><?php echo $_subcategory->getName() ?></span></a>
+                                <!--sub sub category-->
+
+                                <?php if (count($_subsubcategories) > 0): ?>
+                                 
+                                   <ul class="level2">
+                                    <?php foreach($_subsubcategories as $_subsubcategory): 
+                                    $_thirdLevelCat = Mage::getModel('catalog/category')->load($_subsubcategory->getId());
+                                          if (!$_thirdLevelCat->getData("include_in_menu")) continue;?>
+                                       <li class="level2 nav-1-1-2">
+                                          <a href="<?php echo $_helper->getCategoryUrl($_subsubcategory) ?>"><span><?php echo $_subsubcategory->getName() ?></span></a>
+            
+                                          <?php $_subsubsubcategory = Mage::getModel('catalog/category')->load($_subsubcategory->getId()) ?>                             
+                                          <?php $_subsubsubcategories = $_subsubcategory->getChildrenCategories() ?>
+                                          <?php if (count($_subsubsubcategories) > 0): ?>
+                                             <div class="level2 sub-wrapper" style="height: auto;">
+                                                   <ul class="level2">
+                                                     <?php foreach($_subsubsubcategories as $_subsubsubcategory): ?>
+                                                       <li class="level3 nav-1-1-1-1">
+                                                         <a href="<?php echo $_helper->getCategoryUrl($_subsubsubcategory) ?>"><span><?php echo $_subsubsubcategory->getName() ?></span></a>
+                                                       </li> <!--level3 nav-1-1-1-1-->
+                                                     <?php endforeach; ?>
+                                                   </ul> <!--level2-->
+                                             </div> <!--level2 sub-wrapper-->
+                                          <?php endif; ?>
+
+                                       </li> <!--level2 nav-1-1-2-->
+                                    <?php endforeach; ?>
+                                   </ul> <!--level2-->
+                                  
+                               <?php endif; ?>
+                                 <!--sub sub category-->  
+                                                                                        
+                            </li> <!--level1 parent grid_3-->
+                         <?php endforeach; ?>        
+                                </ul> <!--level1-->
+
+<?php if($menu_type == 'mega-menu') { ?>                              
+                            </div> <!--content-block grid8-->  
+                               
+                              <?php if($_category->getId() == Mage::getStoreConfig('innovasettings/innovasettings_menu/ecategory')) { ?>
+                                  <!-- <div class="right-block grid_4">             -->                           
+                                      <?php // echo $this->getLayout()->createBlock('cms/block')->setBlockId('innova_navigation_product_block')->toHtml(); ?>
+                                  <!-- </div> --> <!--right-block grid_4-->
+                              <?php } ?>
+
+             <div class="clearer"></div>
+
+                          </div> <!--menu-content-->			
+                       </div> <!--level1-->
+<?php } ?>
+                    <?php endif; ?>
+                    </li> 
+             <?php endforeach; ?> 
+
+          <?php  $custom_tab = Mage::getModel('cms/block')->load('innova_navigation_block');
+            if($custom_tab->getIsActive()) {
+            echo '
+            <li class="level0 parent custom-menu full-menu">
+                <a href="#" class="">
+                    <span>'.$custom_tab->getTitle().'</span>
+                </a>
+                <div class="level1" style="display: none;"><div class="menu-content">'.$this->getLayout()->createBlock('cms/block')->setBlockId('innova_navigation_block')->toHtml().'</div></div>
+            </li>';
+          }  ?>
+
+            </ul> <!--nav-->
+
+    <?php endif; ?>
+
+<script type="text/javascript">
+//<![CDATA[
+    jQuery(document).ready(function(){
+        var scrolled = false;
+        jQuery("#nav li.level0.drop-menu").mouseover(function(){
+            if(jQuery(window).width() >= 768){
+                jQuery(this).children('ul.level1').fadeIn(100);
+            }
+            return false;
+        }).mouseleave(function(){
+            if(jQuery(window).width() >= 768){
+                jQuery(this).children('ul.level1').fadeOut(100);
+            }
+            return false;
+        });
+        jQuery("#nav li.level0.drop-menu li").mouseover(function(){
+            if(jQuery(window).width() >= 768){
+                jQuery(this).children('ul').css({top:0,left:"165px"});
+                var offset = jQuery(this).offset();
+                if(offset && (jQuery(window).width() < offset.left+325)){
+                    jQuery(this).children('ul').removeClass("right-sub");
+                    jQuery(this).children('ul').addClass("left-sub");
+                    jQuery(this).children('ul').css({top:0,left:"-167px"});
+                } else {
+                    jQuery(this).children('ul').removeClass("left-sub");
+                    jQuery(this).children('ul').addClass("right-sub");
+                }
+                jQuery(this).children('ul').fadeIn(100);
+            }
+        }).mouseleave(function(){
+            if(jQuery(window).width() >= 768){
+                jQuery(this).children('ul').fadeOut(100);
+            }
+        });
+        jQuery("#nav li.level0.full-menu").mouseover(function(){
+            if(jQuery(window).width() >= 768){
+                jQuery(this).children('div.level1').fadeIn(100);
+            }
+            return false;
+        }).mouseleave(function(){
+            if(jQuery(window).width() >= 768){
+                jQuery(this).children('div.level1').fadeOut(100);
+            }
+            return false;
+        });
+       
+
+    });
+//]]>
+</script>
+
+</div> <!--nav-inner-->

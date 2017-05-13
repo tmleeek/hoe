@@ -1,0 +1,6 @@
+<?php $_message = $this->getProduct()->getWarning(); ?>
+<?php if ($_message): ?>
+    <div class="std">
+        <?php echo nl2br($this->helper('catalog/output')->productAttribute($this->getProduct(), $_message, 'warning')) ?>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,65 @@
+<?php
+$id = $this->getRequest()->getParam('id');
+$receipt = Mage::getModel('inventoryreceipt/receiptlog')->load($id);
+$warehouse_id = Mage::getModel('inventoryplus/warehouse')->getCollection()->getFirstItem()->getId();
+
+$warehouse = Mage::getModel('inventoryplus/warehouse')->load($warehouse_id);
+?>
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('Stock Receiving Information') ?></h4>
+    </div>
+    <div id="adjuststock_form" class="fieldset ">
+        <div style="width:100%; float:left">
+            <div style="width:100px; float:left;">
+                <span style="font-weight: bold"><?php echo $this->__('Created At')?>:</span>
+            </div>
+            <div style="float:left">
+                <?php echo Mage::helper('core')->formatDate($receipt->getCreatedAt(), 'full', false);?>
+            </div>
+        </div>
+        <div style="width:100%; float:left">
+            <div style="width:100px; float:left;">
+                <span style="font-weight: bold"><?php echo $this->__('Reason')?>:</span>
+            </div>
+            <div style="width:100px; float:left">
+                <?php
+                
+                    $warehouse = Mage::getModel('inventoryplus/warehouse')->getCollection()->getFirstItem();
+                    $warehouseId = $warehouse->getId();
+                    $id = $this->getRequest()->getParam('id');
+                    $receiptLog = Mage::getModel('inventoryreceipt/receiptlog')->load($id);
+                    $adminId = Mage::getSingleton('admin/session')->getUser()->getId();
+                    $warehouse = $this->getRequest()->getParam('id');
+                    $check = Mage::helper('inventoryplus/warehouse')->canEdit($adminId, $warehouseId);
+                    if ($check == true && $receiptLog->getStatus()==1):
+                ?>
+                <textarea id="reason" name="reason" title="Reason(s) for receiving stock" style="width:350px; height:50px;" rows="2" cols="15" class="textarea"><?php echo $receipt->getContent();?></textarea>
+                <?php else:?>
+                    <?php echo $receipt->getContent();?>
+                <?php endif;?>
+            </div>
+        </div>
+        <div style="width:100%; float:left">
+            <div style="width:100px; float:left;">
+                <span style="font-weight: bold"><?php echo $this->__('Status')?>:</span>
+            </div>
+            <div style="width:100px; float:left">
+               <?php if($receipt->getStatus()==1){ echo $this->__('Pending');}?>
+               <?php if($receipt->getStatus()==2){ echo $this->__('Complete');}?>
+               <?php if($receipt->getStatus()==3){ echo $this->__('Cancelled');}?>
+            </div>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+</div>
+
+
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-edit-form fieldset-legend">
+                <?php echo $this->__('Product Received') ?>            
+        </h4>
+    </div>
+</div>

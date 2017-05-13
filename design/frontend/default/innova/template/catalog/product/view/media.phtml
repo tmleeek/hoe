@@ -1,0 +1,64 @@
+<?php
+    $_product = $this->getProduct();
+    $_helper = $this->helper('catalog/output');
+?>
+
+<div class="product-image">
+<a href="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>" class ="cloud-zoom" id="zoom1" rel="position: 'inside' , showTitle: false, adjustX:-4, adjustY:-4">
+    <?php
+        $_img = '<img itemprop="image" id="image" src="'.$this->helper('catalog/image')->init($_product, 'thumbnail')->resize(440).'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'" />';
+        echo $_helper->productAttribute($_product, $_img, 'thumbnail'); 
+    ?>
+</a> 
+
+<a id="various" class="zoom-btn-small" href="#inline"><span><?php echo $this->__('Zoom') ?></span></a> 
+
+<div style="display: none;"><div id="inline" style="text-align:center;">
+<div class ="cloud-zoom1" id="zoom1" rel="position: 'inside' , showTitle: false, adjustX:-4, adjustY:-4">
+    <?php
+        $_img = '<img itemprop="image" id="image" src="'.$this->helper('catalog/image')->init($_product, 'thumbnail')->resize(440).'" alt="'.$this->htmlEscape($this->getImageLabel()).'" title="'.$this->htmlEscape($this->getImageLabel()).'" />';
+        echo $_helper->productAttribute($_product, $_img, 'thumbnail'); 
+    ?>
+</div> 
+</div></div> 
+
+</div> <!--product-image-->
+
+<?php  if (count($this->getGalleryImages()) > 0): ?>
+<div class="more-views">
+ <div class="jcarousel-container">
+  <div class="jcarousel-clip jcarousel-clip-horizontal">
+    <ul id="more">
+     <?php foreach ($this->getGalleryImages() as $_image): ?>
+        <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal"  style="float: left; list-style: none outside none;">
+          <a href="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'image', $_image->getFile()); ?>" class="cloud-zoom-gallery" rel="useZoom: 'zoom1', smallImage: '<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(440,440); ?>' " title="<?php echo $_product->getName();?>">
+            <img class="zoom-tiny-image" itemprop="image" src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(100, 100); ?>"  alt=""/>
+          </a>
+        </li>
+     <?php endforeach; ?>
+    </ul>
+  </div>  <!--jcarousel-clip jcarousel-clip-horizontal-->
+    <div style="display: block;" class="jcarousel-prev jcarousel-prev-horizontal"></div>
+    <div style="display: block;" class="jcarousel-next jcarousel-next-horizontal"></div>
+ </div> <!--jcarousel-container-->
+</div> <!--more-views-->
+<?php endif; ?>
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+    jQuery('#more').jcarousel({
+        wrap: 'circular',
+                scroll:1,
+itemFallbackDimension: 300
+    });
+});
+</script>
+
+<script type="text/javascript">
+                jQuery(document).ready(function() {
+                jQuery("#various").fancybox({
+                'transitionIn'  : 'elastic',
+                'transitionOut' : 'elastic'
+                });
+                });
+</script>

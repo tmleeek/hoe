@@ -1,0 +1,9 @@
+test_1: # not new invoice - should not generate any profit
+  size: 0
+  amount: null
+test_2: # new invoice for order - will generate profit
+  size: 1
+  amount: 0.4
+test_3: # second invoice for order - will not generate any profit
+  size: 0
+  amount: null

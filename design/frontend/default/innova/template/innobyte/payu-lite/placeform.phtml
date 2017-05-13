@@ -1,0 +1,38 @@
+<?php
+/**
+ * Template file for submitting form data to PayU.
+ *
+ * @category    Innobyte
+ * @package     Innobyte_PayULite
+ * @author      Bogdan Constantinescu <bogdan.constantinescu@innobyte.com>
+ */
+
+// @var $this   Innobyte_PayULite_Block_Placeform
+?>
+<div class="page-head">
+    <h3><center><?php echo $this->__('Please, wait a moment. This page will transfer your data to PayU in a few seconds...'); ?></center></h3>
+</div>
+<form name="payu-lite-form" id="payu-lite-form" action="<?php echo $this->getFormAction(); ?>" method="POST">
+    <?php $formData = $this->getFormData(); ?>
+    <?php if (is_array($formData)): ?>
+        <fieldset>
+            <?php foreach ($formData as $name => $value) : ?>
+                <?php if (is_array($formData[$name])) : ?>
+                    <?php foreach($value as $v) : ?>
+                    <input type="hidden" name="<?php echo $this->escapeHtml($name); ?>[]" value="<?php echo $this->escapeHtml($v); ?>" />
+                    <?php endforeach;?>
+                <?php else: ?>
+                    <input type="hidden" name="<?php echo $this->escapeHtml($name); ?>" value="<?php echo $this->escapeHtml($value); ?>" />
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </fieldset>
+    <?php endif; ?>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var payULiteForm = new VarienForm('payu-lite-form', '');
+    Event.observe(window, 'load', function() {
+        payULiteForm.submit();
+    });
+//]]>    
+</script>

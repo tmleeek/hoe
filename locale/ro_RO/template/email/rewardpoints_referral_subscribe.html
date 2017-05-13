@@ -1,0 +1,33 @@
+<!--@subject Invitatie creare cont ({{var parent.name}} va invita sa vizitati  {{var store.getFrontendName()}}) @-->
+<!--@styles
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+<style type="text/css">
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+</style>
+
+<div style="font:11px/1.35em Verdana, Arial, Helvetica, sans-serif;">
+    <table cellspacing="0" cellpadding="0" border="0" width="98%" style="margin-top:10px; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; margin-bottom:10px;">
+        <tr>
+            <td align="center" valign="top">
+                <table cellspacing="0" cellpadding="0" border="0" width="650">
+                    <tr>
+                        <td valign="top"><a href="{{var referral_url}}"><img src="{{var logo_url}}" alt="{{var logo_alt}}"  style="margin-bottom:10px;" border="0"/></a></td>
+                    </tr>
+                </table>
+                <table cellspacing="0" cellpadding="0" border="0" width="650">
+                    <tr>
+                        <td valign="top">
+                            <p>{{var parent.name}} ({{var parent.email}}) va invita sa vizitati: <a href="{{var referral_url}}"><strong>{{var store.getFrontendName()}}</strong></a></p>
+                            <p>Doamna/Domnule {{var referral.rewardpoints_referral_name}}, <br /><br />
+                                Daca va inregistrati si comandati la <a href="{{var referral_url}}"><strong>{{var store.getFrontendName()}}</strong></a> cu aceasta adresa de email: {{var referral.rewardpoints_referral_email}}, prietenul dumneavoastra, {{var parent.name}} ({{var parent.email}}), va castiga puncte de fidelitate.<br />
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+</div>

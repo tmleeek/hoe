@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Ktpl_Autocomplete>
+           <active>true</active>
+           <codePool>community</codePool>
+        </Ktpl_Autocomplete>
+    </modules>
+</config>

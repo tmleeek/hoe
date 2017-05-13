@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <HoeExport_YourModule>
+            <version>0.0.1</version>
+        </HoeExport_YourModule>
+    </modules>
+    <global>
+        <models>
+            <catalog>
+                <rewrite>
+                    <convert_adapter_product>CustomHOEExport_Product_Adapter</convert_adapter_product>
+                </rewrite>
+            </catalog>
+        </models>
+    </global>
+</config>

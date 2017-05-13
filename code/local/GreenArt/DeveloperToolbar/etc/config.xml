@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <GreenArt_DeveloperToolbar>
+            <version>1.0.0</version>
+        </GreenArt_DeveloperToolbar>
+    </modules>
+	<global>      
+		<helpers>
+			<developertoolbar>
+				<class>GreenArt_DeveloperToolbar_Helper</class>
+			</developertoolbar>
+		</helpers>
+        <blocks>
+            <developertoolbar>
+                <class>GreenArt_DeveloperToolbar_Block</class>
+            </developertoolbar>        
+        </blocks>         
+		<models>
+			<!-- Mage::getModel('modulname/modulname') -->
+			<developertoolbar>
+				<class>GreenArt_DeveloperToolbar_Model</class>
+			</developertoolbar>
+		</models>    
+	</global>
+    <frontend>
+        <routers>
+            <developertoolbar>
+                <use>standard</use>
+                <args>
+                    <module>GreenArt_DeveloperToolbar</module>
+                    <frontName>developertoolbar</frontName>
+                </args>
+            </developertoolbar>  
+        </routers>       
+        <layout>
+            <updates>
+                <developertoolbar>
+                    <file>developertoolbar.xml</file>
+                </developertoolbar>
+            </updates>
+        </layout>
+    </frontend>  
+	
+	<default>
+		<dev>
+			<developertoolbar>
+				<enabled>1</enabled>
+			</developertoolbar>
+		</dev>
+	</default>
+    <adminhtml>
+      <menu>
+        <greenart>
+          <title>GreenArt</title>
+          <sort_order>1000</sort_order>   
+          <children>    
+            <developertoolbar module="developertoolbar">
+              <title>Developer Toolbar</title>
+              <sort_order>1000</sort_order>
+              <action>adminhtml/system_config/edit/section/dev</action>
+            </developertoolbar>
+          </children>
+        </greenart> 
+      </menu>        
+    </adminhtml>     
+</config>

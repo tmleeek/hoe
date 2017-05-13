@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<BoiledEgg_Minify>
+			<version>1.0.1</version>
+		</BoiledEgg_Minify>
+	</modules>
+	<global>
+		<models>
+			<minify>
+				<class>BoiledEgg_Minify_Model</class>
+			</minify>
+		</models>
+		<helpers>
+			<minify>
+				<class>BoiledEgg_Minify_Helper</class>
+			</minify>
+			<core>
+				<rewrite>
+					<data>BoiledEgg_Minify_Helper_Data</data>
+				</rewrite>
+			</core>
+		</helpers>
+	</global>
+
+	<adminhtml>
+		<translate>
+			<modules>
+				<BoiledEgg_Minify>
+					<files>
+						<default>BoiledEgg_Minify.csv</default>
+					</files>
+				</BoiledEgg_Minify>
+			</modules>
+		</translate>
+	</adminhtml>
+
+	<default>
+		<dev>
+			<js>
+				<minify_method>jsminplus</minify_method>
+				<minify_files>0</minify_files>
+			</js>
+			<css>
+				<minfy_files>0</minfy_files>
+			</css>
+		</dev>
+	</default>
+</config>

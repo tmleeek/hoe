@@ -1,0 +1,424 @@
+<?xml version="1.0"?>
+<innova>
+    <cms>
+        <pages>
+            <item>
+                <title>Innova Home page</title>
+                <identifier>innova_home</identifier>
+                <content><![CDATA[
+<div>{{block type="catalog/product_list" name="bestseller" as="bestseller" num_products="8" template="catalog/product/bestseller.phtml"}}</div>
+]]></content>
+                <is_active>1</is_active>
+                <sort_order>0</sort_order>
+                <stores>
+                    <item>0</item>
+                </stores>
+                <root_template>one_column</root_template>
+            </item>
+            <item>
+                <title>Innova 404 No Route page</title>
+                <identifier>innova_no_route</identifier>
+                <content><![CDATA[<div class="login_page">
+<div class="page-title">
+<h3>Whoops, our bad...</h3>
+</div>
+<dl><dt>The page you requested was not found, and we have a fine guess why.</dt><dd>
+<ul class="disc">
+<li>If you typed the URL directly, please make sure the spelling is correct.</li>
+<li>If you clicked on a link to get here, the link is outdated.</li>
+</ul>
+</dd></dl>
+<p>&nbsp;</p>
+<dl><dt>What can you do?</dt><dd>Have no fear, help is near! There are many ways you can get back on track with Magento Demo Store.</dd><dd>
+<ul class="buttons">
+<li><button class="button" onclick="history.go(-1);"><span><span>Go back</span></span></button></li>
+<li><button class="button" onclick="location.href='{{store url=''}}'"><span><span>Store Home</span></span></button></li>
+<li><button class="button" onclick="location.href='{{store url='customer/account'}}'"><span><span>My Account</span></span></button></li>
+</ul>
+</dd></dl></div>]]></content>
+                <is_active>1</is_active>
+                <sort_order>0</sort_order>
+                <stores>
+                    <item>0</item>
+                </stores>
+                <root_template>one_column</root_template>
+            </item>
+        </pages>
+        <blocks>            	        
+	        <item>
+                <title>Innova Footer links</title>
+                <identifier>innova_footer_links</identifier>
+                <content><![CDATA[<div class="footer-bottom">
+<div class="inner">
+<div class="coppyright">Copyright &copy; 2014. All Rights Reserved. Designed by <a href="http://www.magikcommerce.com">magikcommerce.com</a></div>
+<div class="bottom_links">
+<ul class="links">
+<li><a title="Magento Themes" href="http://www.magikcommerce.com/magento-themes-templates">Magento Themes</a></li>
+<li><a title="Responsive Themes" href="http://www.magikcommerce.com/magento-themes-templates/responsive-themes">Responsive Themes</a></li>
+<li class="last"><a title="Magento Extensions" href="http://www.magikcommerce.com/magento-extensions">Magento Extensions</a></li>
+</ul>
+</div>
+</div>
+</div>
+]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+	        <item>
+                <title>Custom Tab1</title>
+                <identifier>innova_custom_tab1</identifier>
+                <content><![CDATA[<p><strong>Lorem Ipsum</strong><span>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span></p>]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+            <item>
+                <title>Custom Tab2</title>
+                <identifier>innova_custom_tab2</identifier>
+                <content><![CDATA[<p><strong>Lorem Ipsum</strong><span>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</span></p>]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+	        <item>
+                <title>Custom</title>
+                <identifier>innova_navigation_block</identifier>
+                <content><![CDATA[<div>{{block type="catalog/product" num_products="4" name="randomproducts" as="randomproducts" template="catalog/random.phtml" }}</div>
+]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+	        <item>
+                <title>Empty Category</title>
+                <identifier>innova_empty_category</identifier>
+                <content><![CDATA[<p>There are no products matching the selection.<br/> This is a static CMS block displayed if category is empty. You can put your own content here.</p>]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+	    <item>
+                <title>Innova Logo Brand block</title>
+                <identifier>innova_logo_brand_block</identifier>
+                <content><![CDATA[<div class="brand-logo">
+<div class="jcarousel-skin-tango">
+<div class="new_title center">
+<h2><span>Logo Brands</span></h2>
+</div>
+<div id="mycarousel2" class="jcarousel-container jcarousel-container-horizontal">
+<div class="jcarousel-clip jcarousel-clip-horizontal">
+<ul class="jcarousel-list jcarousel-list-horizontal">
+<li><img src="{{skin url="images/b-logo1.png"}}" alt="b-logo1.png" /></li>
+<li><img src="{{skin url="images/b-logo2.png"}}" alt="b-logo2.png" /></li>
+<li><img src="{{skin url="images/b-logo3.png"}}" alt="b-logo3.png" /></li>
+<li><img src="{{skin url="images/b-logo4.png"}}" alt="b-logo4.png" /></li>
+<li><img src="{{skin url="images/b-logo5.png"}}" alt="b-logo5.png" /></li>
+<li><img src="{{skin url="images/b-logo6.png"}}" alt="b-logo6.png" /></li>
+<li><img src="{{skin url="images/b-logo3.png"}}" alt="b-logo3.png" /></li>
+<li><img src="{{skin url="images/b-logo2.png"}}" alt="b-logo2.png" /></li>
+<li><img src="{{skin url="images/b-logo5.png"}}" alt="b-logo5.png" /></li>
+<li><img src="{{skin url="images/b-logo4.png"}}" alt="b-logo4.png" /></li>
+<li><img src="{{skin url="images/b-logo1.png"}}" alt="b-logo1.png" /></li>
+<li><img src="{{skin url="images/b-logo2.png"}}" alt="b-logo2.png" /></li>
+<li><img src="{{skin url="images/b-logo3.png"}}" alt="b-logo3.png" /></li>
+<li><img src="{{skin url="images/b-logo4.png"}}" alt="b-logo4.png" /></li>
+<li><img src="{{skin url="images/b-logo5.png"}}" alt="b-logo5.png" /></li>
+<li><img src="{{skin url="images/b-logo6.png"}}" alt="b-logo6.png" /></li>
+<li><img src="{{skin url="images/b-logo3.png"}}" alt="b-logo3.png" /></li>
+<li><img src="{{skin url="images/b-logo2.png"}}" alt="b-logo2.png" /></li>
+<li><img src="{{skin url="images/b-logo5.png"}}" alt="b-logo5.png" /></li>
+<li><img src="{{skin url="images/b-logo4.png"}}" alt="b-logo4.png" /></li>
+</ul>
+</div>
+<div class="jcarousel-prev jcarousel-prev-horizontal" style="display: block;">&nbsp;</div>
+<div class="jcarousel-next jcarousel-next-horizontal" style="display: block;">&nbsp;</div>
+</div>
+</div>
+</div>]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+            <item>
+                <title>Innova Store Logo</title>
+                <identifier>innova_logo</identifier>
+                <content><![CDATA[<img src="{{skin url="images/logo.png"}}" alt="Innova Store" />]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+             
+
+
+<item>
+                <title>Innova Footer Information Links Block</title>
+                <identifier>innova_footer_information_links_block</identifier>
+                <content><![CDATA[<div class="footer-column">
+<h4>Shopping Guide</h4>
+<ul class="links">
+<li class="first"><a title="How to buy" href="#">How to buy</a></li>
+<li><a title="FAQs" href="#">FAQs</a></li>
+<li><a title="Payment" href="#">Payment</a></li>
+<li><a title="Shipment&lt;/a&gt;" href="#">Shipment</a></li>
+<li><a title="Where is my order?" href="#">Where is my order?</a></li>
+<li class="last"><a title="Return policy" href="#">Return policy</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4>Style Advisor</h4>
+<ul class="links">
+<li class="first"><a title="Your Account" href="#">Your Account</a></li>
+<li><a title="Information" href="#">Information</a></li>
+<li><a title="Addresses" href="#">Addresses</a></li>
+<li><a title="Addresses" href="#">Discount</a></li>
+<li><a title="Orders History" href="#">Orders History</a></li>
+<li class="last"><a title=" Additional Information" href="#">Additional Information</a></li>
+</ul>
+</div>
+<div class="footer-column-last">
+<h4>Information</h4>
+<ul class="links">
+<li class="first"><a title="Site Map" href="{{store_url=catalog/seo_sitemap/category/}}">Site Map</a></li>
+<li><a title="Search Terms" href="{{store_url=catalogsearch/term/popular/}}">Search Terms</a></li>
+<li><a title="Advanced Search" href="{{store_url=catalogsearch/advanced/}}">Advanced Search</a></li>
+<li><a title="Contact Us" href="{{store_url=contacts}}">Contact Us</a></li>
+<li><a title="Suppliers" href="#">Suppliers</a></li>
+<li class=" last"><a class="link-rss" title="Our stores" href="#">Our stores</a></li>
+</ul>
+</div>]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+            
+            <item>
+                <title>Innova Navigation Product Block</title>
+                <identifier>innova_navigation_product_block</identifier>
+                <content><![CDATA[<p>{{block type="catalog/product_new" products_count="1" name="home.catalog.product.new" as="newproduct" template="catalog/product/new.phtml" }}</p>]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+            
+            <item>
+                <title>Innova Footer About Us Block</title>
+                <identifier>innova_footer_about_us_block</identifier>
+                <content><![CDATA[<div class="footer-column-1">
+<h4>About Company</h4>
+<p>Our Company is a Magento product development and solutions company. We focus on helping you design, build and manage rich Magento-powered stores.</p>
+<address>123 Main Street, Anytown, <br /> CA 12345 USA</address>Phone : +1 800 123 1234<br /> Email : <a href="mailto:support@magikcommerce.com">support@magikcommerce.com</a></div>]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+            
+           
+
+            <item>
+                <title>Innova Home Featured Block</title>
+                <identifier>innova_home_featured_block</identifier>
+                <content><![CDATA[<div class="offer-banner">
+<div class="offer-banner-section">
+<div class="col"><img src="{{skin url="images/offer-banner1.jpg"}}" alt="banner" /></div>
+<div class="col-mid"><img src="{{skin url="images/offer-banner2.jpg"}}" alt="banner" /></div>
+<div class="col"><img src="{{skin url="images/offer-banner3.jpg"}}" alt="banner" /></div>
+</div>
+</div>]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+            
+            <item>
+                <title>Innova Home Offer Banner Block</title>
+                <identifier>innova_home_offer_banner_block</identifier>
+                <content><![CDATA[<div class="banner-section">
+<div class="left-banner"><img src="{{skin url="images/banner1.jpg"}}" alt="banner1" /></div>
+<div class="right-banner"><img src="{{skin url="images/banner2.jpg"}}" alt="banner2" /></div>
+</div>]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+                        
+            <item>
+                <title>Innova Contact Us Static Block</title>
+                <identifier>innova_contact_us_static_block</identifier>
+                <content><![CDATA[<div class="block block-company">
+<div class="block-title">Company</div>
+<div class="block-content"><ol id="recently-viewed-items">
+<li class="item odd"><a href="#">About Us</a></li>
+<li class="item even"><a href="{{store_url=catalog/seo_sitemap/category/}}">Sitemap</a></li>
+<li class="item  odd"><a href="#">Terms of Service</a></li>
+<li class="item last"><a href="{{store_url=catalogsearch/term/popular/}}">Search Terms</a></li>
+</ol></div>
+</div>]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+            
+            <item>
+                <title>Innova Call Us Block</title>
+                <identifier>innova_call_us_block</identifier>
+                <content><![CDATA[<div class="phone"><em class="icon-phone">&nbsp;</em>&nbsp;<span>Call Us &nbsp; +1 800 123 1234</span></div>]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+            
+            <item>
+                <title>Innova Toplinks Company Block</title>
+                <identifier>innova_toplinks_company_block</identifier>
+                <content><![CDATA[<div class="company">
+<div class="click-nav">
+<ul class="no-js">
+<li><a class="clicker" title="Company">Company <span class="caret">&nbsp;</span></a>
+<ul class="link">
+<li><a title="About Us" href="{{store_url=about-us}}">About Us</a></li>
+<li><a title="Customer Service" href="#">Customer Service</a></li>
+<li><a title="Privacy Policy" href="#">Privacy Policy</a></li>
+<li><a title="Site Map" href="{{store_url=catalog/seo_sitemap/category/}}"><span>Site Map</span></a></li>
+<li><a title="Search Terms" href="{{store_url=catalogsearch/term/popular/}}"><span>Search Terms</span></a></li>
+<li class="last"><a title="Advanced Search" href="{{store_url=catalogsearch/advanced/}}"><span>Advanced Search</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+            
+            <item>
+                <title>Innova Payment Method Block</title>
+                <identifier>innova_payment_method_block</identifier>
+                <content><![CDATA[<div class="payments"><img src="{{skin url="images/payment.png"}}" alt="payment method" /></div>]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+            
+            <item>
+                <title>Innova Footer Freeshipping Banner Block</title>
+                <identifier>innova_footer_freeshipping_banner_block</identifier>
+                <content><![CDATA[<div class="prom-section">
+<div class="inner">
+<div class="col-info">Return &amp; Exchange in <span>3 working days</span></div>
+<div class="col-info">Get <span>15%</span> off when you spend over <span>$100</span></div>
+<div class="col-info-last">Free Shipping! <span> All Orders Over $299</span></div>
+</div>
+</div>]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+            
+            <item>
+                <title>Innova Home Testimonial Block</title>
+                <identifier>innova_home_testimonial_block</identifier>
+                <content><![CDATA[<div class="testimonials">
+<div class="testimonials_RC">
+<div class="inner-left">
+<div class="quote-box"><span class="quote-left">&nbsp;</span> <q>We had some issues concerning design &amp; layout. The support team was very helpful in adressing these issues. Great help! </q></div>
+<span class="quote-arrow">&nbsp;</span> <cite><span class="photo tina"><img src="{{skin url="images/photo-img1.png"}}" alt="" /> </span><span class="author">Jan Doe,</span> CEO, <br />XYZ Softwear </cite></div>
+<div class="inner-left">
+<div class="quote-box"><span class="quote-left">&nbsp;</span> <q>Great SEO extension. Packs the power of many SEO extension into one easy-to-use extension. Support was great as well. Very satisfied.</q></div>
+<span class="quote-arrow">&nbsp;</span> <cite><span class="photo tina"><img src="{{skin url="images/photo-img2.png"}}" alt="" /> </span><span class="author">TheRealKG,</span> Global Marketing Programs, <br />ABC Co </cite></div>
+<div class="inner-left" style="margin-right: 0px;">
+<div class="quote-box"><span class="quote-left">&nbsp;</span> <q>Excellent product for hiding price, prompt and efficient support. I strongly recommend this product !</q></div>
+<span class="quote-arrow">&nbsp;</span> <cite><span class="photo tina"><img src="{{skin url="images/photo-img3.png"}}" alt="" /> </span><span class="author">Farrukh Naveed,</span> Corporate Marketing, <br />XYZ systems </cite></div>
+</div>
+</div>]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+            
+            <item>
+                <title>Innova Left Sidebar Banner Block</title>
+                <identifier>innova_left_sidebar_banner_block</identifier>
+                <content><![CDATA[<div class="block block-banner">
+<div id="slides">
+<div class="slides_container">
+<div><a title="" href="#" target="_self"><img title="" src="{{skin url="images/add-banner.png"}}" alt="" /></a></div>
+<div><a title="" href="#" target="_self"><img title="" src="{{skin url="images/add-banner1.png"}}" alt="" /></a></div>
+</div>
+</div>
+<script type="text/javascript">
+        jQuery(function(){
+        jQuery("#slides").slides({
+                generatePagination: false,
+                generateNextPrev: false,
+                effect: "fade",
+                crossfade: true,
+                play: 5000
+        });
+    });
+</script>
+</div>]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+            
+            <item>
+                <title>Innova Blog Banner Ad Block</title>
+                <identifier>innova_blog_banner_ad_block</identifier>
+                <content><![CDATA[<div class="ad-spots widget widget__sidebar">
+<h3 class="widget-title">Ad Spots</h3>
+<div class="widget-content"><a title="" href="#" target="_self"><img src="{{skin url="images/offer-banner1.jpg"}}" alt="offer banner" /></a></div>
+</div>]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+            
+            <item>
+                <title>Innova Blog Banner Text Block</title>
+                <identifier>innova_blog_banner_text_block</identifier>
+                <content><![CDATA[<div class="text-widget widget widget__sidebar">
+<h3 class="widget-title">Text Widget</h3>
+<div class="widget-content">Mauris at blandit erat. Nam vel tortor non quam scelerisque cursus. Praesent nunc vitae magna pellentesque auctor. Quisque id lectus.<br /> <br /> Massa, eget eleifend tellus. Proin nec ante leo ssim nunc sit amet velit malesuada pharetra. Nulla neque sapien, sollicitudin non ornare quis, malesuada.</div>
+</div>]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+            
+            <item>
+                <title>Innova Home Latest Blog Block</title>
+                <identifier>innova_home_latest_blog_block</identifier>
+                <content><![CDATA[<p>{{block type="blogmate/index" name="blog_home" template="blogmate/right/home_right.phtml"}}</p>]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+                
+        </blocks>
+    </cms>
+</innova>

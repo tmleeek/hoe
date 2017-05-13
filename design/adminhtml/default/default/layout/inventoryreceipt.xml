@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <inventoryreceipt_adminhtml_receipt_index>        
+        <update handle="inventoryplusadmin_adminhtml_inventory_menu" />         
+    </inventoryreceipt_adminhtml_receipt_index>
+    
+    <inventoryreceipt_adminhtml_receipt_products>
+        <block type="core/text_list" name="root">   
+            <block type="inventoryplus/adminhtml_stock" name="warehouse_id" template="inventoryreceipt/receipt/import.phtml" />
+            <block type="inventoryreceipt/adminhtml_inventoryreceipt_edit_tab_products" name="receipt.edit.tab.products"/>
+            <block type="adminhtml/widget_grid_serializer" name="related_grid_serializer">
+                <action method="initSerializerBlock">
+                    <grid_block_name>receipt.edit.tab.products</grid_block_name>
+                    <data_callback>getProductSelect</data_callback>
+                    <hidden_input_name>receipt_products</hidden_input_name>
+                    <reload_param_name>receipt_products</reload_param_name>
+                </action>
+                <action method="addColumnInputName">
+                    <input_name>add_qty</input_name>
+                </action>
+            </block>
+        </block>
+    </inventoryreceipt_adminhtml_receipt_products>
+    
+    <inventoryreceipt_adminhtml_receipt_productsgrid>
+        <block type="core/text_list" name="root">
+            <block type="inventoryreceipt/adminhtml_inventoryreceipt_edit_tab_products" name="receipt.edit.tab.products"/>
+        </block>
+    </inventoryreceipt_adminhtml_receipt_productsgrid>
+    
+    <inventoryreceipt_adminhtml_receiptlog_index>
+        <update handle="inventoryplusadmin_adminhtml_inventory_menu" />
+        <reference name="content">
+            <block type="inventoryreceipt/adminhtml_receiptlog" name="receiptlog" />
+        </reference>
+    </inventoryreceipt_adminhtml_receiptlog_index>
+    
+    <inventoryreceipt_adminhtml_receiptlog_view>
+        <update handle="inventoryplusadmin_adminhtml_inventory_menu" />       
+    </inventoryreceipt_adminhtml_receiptlog_view>
+    
+    <inventoryreceipt_adminhtml_receiptlog_products>
+        <block type="core/text_list" name="root">   
+            <block type="inventoryplus/adminhtml_stock" name="warehouse_id" template="inventoryreceipt/receiptlog/information.phtml" />
+            <block type="inventoryreceipt/adminhtml_receiptlog_edit_tab_products" name="receiptlog.edit.tab.products"/>
+            <block type="adminhtml/widget_grid_serializer" name="related_grid_serializer">
+                <action method="initSerializerBlock">
+                    <grid_block_name>receiptlog.edit.tab.products</grid_block_name>
+                    <data_callback>getProductSelect</data_callback>
+                    <hidden_input_name>receiptlog_products</hidden_input_name>
+                    <reload_param_name>receiptlog_products</reload_param_name>
+                </action>   
+                <action method="addColumnInputName">
+                    <input_name>receipt_qty</input_name>
+                </action>             
+            </block>
+        </block>
+    </inventoryreceipt_adminhtml_receiptlog_products>
+    
+    <inventoryreceipt_adminhtml_receiptlog_productsgrid>
+        <block type="core/text_list" name="root">
+            <block type="inventoryreceipt/adminhtml_receiptlog_edit_tab_products" name="receiptlog.edit.tab.products"/>
+        </block>
+    </inventoryreceipt_adminhtml_receiptlog_productsgrid>
+</layout>

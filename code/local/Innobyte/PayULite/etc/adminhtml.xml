@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Adminhtml config file.
+ *
+ * @category    Innobyte
+ * @package     Innobyte_PayULite
+ * @author      Bogdan Constantinescu <bogdan.constantinescu@innobyte.com>
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <Innobyte_PayULite translate="title" module="innobyte_payu_lite">
+                                        <title>Innobyte - PayU (Lite version)</title>
+                                        <sort_order>100</sort_order>
+                                    </Innobyte_PayULite>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Layout file.
+ *
+ * @category    Innobyte
+ * @package     Innobyte_PayULite
+ * @author      Bogdan Constantinescu <bogdan.constantinescu@innobyte.com>
+ */
+-->
+<layout version="0.1.0">
+    <innobyte_payu_lite_processing_placeform>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="head">
+            <action method="setTitle" translate="title" module="innobyte_payu_lite">
+                <title>PayU Gateway</title>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="innobyte_payu_lite/placeform"
+                   name="innobyte_payu_lite"
+                   template="innobyte/payu-lite/placeform.phtml"/>
+        </reference>
+    </innobyte_payu_lite_processing_placeform>
+</layout>

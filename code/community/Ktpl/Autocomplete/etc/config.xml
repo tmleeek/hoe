@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magedelight
+ * Copyright (C) 2014  Magedelight <info@krishinc.com>
+ *
+ * NOTICE OF LICENSE
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see http://opensource.org/licenses/gpl-3.0.html.
+ *
+ * @category   Ktpl
+ * @package    Ktpl_Autocomplete
+ * @copyright  Copyright (c) 2014 Mage Delight (http://www.magedelight.com/)
+ * @license    http://opensource.org/licenses/gpl-3.0.html GNU General Public License, version 3 (GPL-3.0)
+ * @author     Magedelight <info@krishinc.com>
+ */
+-->
+<config>
+	<modules>
+		<Ktpl_Autocomplete>
+			<version>1.0.0.2</version>
+		</Ktpl_Autocomplete>
+	</modules>
+	<global>
+		<blocks>
+			<autocomplete>
+				<class>Ktpl_Autocomplete_Block</class>
+			</autocomplete>
+		</blocks>
+		<helpers>
+			<autocomplete>
+				<class>Ktpl_Autocomplete_Helper</class>
+			</autocomplete>
+		</helpers>
+		<models>
+			<autocomplete>
+				<class>Ktpl_Autocomplete_Model</class>
+			</autocomplete>
+		</models>
+	</global>
+	<frontend>
+		<routers>
+			<autocomplete>
+				<use>standard</use>
+				<args>
+					<module>Ktpl_Autocomplete</module>
+					<frontName>autocomplete</frontName>
+				</args>
+			</autocomplete>
+		</routers>
+	   <layout>
+		  <updates>
+		      <autocomplete>
+		          <file>autocomplete.xml</file>
+		      </autocomplete>
+		  </updates>
+	   </layout>
+           <translate>
+            <modules>
+                <Ktpl_Autocomplete>
+                    <files>
+                        <default>Ktpl_Autocomplete.csv</default>
+                    </files>
+                </Ktpl_Autocomplete>
+            </modules>
+        </translate>
+	</frontend>
+	<adminhtml>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<autocomplete translate="title" module="autocomplete">
+											<title>Search Autocomplete Section</title>
+										</autocomplete>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+    		</acl>
+                <translate>
+                    <modules>
+                        <Ktpl_Autocomplete>
+                            <files>
+                                <default>Ktpl_Autocomplete.csv</default>
+                            </files>
+                        </Ktpl_Autocomplete>
+                    </modules>
+                </translate>
+	</adminhtml>
+	<default>
+		<autocomplete>
+			<general>
+				<enabled>1</enabled>
+				<result_list_mode>list</result_list_mode>
+				<minchar>3</minchar>
+				<product_limit>4</product_limit>
+				<show_outstock_products>0</show_outstock_products>
+				<open_new_window>0</open_new_window>
+				<not_found_notice>Your search returns no results.</not_found_notice>
+				<grid_column_count>2</grid_column_count>
+			</general>
+		</autocomplete>
+	</default>
+</config>

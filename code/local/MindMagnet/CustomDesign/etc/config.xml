@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+
+<config>
+    <modules>
+        <MindMagnet_CustomDesign>
+            <version>0.1.0</version>
+        </MindMagnet_CustomDesign>
+    </modules>
+
+    <default>
+        <mm_extra>
+            <maintainance_mode>                
+                <enabled>0</enabled>     
+                <exceptions>127.0.0.1</exceptions>         
+            </maintainance_mode>      
+        </mm_extra>
+    </default>
+
+    <frontend>  
+        <routers>
+            <customdesign>
+                <use>standard</use>
+                <args>
+                    <module>MindMagnet_CustomDesign</module>
+                    <frontName>customdesign</frontName>
+                </args>
+            </customdesign>
+            <contacts>
+                <args>
+                    <modules>
+                        <MindMagnet_CustomDesign before="Mage_Contacts">MindMagnet_CustomDesign_Contacts</MindMagnet_CustomDesign>
+                    </modules>
+                </args>
+            </contacts>
+            <newsletter>
+                <args>
+                    <modules>
+                        <MindMagnet_CustomDesign before="Mage_Newsletter">MindMagnet_CustomDesign_Newsletter</MindMagnet_CustomDesign>
+                    </modules>
+                </args>
+            </newsletter>
+            <wishlist>
+                <args>
+                    <modules>
+                        <MindMagnet_CustomDesign before="Mage_Wishlist">MindMagnet_CustomDesign_Wishlist</MindMagnet_CustomDesign>
+                    </modules>
+                </args>
+            </wishlist>
+        </routers>       
+    </frontend>
+    <global>               
+         <models>             
+            <customdesign>                
+                <class>MindMagnet_CustomDesign_Model</class>                
+            </customdesign>            
+        </models>        
+        <blocks>
+            <customdesign>
+                <class>MindMagnet_CustomDesign_Block</class>
+            </customdesign>
+        </blocks>
+        <helpers>
+            <customdesign>
+                <class>MindMagnet_CustomDesign_Helper</class>
+            </customdesign>
+        </helpers>
+    </global>
+    
+    <crontab>
+        <jobs>
+            <catalog_product_alert>
+                <schedule><cron_expr>*/5 * * * *</cron_expr></schedule>
+                <run><model>productalert/observer::process</model></run>
+            </catalog_product_alert>
+        </jobs>
+    </crontab>
+    
+    <adminhtml>
+        <layout>
+            <updates>
+                <MindMagnet_CustomDesign>
+                    <file>customdesign.xml</file>
+                </MindMagnet_CustomDesign>
+            </updates>
+        </layout>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <mm_extra>
+                                            <title>MindMagnet Extra Settings</title>
+                                        </mm_extra>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+   
+</config>

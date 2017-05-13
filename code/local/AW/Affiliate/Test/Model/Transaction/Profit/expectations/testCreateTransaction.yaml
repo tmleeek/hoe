@@ -1,0 +1,10 @@
+test_1: # rate: 5%, subtotal: 15, shipping: 0, tax: 1; discount: 5, consider_tax: off
+  amount: 0.5
+test_2: # rate: 5%, subtotal: 15, shipping: 0, tax: 1; discount: 5, consider_tax: on
+  amount: 0.55
+test_3: # rate: 5%, subtotal: 1000, shipping: 5, tax: 0; discount: 0, consider_tax: off
+  amount: 50
+test_4: # rate: 40$, order has 1 invoice
+  amount: 40
+test_5: # rate: 40$, order has 2 invoices
+  amount: 0

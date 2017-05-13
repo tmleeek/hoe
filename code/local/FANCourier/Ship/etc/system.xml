@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<sections>
+		<carriers>
+			<groups>
+				<FANCourier translate="label" module="ship">
+					<label>FAN Courier - Romania</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<active translate="label">
+							<label>A se utiliza modulul FAN Courier</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<title translate="label">
+							<label>Titlu<![CDATA[<BR>]]><![CDATA[<BR><b>]]>Securitate:<![CDATA[<BR></b>]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>2</sort_order>
+                                                        <comment><![CDATA[Necesar pentru identificarea operatorului de curierat.
+                                                        <span class="notice">Exemplu: FAN Courier</span>]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+                                               <clientid translate="label">
+                                                    <label>Client ID</label>
+                                                    <frontend_type>text</frontend_type>
+                                                    <sort_order>3</sort_order>
+                                                    <show_in_default>1</show_in_default>
+                                                    <show_in_website>1</show_in_website>
+                                                    <show_in_store>1</show_in_store>
+                                                </clientid>
+						<username translate="label">
+							<label>Cont utilizator</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</username>
+						<password translate="label">
+							<label>Parola</label>
+							<frontend_type>password</frontend_type>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</password>
+						<onlyadm translate="label">
+							<label>Confirmare AWB de catre Admin<![CDATA[<BR>]]><![CDATA[<BR><b>]]>Optiuni AWB:<![CDATA[<BR></b>]]></label>
+                                                        <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</onlyadm>
+						<parcel translate="label">
+							<label>Expediere colete</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>7</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</parcel>
+						<labels translate="label">
+							<label>Numar pachete / AWB</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>8</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</labels>
+						<paymentdest translate="label">
+							<label>Plata AWB la destinatie</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>9</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</paymentdest>
+						<fara_tva translate="label">
+							<label>Afisare pret fara TVA</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</fara_tva>
+						
+						<doar_km translate="label">
+							<label>Afisare pret doar km suplimentari</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>11</sort_order>
+											<comment><![CDATA[In cadrul acestei optiuni este necesar sa se seteze Plata AWB la destinatie - Nu si Adaugare taxa transp. la ramburs - Da
+                                                        ]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</doar_km>
+						
+						<aplicare_curs translate="label">
+							<label>Tarife de baza in valuta</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>12</sort_order>
+                                                        <comment><![CDATA[A se activa doar daca tarifele produselor sunt in alta valuta fata de SubTotal.
+                                                        <span class="notice">SubTotal trebuie sa fie obligatoriu in RON</span>]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</aplicare_curs>
+						<payment0 translate="label">
+							<label>Ascundere taxa de transport</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>13</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</payment0>
+						<min_gratuit_bucuresti translate="label">
+							<label>Suma minima transport gratuit in Bucuresti</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>14</sort_order>
+                                                        <comment><![CDATA[Completati o valoare diferita de 0 pentru ascunderea taxei de transport la comenzi ce depasesc aceasta valoare.
+                                                        <span class="notice">Exemplu: 100</span>]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</min_gratuit_bucuresti>
+						<min_gratuit_tara translate="label">
+							<label>Suma minima transport gratuit in tara</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>15</sort_order>
+                                                        <comment><![CDATA[Completati o valoare diferita de 0 pentru ascunderea taxei de transport la comenzi ce depasesc aceasta valoare.
+                                                        <span class="notice">Exemplu: 100</span>]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</min_gratuit_tara>
+						<suma_fixa translate="label">
+							<label>Afisare suma fixa<![CDATA[<BR>]]><![CDATA[<BR><BR><b>]]>Optiuni ramburs:<![CDATA[<BR></b>]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>16</sort_order>
+                                                        <comment><![CDATA[Completati o valoare diferita de 0 pentru afisarea sumei fixe la taxa de transport.
+                                                        <span class="notice">Exemplu: 10</span>]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</suma_fixa>
+						<cashondelivery translate="label">
+							<label>Ramburs doar Cash On Delivery</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>17</sort_order>
+                                                        <comment><![CDATA[<span class="notice">Atentie! </span>Aceasta optiune este valabila doar daca modalitatea de plata este selectata inainte de calcularea costului de transport.
+                                                        ]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</cashondelivery>
+						<ramburs translate="label">
+							<label>Solicitare ramburs valoare marfa</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>18</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</ramburs>
+						<totalrb translate="label">
+							<label>Adaugare taxa transp. la ramburs </label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>19</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</totalrb>
+						<contcolector translate="label">
+							<label>Solicitare ramburs in cont bancar</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</contcolector>
+						<paymentrbdest translate="label">
+							<label>Plata ramburs la destinatie<![CDATA[<BR>]]><![CDATA[<BR><b>]]>Asigurare:<![CDATA[<BR></b>]]></label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>21</sort_order>
+                                                        <comment>Nu se aplica pentru serviciile de tip Cont Colector.</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</paymentrbdest>
+						<asigurare translate="label">
+							<label>Declarare valoare continut</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>22</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</asigurare>
+						<content translate="label">
+							<label>Imprimare SKU/Continut<![CDATA[<BR>]]><![CDATA[<BR><b>]]>Observatii si note:<![CDATA[<BR></b>]]></label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>23</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</content>
+						<comment translate="label">
+							<label>Observatii (imprimare pe AWB)<![CDATA[<BR>]]><![CDATA[<BR><b>]]>Servicii specifice disponibile:<![CDATA[<BR></b>]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>24</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</comment>
+						<redcode translate="label">
+							<label>Afisare optiune RedCode</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>25</sort_order>
+                                                        <comment>Serviciu disponibil doar intre agentiile FAN Courier.</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</redcode>
+						<express translate="label">
+							<label>Afisare optiune ExpressLoco<![CDATA[<BR>]]><![CDATA[<BR><b>]]>Optiuni afisare:<![CDATA[<BR></b>]]></label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>26</sort_order>
+                                                        <comment>Disponibil doar pentru ridicare si livrare in Bucuresti.</comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</express>
+						<deschidere translate="label">
+							<label>Deschidere la livrare</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>27</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<value>A</value>
+						</deschidere>
+                                                <sort_order translate="label">
+                                                    <label>Ordine afisare</label>
+                                                    <frontend_type>text</frontend_type>
+                                                    <sort_order>100</sort_order>
+                                                    <show_in_default>1</show_in_default>
+                                                    <show_in_website>1</show_in_website>
+                                                    <show_in_store>0</show_in_store>
+                                                </sort_order>
+					</fields>
+				</FANCourier>
+			</groups>
+		</carriers>
+	</sections>
+</config>

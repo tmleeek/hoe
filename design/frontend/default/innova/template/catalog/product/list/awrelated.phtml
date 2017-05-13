@@ -1,0 +1,190 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This software is designed to work with Magento community edition and
+ * its use on an edition other than specified is prohibited. aheadWorks does not
+ * provide extension support in case of incorrect edition use.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Relatedproducts
+ * @version    1.4.3
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?>
+<?php if($this->getEnabled() && count($this->getRelatedProductsCollection())): ?>
+
+<!--<div class="aw-box aw-base-mini aw-mini-related-items block">-->
+    <div class="related-block">
+        <div class="block-title">
+            <h2><span><?php echo $this->__('Produse Cumpărate Împreună') ?></span></h2>
+        </div>
+        
+        <a id="products_slider_prev4" class="jcarousel-prev-horizontal1" href="#"></a>
+        <a id="products_slider_next4" class="jcarousel-next-horizontal1" href="#"></a>
+        <div class="block-content">
+
+            <div class="jcarousel-skin-tango5">
+                <div class="jcarousel-container jcarousel-container-horizontal" style="position: relative; display: block;">
+                  <div class="jcarousel-clip jcarousel-clip-horizontal" style="overflow: hidden; position: relative;">
+                        <ul class="products-grid jcarousel-list jcarousel-list-horizontal" id="products_slider4" style="overflow: hidden; position: relative; top: 0px; margin: 0px; padding: 0px; left: -1176px; width: 2452px;">
+
+                        <?php foreach($this->getRelatedProductsCollection() as $_item): ?>
+                            <li class="item jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal">
+                                <div class="item-inner">
+                                    
+                                    <div class="item-img">
+                                        <div class="item-img-info">
+                                            <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>" class="product-image">
+                                                <img src="<?php echo $this->helper('catalog/image')->init($_item, 'small_image')->resize(245,245) ?>" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" />
+                                            </a>
+
+
+                                            <?php echo $this->helper('innovasettings')->getLabel($_item);  ?>
+                                            <?php if(Mage::app()->getStore()->getConfig('innovasettings/innovasettings_quickview/enable')==1){?>
+
+                                                <div class="item-box-hover">
+                                                    <div class="box-inner">
+                                                        <div class="product-detail-bnt">
+                                                            <a data-fancybox-type="ajax" onclick="callQuickView('<?php echo Mage::getUrl('innovasettings/index/view/id/'.$_item->getId());?>');" title="<?php echo $this->__('Quick View') ?>" class="button detail-bnt"><span><?php echo $this->__('Quick View') ?></span></a>
+                                                        </div> <!--product-detail-bnt-->
+                                                    </div> <!--box-inner-->
+                                                </div> <!--item-box-hover-->
+                                            <?php } ?>
+
+                                        </div> <!--item-img-info-->
+                                    </div> <!--item-img-->
+                                    <div class="item-info">
+                                        <div class="info-inner">
+                                            <div class="item-title">
+                                                <a class="product-name" href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->stripTags($_item->getName(), null, true) ?>">
+                                                    <?php $prod_name = $this->htmlEscape($_item->getName()) ;
+                                                    if(strlen($prod_name) > 20) {echo substr($prod_name,0,20)."...";}else {echo $prod_name;}
+                                                    ?>
+
+                                                </a>
+                                               
+                                            </div> <!--item-title-->
+
+                                            <div class="item-content">
+                                                <?php
+                                                $summaryData = Mage::getModel('review/review_summary')
+                                                    ->setStoreId(Mage::app()->getStore()->getId())
+                                                    ->load($_item->getId());
+                                                if($summaryData->getRatingSummary()){ ?>
+                                                    <div class="ratings">
+                                                        <div class="rating-box">
+                                                            <div class="rating" style="width: <?php echo $summaryData->getRatingSummary().'%'; ?>"></div>
+                                                        </div> <!--rating-box-->
+                                                    </div> <!--ratings-->
+                                                <?php } else { ?>
+                                                    <div class="no-rating-box-blank"><div class="no-rating-box"></div></div>
+                                                <?php } ?>
+                                                <div class="item-price">
+                                                    <?php echo $this->getPriceHtml($_item, true, '-related') ?>
+                                                </div> <!--item-price-->
+                                            </div> <!--item-content-->
+                                        </div> <!--info-inner-->
+
+                                        <div class="actions">
+                                     <span class="add-to-links">
+                                        <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                                            <a href="<?php echo $this->helper('wishlist')->getAddUrl($_item) ?>" class="link-wishlist" title="<?php echo $this->__('Add to wishlist');?>"></a>
+                                        <?php endif; ?>
+                                         <?php if($_item->isSaleable()): ?>
+                                             <button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($_item) ?>')"><span><?php echo $this->__('Add to Cart') ?></span></button>
+                                         <?php else: ?>
+                                             <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                                         <?php endif; ?>
+                                         <?php if($_compareUrl=$this->getAddToCompareUrl($_item)): ?>
+                                             <a href="<?php echo $_compareUrl ?>" class="link-compare" title="<?php echo $this->__('Add to compare');?>"></a>
+                                         <?php endif; ?>
+                                     </span> <!--add-to-links-->
+                                        </div> <!--actions-->
+
+                                    </div> <!--item-info-->
+                                </div> <!--item-inner-->
+                            </li>
+                        <?php endforeach ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<script type="text/javascript">
+<!--
+$$('.aw-related-checkbox').each(function(elem){
+    Event.observe(elem, 'click', addAwRelatedToProduct)
+});
+
+var relatedAwProductsCheckFlag = false;
+function selectAllAwRelated(txt){
+    if (relatedAwProductsCheckFlag == false) {
+        $$('.aw-related-checkbox').each(function(elem){
+            elem.checked = true;
+        });
+        relatedAwProductsCheckFlag = true;
+        txt.innerHTML="<?php echo $this->__('unselect all') ?>";
+    } else {
+        $$('.aw-related-checkbox').each(function(elem){
+            elem.checked = false;
+        });
+        relatedAwProductsCheckFlag = false;
+        txt.innerHTML="<?php echo $this->__('select all') ?>";
+    }
+    addAwRelatedToProduct();
+}
+
+function addAwRelatedToProduct(){
+    var checkboxes = $$('.aw-related-checkbox');
+    var values = [];
+    for(var i=0;i<checkboxes.length;i++){
+        if(checkboxes[i].checked) values.push(checkboxes[i].value);
+    }
+    
+    if($('related-products-field')){
+        $('related-products-field').value = values.join(',');
+    }
+    
+}
+//-->
+</script>
+
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+
+    function mycarousel_initCallback(carousel) {
+      $('#products_slider_next4').bind('click', function() {
+          carousel.next();
+          return false;
+      });
+      $('#products_slider_prev4').bind('click', function() {
+          carousel.prev();
+          return false;
+      });
+    };
+
+    $('#products_slider4').jcarousel({
+      scroll: 1,
+      initCallback: mycarousel_initCallback,
+      buttonNextHTML: null,
+      buttonPrevHTML: null,
+      itemFallbackDimension: 300
+    });
+  });
+</script>
+<?php endif ?>

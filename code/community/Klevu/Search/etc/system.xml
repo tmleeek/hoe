@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <klevu_search translate="label" module="klevu_search">
+            <label>Klevu Search</label>
+            <tab>catalog</tab>
+            <sort_order>50</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <information translate="label">
+                    <label>Information</label>
+                    <sort_order>1</sort_order>
+                    <expanded>1</expanded>
+                    <frontend_model>klevu_search/adminhtml_form_information</frontend_model>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </information>
+                <general translate="label">
+                    <label>General Settings</label>
+                    <sort_order>100</sort_order>
+                    <expanded>1</expanded>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable on Frontend</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <test_mode translate="label comment">
+                            <label>Enable Test Mode</label>
+                            <comment><![CDATA[When Test Mode is enabled, Klevu Search will use the test API credentials for all operations. Test Mode is automatically enabled, regardless of this setting, when the store base url contains any of the following words: staging, local, dev.]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>120</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </test_mode>
+                        <js_api_key translate="label comment">
+                            <label>JS API Key</label>
+                            <comment><![CDATA[This API key is used for searches in the frontend.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>121</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </js_api_key>
+                        <rest_api_key translate="label comment">
+                            <label>REST API Key</label>
+                            <comment><![CDATA[This API key is used for syncing product information in the backend.]]></comment>
+                            <sort_order>122</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rest_api_key>
+                        <test_js_api_key translate="label comment">
+                            <label>Test JS API Key</label>
+                            <comment><![CDATA[This API key is used for searches in the frontend when test mode is enabled.]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>123</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </test_js_api_key>
+                        <test_rest_api_key translate="label comment">
+                            <label>Test REST API Key</label>
+                            <comment><![CDATA[This API key is used for syncing product information in the backend when test mode is enabled.]]></comment>
+                            <sort_order>124</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </test_rest_api_key>
+                        <wizard translate="button_label">
+                            <label></label>
+                            <frontend_model>klevu_search/adminhtml_wizard_config_button</frontend_model>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </wizard>
+                    </fields>
+                </general>
+                <product_sync translate="label">
+                    <label>Product Sync Settings</label>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label comment">
+                            <label>Enable Product Sync</label>
+                            <comment><![CDATA[Product Sync is automatically disabled when the store base url contains any of the following words: staging, local, dev. If you want to enable Product Sync in those environments, select "Forced".]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>klevu_search/system_config_source_yesnoforced</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <frequency translate="label">
+                            <label>Frequency</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>klevu_search/system_config_source_frequency</source_model>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </frequency>
+                        <last_run translate="label">
+                            <label>Last Run</label>
+                            <frontend_model>klevu_search/adminhtml_form_field_store_level_label</frontend_model>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </last_run>
+                        <sync_button>
+                            <label></label>
+                            <frontend_model>klevu_search/adminhtml_form_field_sync_button</frontend_model>
+                            <sort_order>400</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sync_button>
+                    </fields>
+                </product_sync>
+                <attributes translate="label">
+                    <label>Product Attribute Mappings</label>
+                    <sort_order>300</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <additional translate="label comment">
+                            <label>Additional attributes</label>
+                            <comment><![CDATA[Here you can set optional product attributes sent to Klevu by mapping them to your Magento attributes. If you specify multiple mappings for the same Klevu attribute, only the first mapping found on the product sent will be used, except for the "Other" attribute where all existing mappings are used.]]></comment>
+                            <frontend_model>klevu_search/adminhtml_form_field_attribute_mappings</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>300</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </additional>
+                    </fields>
+                </attributes>
+                <order_sync translate="label">
+                    <label>Order Sync Settings</label>
+                    <sort_order>400</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_default>1</show_in_default>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label comment">
+                            <label>Enable Order Sync</label>
+                            <comment><![CDATA[Order Sync is automatically disabled when the store base url contains any of the following words: staging, local, dev. If you want to enable Order Sync in those environments, select "Forced".]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>klevu_search/system_config_source_yesnoforced</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <frequency translate="label">
+                            <label>Frequency</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>klevu_search/system_config_source_frequency</source_model>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </frequency>
+                        <last_run translate="label">
+                            <label>Last Run</label>
+                            <frontend_type>label</frontend_type>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </last_run>
+                    </fields>
+                </order_sync>
+                <developer translate="label">
+                    <label>Developer Settings</label>
+                    <sort_order>900</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <force_log translate="label comment">
+                            <label>Force Logging</label>
+                            <comment><![CDATA[Use this setting to override default Magento log settings and enable logging. Log messages are saved in Klevu_Search.log]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </force_log>
+                        <log_level translate="label">
+                            <label>Log level</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>klevu_search/system_config_source_log_level</source_model>
+                            <backend_model>klevu_search/config_log_level</backend_model>
+                            <sort_order>310</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </log_level>
+                    </fields>
+                </developer>
+            </groups>
+        </klevu_search>
+    </sections>
+</config>

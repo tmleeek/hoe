@@ -1,0 +1,208 @@
+<?php
+    $dev = Mage::helper('developertoolbar');
+	$getConfigCustomer = Mage::getStoreConfig('dev/developertoolbar/enablename');
+	$getCustomer = Mage::getSingleton('customer/customer')->load(Mage::getSingleton('customer/session')->getId())->getEmail();
+	$getCustomerArray = explode(",",$getConfigCustomer);
+
+	$getConfigIp = Mage::getStoreConfig('dev/developertoolbar/enableip');
+	$getIp = $_SERVER["REMOTE_ADDR"];
+	$getIprArray = explode(",",$getConfigIp);
+
+	$getConfigIp==""?$checkip=false:$checkip=true;
+	$enablename = false;
+	for($i=0;$i<sizeof($getCustomerArray);$i++)
+	{
+		if($getCustomer == trim($getCustomerArray[$i]))
+		{
+			$enablename = true;
+			break;
+		}
+	}
+
+	$getConfigCustomer==""?$checkcustomer=false:$checkcustomer=true;
+
+	$enableip = false;
+	for($i=0;$i<sizeof($getIprArray);$i++)
+	{
+		if($getIp == trim($getIprArray[$i]))
+		{
+			$enableip = true;
+			break;
+		}
+	}
+	$case=false;
+	if(!$checkip && !$checkcustomer && Mage::getStoreConfig('dev/developertoolbar/enabled')) $case=true;
+
+	if($checkip && !$checkcustomer)
+	{
+		if(Mage::getStoreConfig('dev/developertoolbar/enabled') && $enableip) $case=true;
+	}
+	else if(!$checkip && $checkcustomer)
+	{
+		if(Mage::getStoreConfig('dev/developertoolbar/enabled') && $enablename) $case=true;
+	}
+	else if($checkip && $checkcustomer)
+	{
+		if(((Mage::getStoreConfig('dev/developertoolbar/enabled') && $enablename)) && ((Mage::getStoreConfig('dev/developertoolbar/enabled') && $enableip))) $case =true;
+	}
+
+	if(!$case)
+	{
+	//	exit;
+	}
+	else
+	{
+?>
+<?php $_htacces_ok = $_SERVER['DOCUMENT_ROOT'].'/var/.htaccess' ?>
+<?php $_htacces_dev = $_SERVER['DOCUMENT_ROOT'].'/var/dev.htaccess' ?>
+<?php
+    if( Mage::getStoreConfig('dev/log/active') != 1 ){
+        if (file_exists($_htacces_dev)) {
+            rename($_htacces_dev,$_htacces_ok);
+        }
+    }
+    else{
+        if (file_exists($_htacces_ok)) {
+            rename($_htacces_ok,$_htacces_dev);
+        }
+    }
+?>
+<?php echo $dev->getDeveloperToolbar() ?>
+
+<div class="developertoolbar" id="developertoolbar">
+    <ul class="Nav_devToolbar">
+        <?php /* ?>
+        <li class="CONF">
+            <div onclick="setVisibility('CONF')" id='Conf' title="hide" class="Link Conf">CONF</div>
+            <div class="CONF PopUp" id="CONF" style="display: none;">
+                <div onclick="setVisibility('CONF')" id='Conf' title="hide">X</div>
+                <ul class="H_PopUp"><li><?php echo $dev->extension_check(array( 'curl', 'dom', 'gd', 'hash', 'iconv', 'mcrypt', 'pcre', 'pdo', 'pdo_mysql', 'simplexml' )); ?></li></ul>
+            </div>
+        </li>
+        <?php */ ?>
+        <li id='NavDX'>
+            <div onclick="setVisibility('NavDev')" id='NavD' title="hide" class="Link ">MENU</div>
+            <ul id="NavDev" style="display: none;">
+                <div href="#" onclick="setVisibility('NavDev')" id='NavD' title="hide">X</div>
+                <li class="first"><a <?php if (Mage::getStoreConfig('dev/debug/template_hints') != '1') echo ' class="disabled "'; ?> href="<?php echo $this->getUrl('developertoolbar/index/hints/enabled/'.(Mage::getStoreConfig('dev/debug/template_hints')!='1'?1:0).'/type/front') ?>">Frontend Hints</a></li>
+                <li><a <?php if (Mage::getStoreConfig('dev/debug/template_hints', 0) != '1') echo ' class="disabled "'; ?> href="<?php echo $this->getUrl('developertoolbar/index/hints/enabled/'.(Mage::getStoreConfig('dev/debug/template_hints', 0)!='1'?1:0).'/type/back') ?>">Backend Hints</a></li>
+                <li><a <?php if (Mage::getStoreConfig('dev/log/active') != '1') echo ' class="disabled "'; ?> href="<?php echo $this->getUrl('developertoolbar/index/log/enabled/'.(Mage::getStoreConfig('dev/log/active')!='1'?1:0)) ?>">Logs</a></li>
+                <li><a id="disabled" <?php if (Mage::getStoreConfig('dev/js/merge_files') != '1') echo ' class="disabled "'; ?> href="<?php echo $this->getUrl('developertoolbar/index/js/enabled/'.(Mage::getStoreConfig('dev/js/merge_files')!='1'?1:0)) ?>">Merge JS</a></li>
+                <li><a id="disabled" <?php if (Mage::getStoreConfig('dev/css/merge_css_files') != '1') echo ' class="disabled "'; ?> href="<?php echo $this->getUrl('developertoolbar/index/css/enabled/'.(Mage::getStoreConfig('dev/css/merge_css_files')!='1'?1:0)) ?>">Merge CSS</a></li>
+                <li><a <?php if (Mage::getStoreConfig('web/url/use_store') != '1') echo ' class="disabled "'; ?> href="<?php echo $this->getUrl('developertoolbar/index/url/enabled/'.(Mage::getStoreConfig('web/url/use_store')!='1'?1:0)) ?>">Store Code in Urls</a></li>
+                <li><a id="disabled" <?php if (Mage::getStoreConfig('web/seo/use_rewrites') != '1') echo ' class="disabled "'; ?> href="<?php echo $this->getUrl('developertoolbar/index/seo/enabled/'.(Mage::getStoreConfig('web/seo/use_rewrites')!='1'?1:0)) ?>">SEO Rewrites</a></li>
+                <li><a id="disabled" <?php if (Mage::getStoreConfig('dev/translate_inline/active') != '1') echo ' class="disabled "'; ?> href="<?php echo $this->getUrl('developertoolbar/index/translate/enabled/'.(Mage::getStoreConfig('dev/translate_inline/active')!='1'?1:0)) ?>">Translate Inline</a></li>
+                <li><a class="CleanupD" href="<?php echo $this->getUrl('developertoolbar/index/cache/') ?>">Clean & Disable All Cache</a></li>
+                <li><a class="Cleanup" href="?cleanup=1">Cleanup All Files Cache & Session</a></li>
+                <li><a class="Cleanup" href="?cleanup=2">Cleanup All Files Cache</a></li>
+                <li><a class="Cleanup" href="?cleanup=3">Clean Session</a></li>
+                <li><a class="Cleanup" href="?permision=1">Set Permision All</a></li>
+                <li><a class="Cleanup" href="?permision=2">Set Permision Folder & Files</a></li>
+                <li class="last"><a class="Cleanup" href="?permision=3">Set Permision PEAR</a></li>
+            </ul>
+        </li>
+        <li class="LOG">
+            <div onclick="setVisibility('LOG')" id='Log' title="hide" class="Link ">LOGS</div>
+            <div class="LOG PopUp" id="LOG" style="display: none;">
+                <div onclick="setVisibility('LOG')" id='Server' title="hide">X</div>
+                <ul class="H_PopUp Scrollbar"><li></li></ul>
+            </div>
+        </li>
+        <li class="SERVER">
+            <div onclick="setVisibility('SERVER')" id='Server' title="hide" class="Link ">SERVER</div>
+            <div class="SERVER PopUp" id="SERVER" style="display: none;">
+                <div onclick="setVisibility('SERVER')" id='Server' title="hide">X</div>
+                <ul class="H_PopUp Scrollbar"><li><?php echo $dev->getPrintArray( $_SERVER ); ?></li></ul>
+            </div>
+        </li>
+        <li class="SESSION">
+            <div onclick="setVisibility('SESSION')" id='Session' title="hide" class="Link ">SESSION</div>
+            <div class="SESSION PopUp" id="SESSION" style="display: none;">
+                <div onclick="setVisibility('SESSION')" id='Session' title="hide">X</div>
+                <ul class="H_PopUp Scrollbar"><li><?php echo $dev->getPrintArray( $_SESSION ); ?></li></ul>
+            </div>
+        </li>
+        <li class="POST">
+            <div onclick="setVisibility('POST')" id='PostS' title="hide" class="Link ">POST</div>
+            <div class="POST PopUp" id="POST" style="display: none;">
+                <div onclick="setVisibility('POST')" id='PostS' title="hide">X</div>
+                <ul class="H_PopUp Scrollbar"><li><?php echo $dev->getPrintArray( $_POST ); ?></li></ul>
+            </div>
+        </li>
+        <li class="GET">
+            <div onclick="setVisibility('GET')" id='GetS' title="hide" class="Link ">GET</div>
+            <div class="GET PopUp" id="GET" style="display: none;">
+                <div onclick="setVisibility('GET')" id='GetS' title="hide">X</div>
+                <ul class="H_PopUp Scrollbar"><li><?php echo $dev->getPrintArray( $_GET ); ?></li></ul>
+            </div>
+        </li>
+        <li class="COOKIE">
+            <div onclick="setVisibility('COOKIE')" id='Cookie' title="hide" class="Link ">COOKIE</div>
+            <div class="COOKIE PopUp" id="COOKIE" style="display: none;">
+                <div onclick="setVisibility('COOKIE')" id='Cookie' title="hide">X</div>
+                <ul class="H_PopUp Scrollbar"><li><?php echo $dev->getPrintArray( $_COOKIE ); ?></li></ul>
+            </div>
+        </li>
+    </ul>
+    <div class="rez_1 REZU" title="Window rezolution"></div>
+    <div class="rez_2 REZU" title="Monitor rezolution"></div>
+    <div style="display: none;" title="Color Palette" class="ColorPalette">
+        <ul>
+            <?php
+                $_ColorsPalete = Mage::getStoreConfig('dev/colorpalete');
+                if($_ColorsPalete){
+                    foreach ($_ColorsPalete as $color) {
+                        if( $color != '' ){
+                            echo '<li><span style="background-color: '.$color.';"></span><em>'.$color.'</em></li>';
+                        }
+                    }
+                }
+            ?>
+        </ul>
+    </div>
+
+    <script language="javascript">
+        jQuery(document).ready(function($) {
+            var viewportWidth = jQuery(document).width();
+            var viewportHeight = jQuery(window).height();
+            var HeightWindow = viewportHeight / 2 ;
+            jQuery('.rez_1').text(viewportWidth+" x "+viewportHeight);
+            jQuery('.rez_2').text(screen.width+" x "+screen.height);
+            jQuery('.PopUp, .H_PopUp').css('max-height', Math.ceil(HeightWindow));
+        });
+
+        jQuery(window).resize(function($) {
+            var viewportWidth = jQuery(document).width();
+            var viewportHeight = jQuery(window).height();
+            var HeightWindow = viewportHeight / 2 ;
+            jQuery('.rez_1').text(viewportWidth+" x "+viewportHeight);
+            jQuery('.rez_2').text(screen.width+" x "+screen.height);
+            jQuery('.PopUp, .H_PopUp').css('max-height', Math.ceil(HeightWindow));
+        });
+
+        jQuery('.REZU').click(function($){
+            if( jQuery('.ColorPalette').hasClass('active') ){
+                jQuery('.ColorPalette').removeClass('active').hide();
+            }
+            else {
+                jQuery('.ColorPalette').addClass('active').show();
+            }
+        });
+
+        jQuery(document).ready(function($){
+            jQuery('#Log').click(function($){
+                var wordList = [];
+                jQuery.get('/var/log/system.log', function(data){
+                    data = '<pre>'+data+'</pre>';
+                    var delete_logs = '<a href="?clear-log=1" class="delete_logs">Delete logs</a>';
+                    jQuery('li.LOG .H_PopUp li').html(delete_logs+data);
+                });
+            });
+
+            jQuery('li.LOG div#Server, li.LOG > div#Log').click(function($){
+                jQuery('li.LOG ul.H_PopUp li').empty();
+            });
+        });
+    </script>
+</div>
+<?php } ?>

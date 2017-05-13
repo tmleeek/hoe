@@ -1,0 +1,34 @@
+<?php /* Top cart */ ?>
+<div class="top-cart-contain">
+  <div class="mini-cart">
+<!-- BEGIN BUTTON DROPDOWN TOGGLE -->
+   <div class="basket dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"> 
+       <a href="<?php echo $this->getUrl('checkout/cart') ?>"><span><?php echo $this->__('Shopping Cart') ?> (<?php if(Mage::helper('checkout/cart')->getSummaryCount() > 1) { echo Mage::helper('checkout/cart')->getSummaryCount(); } elseif(Mage::helper('checkout/cart')->getSummaryCount() == 1) { echo "1"; }  else {echo "0"; } ?>) </span></a>       
+    </div> <!--basket dropdown-toggle-->
+<!-- BEGIN DROPDOWN MENU -->
+    <div>
+<!-- BEGIN BLOCK CONTENT -->
+      <div class="top-cart-content arrow_box">
+         <?php $_items = $this->getRecentItems() ?>
+         <?php if(count($_items)): ?>   
+           <div class="block-subtitle"><?php echo $this->__('Recently added item(s)') ?></div> 
+            <ul id="cart-sidebar" class="mini-products-list">
+               <?php foreach($_items as $_item): ?>
+                   <?php echo $this->getItemHtml($_item) ?>
+               <?php endforeach; ?>               
+            </ul>  
+            <div class="top-subtotal">
+              <?php echo $this->__('Subtotal:') ?><span class="price"><?php echo Mage::helper('checkout')->formatPrice($this->getSubtotal()) ?></span>
+            </div> <!--top-subtotal-->
+            <div class="actions">
+              <button type="button" title="<?php echo $this->__('Checkout') ?>" class="btn-checkout" onclick="window.location='<?php echo $this->getCheckoutUrl() ?>';"><span><?php echo $this->__('Checkout') ?></span></button>                         
+              <button type="button" class="view-cart" onclick="window.location='<?php echo $this->getUrl('checkout/cart') ?>';" title="<?php echo $this->__('View Cart') ?>"><span><?php echo $this->__('View Cart') ?></span></button>                               
+            </div>  <!--actions-->
+                           
+           <?php else: ?>               
+                <p class="empty"><?php echo $this->__('You have no items in your shopping cart.') ?></p>               
+            <?php endif ?>
+      </div> <!--top-cart-content arrow_box-->
+    </div> 
+  </div> <!--mini-cart-->     
+</div> <!--top-cart-contain-->  

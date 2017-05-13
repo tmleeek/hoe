@@ -1,0 +1,35 @@
+<?php 
+/* New Products */
+?>
+<?php  $_helper = $this->helper('catalog/output'); ?>
+<?php if (($_products = $this->getProductCollection()) && $_products->getSize()): ?>
+<div class="row">
+<?php $_columnCount = $this->getColumnCount(); ?> 
+    <?php $i=0; foreach ($_products->getItems() as $_product): ?>
+        <?php if ($i++%$_columnCount==0): ?>      
+        <?php endif ?> 
+         <div class="grid6">
+          <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(210,210) ?>" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" />      
+         </div> <!--grid6-->
+         <div class="grid6 last">
+          <div class="pr-title">             
+              <?php $prod_name = $this->htmlEscape($_product->getName()) ; 
+                  if(strlen($prod_name) > 20) {echo substr($prod_name,0,20)."...";} else {echo $prod_name;} ?>       
+          </div> <!--pr-title-->
+          <p><?php $desc_name=$_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?><?php if(strlen($desc_name) > 40) { echo substr($desc_name,0,40)."..."; } else { echo $desc_name; }?></p>
+          <div class="pr-price">
+             <?php echo $this->getPriceHtml($_product, true, '-new') ?> 
+          </div> <!--pr-price-->
+          <div>
+            <?php if($_product->isSaleable()): ?>
+                 <button type="button" title="<?php echo $this->__('BUY NOW') ?>" class="button-buy" onclick="setLocation('<?php echo $this->getAddToCartUrl($_product) ?>')"><span><?php echo $this->__('BUY NOW') ?></span></button>
+            <?php else: ?>
+                 <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+            <?php endif; ?>
+          </div> 
+         </div> <!--grid6-->                   
+        <?php if ($i%$_columnCount==0 || $i==count($_products)): ?>
+        <?php endif ?>       
+    <?php endforeach; ?>
+</div> <!--row-->
+<?php endif; ?> <!-- Endif collection -->

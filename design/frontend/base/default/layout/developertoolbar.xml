@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+		<reference name="head">
+			<!--<action method="addJs"><script>developertoolbar/jquery-1.9.1.js</script></action>-->
+			<action method="addJs" ifConfig="dev/developertoolbar/enabled"><script>developertoolbar/developertoolbar.js</script><group>devtolbar</group></action>
+            <action method="addCss" ifConfig="dev/developertoolbar/enabled"><stylesheet>css/dev.css</stylesheet></action>            
+        </reference>
+		<reference name="before_body_end">
+			<block type="core/template" name="developertoolbar" template="developertoolbar/toolbar.phtml">
+			</block>
+		</reference>
+    </default>
+</layout>

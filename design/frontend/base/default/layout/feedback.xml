@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="footer">
+           <block type="feedback/feedback" name="popuphtml1" as="popuphtml" template="feedback/popup_html.phtml">
+                  <action method="addItem"><type>skin_css</type><name>feedback/css/popup.css</name><params/></action>
+                  <action method="addItem"><type>skin_js</type><name>feedback/js/popup.js</name></action>
+           </block>
+        </reference>
+    </default>  
+</layout> 

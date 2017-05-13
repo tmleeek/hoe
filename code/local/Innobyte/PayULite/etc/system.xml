@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * System config file.
+ *
+ * @category    Innobyte
+ * @package     Innobyte_PayULite
+ * @author      Bogdan Constantinescu <bogdan.constantinescu@innobyte.com>
+ */
+-->
+<config>
+    <sections>
+        <Innobyte_PayULite translate="label" module="innobyte_payu_lite">
+            <label>PayU (Lite version)</label>
+            <tab>innobyte_core</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>99999</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <license translate="label">
+                    <label>License</label>
+                    <frontend_type>text</frontend_type>
+                    <frontend_model>innobyte_core/system_config_form_fieldset_extensions</frontend_model>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <ar translate="label">
+                            <label>ar</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </ar>
+                        <websites translate="label">
+                            <label>websites</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </websites>
+                        <time translate="label">
+                            <label>Time</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </time>
+                        <installed translate="label">
+                            <label>Installed</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </installed>
+                        <count translate="label">
+                            <label>Installed</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>0</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </count>
+                        <key translate="label">
+                            <label>License key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </key>
+                        <enabled translate="label">
+                            <label>Enable This extension</label>
+                            <frontend_type>select</frontend_type>
+                            <frontend_model>innobyte_core/system_config_form_renderer_field</frontend_model>
+                            <source_model>innobyte_core/source_config_enabledisable</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <hint>Innobyte_PayULite</hint>
+                        </enabled>
+                    </fields>
+                </license>
+                <general_settings translate="label comment" module="innobyte_payu_lite">
+                    <label>General Settings</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <frontend_type>text</frontend_type>
+                    <fields>
+                        <merchant_code>
+                            <label>Merchant code</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </merchant_code>
+                        <trans_key translate="label">
+                            <label>Transaction key</label>
+                            <frontend_type>obscure</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </trans_key>
+                        <lu_url>
+                            <label>LiveUpdate URL</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-url</validate>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </lu_url>
+                        <idn_url>
+                            <label>IDN URL</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-url</validate>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </idn_url>
+                        <irn_url>
+                            <label>IRN URL</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-url</validate>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </irn_url>
+                        <ios_url>
+                            <label>IOS URL</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-url</validate>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </ios_url>
+                        <language translate="label">
+                            <label>Language</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>innobyte_payu_lite/source_language</source_model>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Will preselect the language on PayU page, if not set the default is current store 's language</comment>
+                        </language>
+                        <payment_timeout>
+                            <label>Payment timeout</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number validate-greater-than-zero</validate>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Sets the interval in witch the payment can be done. [optional, takes a number of seconds as value]</comment>
+                        </payment_timeout>
+                        <restrictaccess translate="label">
+                            <label>Restrict IPN access</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <validate>validate-number</validate>
+                            <sort_order>45</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Whether you want to restrict access to IPN url</comment>
+                        </restrictaccess>
+                        <allowedips translate="label">
+                            <label>Allowed IPs for IPN access</label>
+                            <frontend_type>text</frontend_type>
+                            <backend_model>innobyte_payu_lite/system_config_ips</backend_model>
+                            <validate>validate-length minimum-length-7</validate>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>IPs list for which IPN url is allowed (PayU Servers), separated by comma. Please consult PayU for these IPs.</comment>
+                            <depends>
+                                <restrictaccess>1</restrictaccess>
+                            </depends>
+                        </allowedips>
+                    </fields>
+                </general_settings>
+            </groups>
+        </Innobyte_PayULite>
+        
+        <payment>
+            <groups>
+                <innobyte_payu_lite_cc translate="label comment" module="innobyte_payu_lite">
+                    <label>PayU - Credit cards (Lite version)</label>
+                    <sort_order>1000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <frontend_model>innobyte_payu_lite/adminhtml_system_config_fieldset_payment</frontend_model>
+                    <comment>Add PayU as an additional payment method to your checkout page.</comment>
+                    <learn_more_link>http://www.payu.ro/en/</learn_more_link>
+                    <demo_link/>
+                    <fields>
+                        <test translate="label">
+                            <label>Test mode</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <validate>validate-number</validate>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </test>
+                        <automode translate="label comment">
+                            <label>Automode</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <validate>validate-number</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Whether you want to redirect your customers straight to the card details page (skipping the billing/delivery screens)</comment>
+                        </automode>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <validate>validate-number</validate>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <title translate="label">
+                            <label>Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+                        <cctypes translate="label">
+                            <label>Credit Card Types</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>innobyte_payu_lite/config::getCcTypesAsOptionArray</source_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cctypes>
+                        <order_status translate="label">
+                            <label>New order status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_order_status_processing</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </order_status>
+                        <payment_action translate="label">
+                            <label>Payment Action</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>innobyte_payu_lite/source_paymentAction</source_model>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </payment_action>
+                        <allowspecific translate="label">
+                            <label>Payment from applicable countries</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>40</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Payment from Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>45</sort_order>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </specificcountry>
+                        <debug translate="label">
+                            <label>Debug</label>
+                            <frontend_type>select</frontend_type>
+                            <validate>validate-number</validate>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </debug>
+                        <sort_order translate="label">
+                            <label>Sort order</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>55</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sort_order>
+                    </fields>
+                </innobyte_payu_lite_cc>
+                <innobyte_payu_lite_pp translate="label comment" module="innobyte_payu_lite">
+                    <label>PayU - PayPal (Lite version)</label>
+                    <sort_order>1001</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <frontend_model>innobyte_payu_lite/adminhtml_system_config_fieldset_payment</frontend_model>
+                    <comment>Add PayU as an additional payment method to your checkout page.</comment>
+                    <learn_more_link>http://www.payu.ro/en/</learn_more_link>
+                    <demo_link/>
+                    <fields>
+                        <test translate="label">
+                            <label>Test mode</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <validate>validate-number</validate>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </test>
+                        <automode translate="label comment">
+                            <label>Automode</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <validate>validate-number</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Whether you want to redirect your customers straight to the card details page (skipping the billing/delivery screens)</comment>
+                        </automode>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <validate>validate-number</validate>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <title translate="label">
+                            <label>Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+                        <order_status translate="label">
+                            <label>New order status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_order_status_processing</source_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </order_status>
+                        <payment_action translate="label">
+                            <label>Payment Action</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>innobyte_payu_lite/source_paymentAction</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </payment_action>
+                        <allowspecific translate="label">
+                            <label>Payment from applicable countries</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>35</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Payment from Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>40</sort_order>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </specificcountry>
+                        <debug translate="label">
+                            <label>Debug</label>
+                            <frontend_type>select</frontend_type>
+                            <validate>validate-number</validate>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>45</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </debug>
+                        <sort_order translate="label">
+                            <label>Sort order</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sort_order>
+                    </fields>
+                </innobyte_payu_lite_pp>
+            </groups>
+        </payment>
+    </sections>
+</config>

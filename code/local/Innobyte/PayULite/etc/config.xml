@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Config file.
+ *
+ * @category    Innobyte
+ * @package     Innobyte_PayULite
+ * @author      Bogdan Constantinescu <bogdan.constantinescu@innobyte.com>
+ */
+-->
+<config>
+    <modules>
+        <Innobyte_PayULite>
+            <version>0.0.2</version>
+        </Innobyte_PayULite>
+    </modules>
+    
+    <global>
+        <helpers>
+            <innobyte_payu_lite>
+                <class>Innobyte_PayULite_Helper</class>
+            </innobyte_payu_lite>
+        </helpers>
+        <blocks>
+            <innobyte_payu_lite>
+                <class>Innobyte_PayULite_Block</class>
+            </innobyte_payu_lite>
+        </blocks>
+        <models>
+            <innobyte_payu_lite>
+                <class>Innobyte_PayULite_Model</class>
+            </innobyte_payu_lite>
+        </models>
+        <!-- add new credit card type -->
+        <payment>
+            <cc>
+                <types>
+                    <DINCLB>
+                        <code>DINCLB</code>
+                        <name>Diners Club</name>
+                        <order>60</order>
+                    </DINCLB>
+                </types>
+            </cc>
+        </payment>
+    </global>
+    
+    <adminhtml>
+        <translate>
+            <modules>
+                <Innobyte_PayULite>
+                    <files>
+                        <default>Innobyte_PayULite.csv</default>
+                    </files>
+                </Innobyte_PayULite>
+            </modules>
+        </translate>
+    </adminhtml>
+    
+    <frontend>
+        <routers>
+            <innobyte_payu_lite>
+                <use>standard</use>
+                <args>
+                    <module>Innobyte_PayULite</module>
+                    <frontName>payulite</frontName>
+                </args>
+            </innobyte_payu_lite>
+        </routers>
+        <secure_url>
+            <innobyte_payu_lite_processing>/payulite/processing</innobyte_payu_lite_processing>
+        </secure_url>
+        <layout>
+            <updates>
+                <innobyte_payu_lite>
+                    <file>innobyte/payu-lite.xml</file>
+                </innobyte_payu_lite>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Innobyte_PayULite>
+                    <files>
+                        <default>Innobyte_PayULite.csv</default>
+                    </files>
+                </Innobyte_PayULite>
+            </modules>
+        </translate>
+    </frontend>
+    
+    <default>
+        <!-- api call settings, can be changed easely in modules that <depends> on this one -->
+        <innobyte_payu_lite_make_api_call_adapter>Zend_Http_Client_Adapter_Curl</innobyte_payu_lite_make_api_call_adapter>
+        <innobyte_payu_lite_make_api_call_timeout>40</innobyte_payu_lite_make_api_call_timeout>
+        <!-- sys config default values -->
+        <Innobyte_PayULite>
+            <general_settings>
+                <merchant_code/>
+                <trans_key backend_model="adminhtml/system_config_backend_encrypted"/>
+                <lu_url>https://secure.payu.ro/order/lu.php</lu_url>
+                <irn_url>https://secure.payu.ro/order/irn.php</irn_url>
+                <idn_url>https://secure.payu.ro/order/idn.php</idn_url>
+                <ios_url>https://secure.payu.ro/order/ios.php</ios_url>
+                <language>EN</language>
+                <restrictaccess>0</restrictaccess>
+                <allowedips/>
+            </general_settings>
+        </Innobyte_PayULite>
+        <payment>
+            <innobyte_payu_lite_cc>
+                <model>innobyte_payu_lite/method_cc</model>
+                <test>1</test>
+                <automode>1</automode>
+                <active>0</active>
+                <title>PayU - Credit card</title>
+                <cctypes>VI,MC,JCB,DINCLB</cctypes>
+                <order_status>processing</order_status>
+                <payment_action>authorize</payment_action>
+                <allowspecific>0</allowspecific>
+                <specificcountry/>
+                <debug>1</debug>
+                <sort_order>1</sort_order>
+            </innobyte_payu_lite_cc>
+            <innobyte_payu_lite_pp>
+                <model>innobyte_payu_lite/method_payPal</model>
+                <test>1</test>
+                <automode>1</automode>
+                <active>0</active>
+                <title>PayU - PayPal</title>
+                <order_status>processing</order_status>
+                <payment_action>authorize</payment_action>
+                <allowspecific>0</allowspecific>
+                <specificcountry/>
+                <debug>1</debug>
+                <sort_order>2</sort_order>
+            </innobyte_payu_lite_pp>
+        </payment>
+    </default>
+</config>

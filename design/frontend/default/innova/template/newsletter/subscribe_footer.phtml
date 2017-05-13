@@ -1,0 +1,44 @@
+<?php 
+/* Newsletter subscribe */
+
+if (!isset($_COOKIE['abonare_newsletter'])){
+?>
+<div class="email-panel">
+  <div class="email-form-wrapper">
+    <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail" class="email-form">
+      <div class="label">
+        <h3 class="email-form-text long-version"><b><?php echo $this->__('Păstrăm legătura. Abonați-vă la newsletter.') ?></b></h3>
+      </div>
+      <div class="field">
+        <input type="text" name="email" id="newsletter" title="<?php echo $this->__('Sign up for our newsletter') ?>" placeholder="Adresa dvs. de e-mail" class="input-text required-entry validate-email" />
+      </div> <!--field-->
+      <div class="field">
+        <button onclick="submitNewsletterSubscription();" type="submit" title="<?php echo $this->__('Subscribe') ?>" class="button subscribe"><span><?php echo $this->__('Subscribe') ?></span></button>
+      </div> <!--field-->
+      <div id="hideDiv" class="closeX"></div>
+    </form>
+    <script type="text/javascript">
+    //<![CDATA[
+        var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
+    //]]>
+    </script>
+  </div> <!--email-form-wrapper-->
+</div> <!--email-panel-->
+
+<script type="text/javascript">
+function submitNewsletterSubscription(){
+    
+    jQuery('.email-panel').fadeOut('slow');
+    var exdate=new Date();
+    exdate.setDate(exdate.getDate() + 1);
+    document.cookie='abonare_newsletter' + "=" + 'yes; expires='+exdate.toUTCString();
+}
+
+jQuery('#hideDiv').click(function(){
+            jQuery(".email-panel").hide(); 
+            var exdate=new Date();
+            exdate.setDate(exdate.getDate() + 1);
+            document.cookie='abonare_newsletter' + "=" + 'yes; expires='+exdate.toUTCString();
+        });
+</script>
+<?php } ?>

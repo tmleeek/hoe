@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<catalog_product_view>
+		<reference name="before_body_end">
+			<block type="profitshare/productTracking" name="profitshare_tracking" template="profitshare/tracking.phtml" />
+		</reference>
+	</catalog_product_view>
+	
+	<checkout_onepage_success>
+		<reference name="content">
+			<block type="profitshare/conversion" name="profitshare_onpage" template="profitshare/conversion.phtml" />
+		</reference>
+	</checkout_onepage_success>
+	
+	<checkout_multishipping_success>
+		<reference name="content">
+			<block type="profitshare/conversion" name="profitshare_multishipping" template="profitshare/conversion.phtml" />
+		</reference>
+	</checkout_multishipping_success>
+</layout> 

@@ -1,0 +1,96 @@
+<?php $config = Mage::getStoreConfig('innovasettings/innovasettings_appearance'); ?>
+
+<meta http-equiv="Content-Type" content="<?php echo $this->getContentType() ?>" />
+<title><?php echo $this->getTitle() ?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="<?php echo htmlspecialchars($this->getDescription()) ?>" />
+<meta name="keywords" content="<?php echo htmlspecialchars($this->getKeywords()) ?>" />
+<meta name="robots" content="<?php echo htmlspecialchars($this->getRobots()) ?>" />
+<link rel="icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
+<link rel="shortcut icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
+<link href='//fonts.googleapis.com/css?family=<?php echo str_replace(' ', '+', $config['font']); ?>:200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
+<!--[if lt IE 7]>
+<script type="text/javascript">
+//<![CDATA[
+    var BLANK_URL = '<?php echo $this->helper('core/js')->getJsUrl('blank.html') ?>';
+    var BLANK_IMG = '<?php echo $this->helper('core/js')->getJsUrl('spacer.gif') ?>';
+//]]>
+</script>
+<![endif]-->
+<script type="text/javascript">
+var BLANK_URL = '<?php echo $this->helper('core/js')->getJsUrl('blank.html') ?>';
+var BLANK_IMG = '<?php echo $this->helper('core/js')->getJsUrl('spacer.gif') ?>';
+var SKIN_URL = '<?php echo $this->helper('core/js')->getJsSkinUrl('') ?>';
+</script>
+<?php echo $this->getCssJsHtml() ?>
+<?php echo $this->getChildHtml() ?>
+<?php echo $this->helper('core/js')->getTranslatorScript() ?>
+<?php echo $this->getIncludes() ?>
+
+<?php if(($config['width']=='flexible')) { ?>
+<link rel="stylesheet" href="<?php echo $this->getSkinUrl(); ?>css/styles.css" type="text/css" />
+<link rel="stylesheet" href="<?php echo $this->getSkinUrl(); ?>css/nav.css" type="text/css" />
+<link rel="stylesheet" href="<?php echo $this->getSkinUrl(); ?>css/slider.css" type="text/css" />
+<link rel="stylesheet" href="<?php echo $this->getSkinUrl(); ?>css/add-slider.css" type="text/css" />
+<link rel="stylesheet" href="<?php echo $this->getSkinUrl(); ?>css/responsive.css" type="text/css" />
+<?php } ?>
+
+<?php if(($config['width']=='fixed')) { ?>
+<link rel="stylesheet" href="<?php echo $this->getSkinUrl(); ?>css/styles-fixed.css" type="text/css" />
+<link rel="stylesheet" href="<?php echo $this->getSkinUrl(); ?>css/nav-fixed.css" type="text/css" />
+<link rel="stylesheet" href="<?php echo $this->getSkinUrl(); ?>css/slider-fixed.css" type="text/css" />
+<link rel="stylesheet" href="<?php echo $this->getSkinUrl(); ?>css/add-slider-fixed.css" type="text/css" />
+<link rel="stylesheet" href="<?php echo $this->getSkinUrl(); ?>css/responsive-fixed.css" type="text/css" />
+<?php } ?>
+
+<style type="text/css">
+/*  update google Font  */
+body, label, input, button, select, textarea, h1, h2, h3, h4, h5, h6, .block .block-title, .slide-title, .col2-set h4, .col2-set h5, .mini-cart .basket a, .mini-cart .actions .view-cart, #search, .totals h3,
+.crosssel h2, .cart-collaterals .col2-set h3, #shopping-cart-table h4, .box-reviews .form-list li label, .page-title h1, .page-title h2, .products-grid .item .item-inner .item-info .info-inner .item-title a,
+.data-table th, .button, .btn, .button-inverse, .button-vote, .sidebar .button, .sidebar .btn, .dropdown .dropdown-menu .button, .buttons-set .back-link a, .scrolltop, .button-tabs li a,
+.sidebar .button, .sidebar .button:hover, .sidebar .button.button-subscribe, .sidebar .button.button-subscribe:hover, .block .block-title, .side-nav-categories .block-title, .box-category ul li a, 
+.box-category > ul > li a.active, .box-category > ul > li ul li a, .block-layered-nav .block-subtitle, .sidebar, .sidebar .block-layered-nav .price, .sidebar .link-cart, .sidebar .link-reorder, .block .actions a,
+.block-tags .actions a.view-all, .block-account .block-title, .ajax-checkout a, .sidebar .block-cart .block-subtitle, .related-slider h2, .block-related .price-box .old-price .price, .block-related a.link-cart,
+.block-related a.link-cart:hover, ol#compare-items li a.product-name span, .block-viewed li span, #recently-viewed-items .product-name a, .block-compared li span, #recently-compared-items .product-name a,
+.block-poll label, .block-poll .label, .block-subscribe .input-text:focus, .block-company .block-title, .block-company li span, .product-title, .prod_image_detail .description, .ratings .rating-links a,
+.regular-price .price, .special-price, .price-from .price-label, .minimal-price .price-label, .product-name, a:hover.product-name, .sidebar .product-name a, .products-list .product-name a,
+.products-list .product-shop .desc, .products-list .product-shop p, .products-grid .actions button.button.btn-cart span, a.button.detail-bnt span, .product-view .product-name h1, #product-tabs > dt,
+#customer-reviews .form-list li label, .box-reviews .form-add h3, .tab-box .activeLink a, .tab-box a, .tab-box a:hover, .product-options dt label, .box-reviews dt, .data-table, .fraction-slider .slide-subtitle,
+.form-add-tags label, .data-table thead th, .data-table thead td, .data-table tfoot th, .data-table tfoot td, .cart .totals table th, .cart .totals table td, .recent-orders .title-buttons strong,
+.product-view .box-tags .form-add label, .add-to-cart label, .add-to-links span, select#billing-address-select:focus, .one-page-checkout .step-title .number, .one-page-checkout .active .step-title h3,
+.one-page-checkout .active .step-title, #opc-login input, .page-title_multi h2, .group-select .required, #wishlist-table button.button.remove-item span span, .login_page strong, button.button.continue,
+button.button.continue:hover, button.button.btn-share, button.button.btn-share:hover, button.button.btn-add, button.button.btn-add:hover, button.button.btn-update, button.button.btn-update:hover,
+button.button.login, button.button.login:hover, button.button.btn-continue, button.button.btn-continue:hover, button.button#empty_cart_button, button.button#empty_cart_button:hover, button.button.coupon,
+button.button.coupon:hover, button.button.get-quote, button.button.get-quote:hover, button.button.new-address, button.button.new-address:hover, button.button.create-account, button.button.create-account:hover,
+button.button.submit, button.button.submit:hover, .store-img-box .offer-box span, .productgrid-area .product-name, button.button.btn-cart span, 
+.slider-arrow, .flex-direction-nav .flex-prev, .flex-direction-nav .flex-next, .button-arrow, .dropdown .arrow, .dropdown .button, .elastislide-next, .elastislide-prev, .opc .step-title a, .prettycheckbox > a, 
+.prettyradio > a, .fraction-slider .prev, .fraction-slider .next, .bx-wrapper .bx-controls-direction a, .tp-leftarrow, .tp-rightarrow, #store-messages .phone span, #store-messages .message span,
+.newsletter .title-News, .store-img-box .custom-box span, .store-img-box .shipping-box span, .store-img-box .offer-box span , .store-img-box .feature-box, .new-label, .sale-label, .upsell-block .block-title,
+.related-block .block-title, .up-sell-slider .block-title, .popular-block .block-title, .orange-slider .text, .right-side-content h2, .right-side-content h3, .right-side-content p.textcenter, 
+.right-side-content .phone-number, #menu ul.navmenu .menutop h2, ul.topnav li a, .sidebar .link-cart, .sidebar .link-reorder, .block .actions a , .blog_entry .btn, .blog_entry .btn:hover, .bnt-comment,
+.bnt-comment:hover, .buttons-set button.button.save, .buttons-set button.button.save:hover, button.button.add-new, button.button.add-new:hover, #nav li.full-menu li.level2 a > span:after
+{  font-family: '<?php echo $config['font']; ?>',  sans-serif;   }
+
+
+/* update theme color */
+.products-grid .actions button.button.btn-cart, a.button.view-all, .products-list .product-shop .btn-cart, .products-grid .actions button.button.btn-cart, .more-views .jcarousel-next:hover, .more-views .jcarousel-prev:hover,
+.form-add-tags button.button:hover, button.button.btn-proceed-checkout, .product-next-prev .product-prev:hover, .product-next-prev .product-next:hover, 
+.pagination li a:hover, .pagination li .current { background:<?php echo $config['color']; ?>; } 
+
+<?php   if ( !empty($config['header_bg_color']) ) : ?>
+header {background:<?php echo $config['header_bg_color']; ?>}
+<?php endif; ?>
+<?php if ( !empty($config['header_fg_color']) ) : ?>
+.toplinks div.links div a, .toplinks .links div .click-nav ul .clicker, header .phone, .currency-box .currency-switcher, .language-box .language-switcher {color:<?php echo $config['header_fg_color']; ?>}
+<?php endif; ?>
+<?php if ( !empty($config['footer_bg_color']) ) : ?>
+footer {background:<?php echo $config['footer_bg_color']; ?>}
+<?php endif; ?>
+<?php if ( !empty($config['footer_fg_color']) ) : ?>
+footer .footer-column a, footer a, footer p, .footer-column-1 a {color:<?php echo $config['footer_fg_color']; ?>}
+<?php endif; ?>
+<?php if ( !empty($config['content_bg_color']) ) : ?>
+body {background:<?php echo $config['content_bg_color']; ?>}
+<?php endif;  ?>
+</style>
+<script src='https://www.google.com/recaptcha/api.js'></script>

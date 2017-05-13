@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CommerceExtensions
+ * Hide Product Price For Non Registered Users
+ *
+ * @category   Mage
+ * @package    CommerceExtensions_HideProductPrice
+ * @copyright  Copyright (c) 2003-2009 CommerceExtensions @ InterSEC Solutions LLC. (http://www.commerceextensions.com)
+ */
+-->
+<config>
+	<modules>
+		<CommerceExtensions_HideProductPrice>
+			<version>0.8.82</version>
+		</CommerceExtensions_HideProductPrice>
+	</modules>
+	<global>
+		<helpers>
+			<hideproductprice>
+					<class>CommerceExtensions_HideProductPrice_Helper</class>
+			</hideproductprice>
+			<catalog>
+				<rewrite>
+					<product_compare>CommerceExtensions_HideProductPrice_Helper_Compare</product_compare>
+				</rewrite>
+			</catalog>
+			<checkout>
+				<rewrite>
+					<data>CommerceExtensions_HideProductPrice_Helper_Checkout</data>
+				</rewrite>
+			</checkout>
+			<core>
+				<rewrite>
+					<data>CommerceExtensions_HideProductPrice_Helper_Product</data>
+				</rewrite>
+			</core>
+			<wishlist>
+				<rewrite>
+					<data>CommerceExtensions_HideProductPrice_Helper_Wishlist</data>
+				</rewrite>
+			</wishlist>
+		</helpers>
+		<models>
+			<hideproductprice>
+					<class>CommerceExtensions_HideProductPrice_Model</class>
+			</hideproductprice>
+			<catalog>
+				<rewrite>
+					<product>CommerceExtensions_HideProductPrice_Helper_Abstract</product>
+				</rewrite>
+			</catalog>
+		</models>
+	</global>
+    <admin>
+        <routers>
+			<hideproductprice>
+				<use>admin</use>
+				<args>
+					<module>CommerceExtensions_HideProductPrice</module>
+					<frontName>hideproductprice</frontName>
+				</args>
+			</hideproductprice>
+        </routers>
+    </admin>
+    <adminhtml>
+        <acl>
+            <resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <hideproductprice>
+                                            <title>Hide Product Price For Non-Registered Users</title>
+                                        </hideproductprice>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+    <default>
+        <hideproductprice>
+            <hideproductprice>
+                <displayed_text>You must be logged into to see the price.</displayed_text>
+            </hideproductprice>
+        </hideproductprice>
+    </default>
+</config>

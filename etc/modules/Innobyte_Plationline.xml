@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Innobyte_Plationline>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Innobyte_Plationline>
+    </modules>
+</config> 

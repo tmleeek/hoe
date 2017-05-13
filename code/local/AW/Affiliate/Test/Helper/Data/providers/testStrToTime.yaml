@@ -1,0 +1,28 @@
+-
+  - test_id: test_1
+    locale: en_US
+    date: 11/2/12 # in US, the format is mm-dd-yy
+-
+  - test_id: test_2
+    locale: en_US
+    date: 11/2/2012 # long year is allowed
+-
+  - test_id: test_3
+    locale: en_AU
+    date: 11/2/12 # in Australia, the format is dd-mm-yy
+-
+  - test_id: test_4
+    locale: en_AU
+    date: 11/2/2012 # long year is allowed
+-
+  - test_id: test_5
+    locale: lt_LT
+    date: 2012-2-11 # in Lithuania, the format is yyyy-mm-dd, no short year is allowed
+-
+  - test_id: test_6
+    locale: de_AT
+    date: 11.2.12 # in Austria, the format is dd-mm-yy
+-
+  - test_id: test_7
+    locale: de_AT
+    date: 11.2.2012 # long year is allowed

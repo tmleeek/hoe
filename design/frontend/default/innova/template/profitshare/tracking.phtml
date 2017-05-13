@@ -1,0 +1,13 @@
+<?php if($this->isEnabled()):?>
+<script type="text/javascript">
+	var adv_code 		= '<?php echo $this->getAdvertiserCode()?>';
+	var product_code 	= '<?php echo $this->getProductCode()?>';
+	var product_price 	= '<?php echo $this->getProductPrice()?>';
+	var category_code 	= '<?php echo $this->getCategoryCode()?>';
+	var category_name 	= '<?php echo $this->getCategoryName()?>';
+	var brand_code 		= '<?php echo $this->getBrandCode()?>';
+	var brand_name 		= '<?php echo $this->getBrandName()?>';
+	var _ps_tgt 		= {a:adv_code, pc:product_code, pp:product_price, cc:category_code, cn:category_name, bc:brand_code, bn:brand_name};
+</script>
+<script type="text/javascript" src="//profitshare.ro/tgt/js"></script>
+<?php endif;?>

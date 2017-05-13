@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout version="1.0.0">
+    <newsticker_adminhtml_newsticker_index>
+        <reference name="content">
+            <block type="newsticker/adminhtml_newsticker" name="newsticker" />
+        </reference>
+    </newsticker_adminhtml_newsticker_index>
+    <newsticker_adminhtml_newstickergroup_index>
+        <reference name="content">
+            <block type="newsticker/adminhtml_newstickergroup" name="newstickergroup" />
+        </reference>
+    </newsticker_adminhtml_newstickergroup_index>
+	<adminhtml>
+		<newsticker_adminhtml_newsticker_edit>
+			<update handle="editor"/>
+		</newsticker_adminhtml_newsticker_edit>
+	</adminhtml>
+</layout>

@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <reference name="head">
+            <action method="addCss">
+                <name>j2t_rewardpoints.css</name>
+            </action>
+            <action method="addJs"><file>j2t_rewardpoints.js</file></action>
+        </reference>
+    </default>
+    
+    <adminhtml_customer_edit>
+        <reference name="customer_edit_tabs">
+            <!-- Rewardpoints_Block_Adminhtml_Customer_Edit_Tabs -->
+            <block type="rewardpoints/adminhtml_customer_edit_tabs" name="rewardpoints_tab">
+                <action method="addRewardsTab" />
+            </block>
+        </reference>
+    </adminhtml_customer_edit>
+    
+    <adminhtml_sales_order_create_load_block_data>
+        <reference name="coupons">
+            <action method="setTemplate">
+                    <template>rewardpoints/wrapper.phtml</template>
+            </action>
+            <!-- Rewardpoints_Block_Adminhtml_Createorder_Reward-->
+            <block type="rewardpoints/adminhtml_createorder_reward" template="rewardpoints/form.phtml" name="reward_coupons" />
+            
+            <block type="adminhtml/sales_order_create_coupons" template="sales/order/create/coupons/form.phtml" name="original_coupons">
+                <block type="adminhtml/sales_order_create_coupons_form" template="sales/order/create/coupons/form.phtml" name="form" />
+            </block>
+        </reference>
+    </adminhtml_sales_order_create_load_block_data>
+    
+    <adminhtml_sales_order_create_load_block_items>
+        <reference name="coupons">
+            <action method="setTemplate">
+                    <template>rewardpoints/wrapper.phtml</template>
+            </action>
+            <!-- Rewardpoints_Block_Adminhtml_Createorder_Reward-->
+            <block type="rewardpoints/adminhtml_createorder_reward" template="rewardpoints/form.phtml" name="reward_coupons" />
+            
+            <block type="adminhtml/sales_order_create_coupons" template="sales/order/create/coupons/form.phtml" name="original_coupons">
+                <block type="adminhtml/sales_order_create_coupons_form" template="sales/order/create/coupons/form.phtml" name="form" />
+            </block>
+        </reference>
+    </adminhtml_sales_order_create_load_block_items>
+
+
+</layout>

@@ -1,0 +1,51 @@
+
+<?php echo $this->getTabsHtml() ?>
+<script type="text/javascript">
+    //<![CDATA[
+    function load_news_funcs(){        
+<?php if (($block = $this->getLayout()->getBlock("newstickergroup.grid.newsticker")) && ($_gridJsObject = $block->getJsObjectName())): ?>
+            if(!$("in_newstickergroup_newstickers")){
+                setTimeout("load_news_funcs()",500);
+                return false;
+            }
+            var selectedNewss=$H(<?php echo $this->getNewssJson(); ?>);            
+            $("in_newstickergroup_newstickers").value = selectedNewss.toQueryString();
+            
+            function registerSelectedNews(grid, element, checked){
+                if(checked){
+                    selectedNewss.set(element.value, element.value);
+                }
+                else{
+                    selectedNewss.unset(element.value);
+                }
+                $("in_newstickergroup_newstickers").value = selectedNewss.toQueryString();                
+                grid.reloadParams = {"selected_newstickers[]":selectedNewss.keys()};
+            }    
+            function selectedNewsRowClick(grid, event){
+                var trElement = Event.findElement(event, "tr");
+                var isInput   = Event.element(event).tagName == "INPUT";
+                if(trElement){
+                    var checkbox = Element.getElementsBySelector(trElement, "input");
+                    if(checkbox[0]){
+                        var checked = isInput ? checkbox[0].checked : !checkbox[0].checked;
+<?php echo $_gridJsObject ?>.setCheckboxChecked(checkbox[0], checked);
+                    }
+                }
+            }
+
+            var tabIndex = 1000;
+            function selectedNewsRowInit(grid, row){
+                var checkbox = $(row).getElementsByClassName("checkbox")[0];
+            }
+
+
+<?php echo $_gridJsObject ?>.rowClickCallback 		= selectedNewsRowClick;
+<?php echo $_gridJsObject ?>.initRowCallback 		= selectedNewsRowInit;
+<?php echo $_gridJsObject ?>.checkboxCheckCallback	= registerSelectedNews;
+<?php echo $_gridJsObject ?>.rows.each(function(row){selectedNewsRowInit(<?php echo $_gridJsObject ?>, row)});
+
+<?php endif; ?>
+    }
+    load_news_funcs();
+    //]]>
+</script>

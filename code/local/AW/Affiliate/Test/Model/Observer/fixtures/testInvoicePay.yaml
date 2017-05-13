@@ -1,0 +1,982 @@
+scope:
+  website:
+    - website_id: 1
+      code: usa_website
+      name: USA Website
+      default_group_id: 1
+  group:
+    - group_id: 1
+      website_id: 1
+      name: USA Store Group
+      default_store_id: 1
+      root_category_id: 2 # Default Category
+  store:
+    - store_id: 1
+      website_id: 1
+      group_id: 1
+      code: usa
+      name: USA Store
+      is_active: 1
+config:
+  awaffiliate/general/consider_tax: 0
+tables:
+  customer/entity:
+    -
+      entity_id: 500011 # Customer is created here because when creating in EAV they won't appear in the database right away, causing constraint error when attempting to insert order.
+      email: affiliate@example.com
+      website_id: 1
+      store_id: 1
+      group_id: 1
+      is_active: 1
+    -
+      entity_id: 500012
+      email: referral@example.com
+      website_id: 1
+      store_id: 1
+      group_id: 1
+      is_active: 1
+  sales/order:
+    -
+      entity_id: 30001
+      state: complete
+      status: complete
+      is_virtual: 0
+      store_id: 1
+      customer_id: 500012
+      base_discount_amount: 5.0000
+      base_discount_invoiced: 5.0000
+      base_discount_refunded:
+      base_grand_total: 11.0000
+      base_shipping_amount: 0.0000
+      base_shipping_invoiced: 0.0000
+      base_shipping_refunded:
+      base_shipping_tax_amount: 0.0000
+      base_shipping_tax_refunded:
+      base_subtotal: 15.0000
+      base_subtotal_invoiced: 15.0000
+      base_subtotal_refunded:
+      base_tax_amount: 1.0000
+      base_tax_invoiced: 1.0000
+      base_tax_refunded:
+      base_to_global_rate: 1.0000
+      base_to_order_rate: 9000.0000
+      base_total_invoiced: 11.0000
+      base_total_invoiced_cost: 0.0000
+      base_total_offline_refunded:
+      base_total_online_refunded:
+      base_total_paid: 11.0000
+      base_total_qty_ordered:
+      base_total_refunded:
+      discount_amount: 0.0000
+      discount_invoiced: 0.0000
+      discount_refunded:
+      grand_total: 99000.0000
+      shipping_amount: 0.0000
+      shipping_invoiced: 0.0000
+      shipping_refunded:
+      shipping_tax_amount: 0.0000
+      shipping_tax_refunded:
+      store_to_base_rate: 1.0000
+      store_to_order_rate: 9000.0000
+      subtotal: 135000.0000
+      subtotal_invoiced: 135000.0000
+      subtotal_refunded:
+      tax_amount: 9000.0000
+      tax_invoiced: 9000.0000
+      tax_refunded:
+      total_invoiced: 99000.0000
+      total_offline_refunded:
+      total_online_refunded:
+      total_paid: 99000.0000
+      total_qty_ordered: 1.0000
+      total_refunded:
+      customer_is_guest: 0
+      customer_note_notify: 0
+      billing_address_id: 3
+      customer_group_id: 1
+      email_sent: 1
+      forced_shipment_with_invoice:
+      payment_auth_expiration:
+      quote_address_id:
+      quote_id: 4
+      shipping_address_id: 4
+      adjustment_negative:
+      adjustment_positive:
+      base_adjustment_negative:
+      base_adjustment_positive:
+      base_shipping_discount_amount: 0.0000
+      base_subtotal_incl_tax: 16.0000
+      base_total_due: 0.0000
+      payment_authorization_amount:
+      shipping_discount_amount: 0.0000
+      subtotal_incl_tax: 144000.0000
+      total_due: 0.0000
+      weight: 1.0000
+      customer_dob:
+      increment_id: 100000001
+      applied_rule_ids:
+      base_currency_code: USD
+      customer_email: referral@example.com
+      customer_firstname: referral
+      customer_lastname: referral
+      global_currency_code: USD
+      hold_before_state:
+      hold_before_status:
+      order_currency_code: BYR
+      original_increment_id:
+      remote_ip: 192.168.0.1
+      shipping_method: flatrate_flatrate
+      store_currency_code: USD
+      x_forwarded_for:
+      customer_note:
+      created_at: 2013-09-19 09:58:57
+      updated_at: 2013-09-19 10:01:11
+      total_item_count: 1
+      hidden_tax_amount: 0.0000
+      base_hidden_tax_amount: 0.0000
+      shipping_hidden_tax_amount: 0.0000
+      base_shipping_hidden_tax_amnt: 0.0000
+      hidden_tax_invoiced: 0.0000
+      base_hidden_tax_invoiced: 0.0000
+      hidden_tax_refunded:
+      base_hidden_tax_refunded:
+      shipping_incl_tax: 0.0000
+      base_shipping_incl_tax: 0.0000
+      coupon_rule_name:
+      paypal_ipn_customer_notified: 0
+      payment_authorization_expiration:
+      forced_do_shipment_with_invoice:
+      base_shipping_hidden_tax_amount: 0.0000
+    -
+      entity_id: 30002
+      state: complete
+      status: complete
+      is_virtual: 0
+      store_id: 1
+      customer_id: 500012
+      base_discount_amount: 0.0000
+      base_discount_invoiced: 0.0000
+      base_discount_refunded:
+      base_grand_total: 1005.0000
+      base_shipping_amount: 5.0000
+      base_shipping_invoiced: 5.0000
+      base_shipping_refunded:
+      base_shipping_tax_amount: 0.0000
+      base_shipping_tax_refunded:
+      base_subtotal: 1000.0000
+      base_subtotal_invoiced: 1000.0000
+      base_subtotal_refunded:
+      base_tax_amount: 0.0000
+      base_tax_invoiced: 0.0000
+      base_tax_refunded:
+      base_to_global_rate: 1.0000
+      base_to_order_rate: 1900.0000
+      base_total_invoiced: 1005.0000
+      base_total_invoiced_cost: 0.0000
+      base_total_offline_refunded:
+      base_total_online_refunded:
+      base_total_paid: 1005.0000
+      base_total_qty_ordered:
+      base_total_refunded:
+      discount_amount: 0.0000
+      discount_invoiced: 0.0000
+      discount_refunded:
+      grand_total: 1909500.0000
+      shipping_amount: 9500.0000
+      shipping_invoiced: 9500.0000
+      shipping_refunded:
+      shipping_tax_amount: 0.0000
+      shipping_tax_refunded:
+      store_to_base_rate: 1.0000
+      store_to_order_rate: 1900.0000
+      subtotal: 1900000.0000
+      subtotal_invoiced: 1900000.0000
+      subtotal_refunded:
+      tax_amount: 0.0000
+      tax_invoiced: 0.0000
+      tax_refunded:
+      total_invoiced: 1909500.0000
+      total_offline_refunded:
+      total_online_refunded:
+      total_paid: 1909500.0000
+      total_qty_ordered: 1.0000
+      total_refunded:
+      customer_is_guest: 0
+      customer_note_notify: 0
+      billing_address_id: 3
+      customer_group_id: 1
+      email_sent: 1
+      forced_shipment_with_invoice:
+      payment_auth_expiration:
+      quote_address_id:
+      quote_id: 4
+      shipping_address_id: 4
+      adjustment_negative:
+      adjustment_positive:
+      base_adjustment_negative:
+      base_adjustment_positive:
+      base_shipping_discount_amount: 0.0000
+      base_subtotal_incl_tax: 1000.0000
+      base_total_due: 0.0000
+      payment_authorization_amount:
+      shipping_discount_amount: 0.0000
+      subtotal_incl_tax: 1900000.0000
+      total_due: 0.0000
+      weight: 1.0000
+      customer_dob:
+      increment_id: 100000002
+      applied_rule_ids:
+      base_currency_code: USD
+      customer_email: referral@example.com
+      customer_firstname: referral
+      customer_lastname: referral
+      global_currency_code: USD
+      hold_before_state:
+      hold_before_status:
+      order_currency_code: COP
+      original_increment_id:
+      remote_ip: 192.168.0.1
+      shipping_method: flatrate_flatrate
+      store_currency_code: USD
+      x_forwarded_for:
+      customer_note:
+      created_at: 2013-09-19 09:58:57
+      updated_at: 2013-09-19 10:01:11
+      total_item_count: 1
+      hidden_tax_amount: 0.0000
+      base_hidden_tax_amount: 0.0000
+      shipping_hidden_tax_amount: 0.0000
+      base_shipping_hidden_tax_amnt: 0.0000
+      hidden_tax_invoiced: 0.0000
+      base_hidden_tax_invoiced: 0.0000
+      hidden_tax_refunded:
+      base_hidden_tax_refunded:
+      shipping_incl_tax: 9500.0000
+      base_shipping_incl_tax: 5.0000
+      coupon_rule_name:
+      paypal_ipn_customer_notified: 0
+      payment_authorization_expiration:
+      forced_do_shipment_with_invoice:
+      base_shipping_hidden_tax_amount: 0.0000
+    -
+      entity_id: 30003
+      state: new
+      status: pending
+      is_virtual: 0
+      store_id: 1
+      customer_id: 500012
+      base_discount_amount: 5.0000
+      base_discount_invoiced: 5.0000
+      base_discount_refunded:
+      base_grand_total: 11.0000
+      base_shipping_amount: 0.0000
+      base_shipping_invoiced: 0.0000
+      base_shipping_refunded:
+      base_shipping_tax_amount: 0.0000
+      base_shipping_tax_refunded:
+      base_subtotal: 15.0000
+      base_subtotal_invoiced: 15.0000
+      base_subtotal_refunded:
+      base_tax_amount: 1.0000
+      base_tax_invoiced: 1.0000
+      base_tax_refunded:
+      base_to_global_rate: 1.0000
+      base_to_order_rate: 9000.0000
+      base_total_invoiced: 11.0000
+      base_total_invoiced_cost: 0.0000
+      base_total_offline_refunded:
+      base_total_online_refunded:
+      base_total_paid: 11.0000
+      base_total_qty_ordered:
+      base_total_refunded:
+      discount_amount: 0.0000
+      discount_invoiced: 0.0000
+      discount_refunded:
+      grand_total: 99000.0000
+      shipping_amount: 0.0000
+      shipping_invoiced: 0.0000
+      shipping_refunded:
+      shipping_tax_amount: 0.0000
+      shipping_tax_refunded:
+      store_to_base_rate: 1.0000
+      store_to_order_rate: 9000.0000
+      subtotal: 135000.0000
+      subtotal_invoiced: 135000.0000
+      subtotal_refunded:
+      tax_amount: 9000.0000
+      tax_invoiced: 9000.0000
+      tax_refunded:
+      total_invoiced: 99000.0000
+      total_offline_refunded:
+      total_online_refunded:
+      total_paid: 99000.0000
+      total_qty_ordered: 1.0000
+      total_refunded:
+      customer_is_guest: 0
+      customer_note_notify: 0
+      billing_address_id: 3
+      customer_group_id: 1
+      email_sent: 1
+      forced_shipment_with_invoice:
+      payment_auth_expiration:
+      quote_address_id:
+      quote_id: 4
+      shipping_address_id: 4
+      adjustment_negative:
+      adjustment_positive:
+      base_adjustment_negative:
+      base_adjustment_positive:
+      base_shipping_discount_amount: 0.0000
+      base_subtotal_incl_tax: 16.0000
+      base_total_due: 0.0000
+      payment_authorization_amount:
+      shipping_discount_amount: 0.0000
+      subtotal_incl_tax: 144000.0000
+      total_due: 0.0000
+      weight: 1.0000
+      customer_dob:
+      increment_id: 100000003
+      applied_rule_ids:
+      base_currency_code: USD
+      customer_email: referral@example.com
+      customer_firstname: referral
+      customer_lastname: referral
+      global_currency_code: USD
+      hold_before_state:
+      hold_before_status:
+      order_currency_code: BYR
+      original_increment_id:
+      remote_ip: 192.168.0.1
+      shipping_method: flatrate_flatrate
+      store_currency_code: USD
+      x_forwarded_for:
+      customer_note:
+      created_at: 2013-09-22 09:58:57
+      updated_at: 2013-09-22 10:01:11
+      total_item_count: 1
+      hidden_tax_amount: 0.0000
+      base_hidden_tax_amount: 0.0000
+      shipping_hidden_tax_amount: 0.0000
+      base_shipping_hidden_tax_amnt: 0.0000
+      hidden_tax_invoiced: 0.0000
+      base_hidden_tax_invoiced: 0.0000
+      hidden_tax_refunded:
+      base_hidden_tax_refunded:
+      shipping_incl_tax: 0.0000
+      base_shipping_incl_tax: 0.0000
+      coupon_rule_name:
+      paypal_ipn_customer_notified: 0
+      payment_authorization_expiration:
+      forced_do_shipment_with_invoice:
+      base_shipping_hidden_tax_amount: 0.0000
+    -
+      entity_id: 30004
+      state: new
+      status: pending
+      is_virtual: 0
+      store_id: 1
+      customer_id: 500012
+      base_discount_amount: 0.0000
+      base_discount_invoiced: 0.0000
+      base_discount_refunded:
+      base_grand_total: 32.0000
+      base_shipping_amount: 0.0000
+      base_shipping_invoiced: 0.0000
+      base_shipping_refunded:
+      base_shipping_tax_amount: 0.0000
+      base_shipping_tax_refunded:
+      base_subtotal: 30.0000
+      base_subtotal_invoiced: 30.0000
+      base_subtotal_refunded:
+      base_tax_amount: 2.0000
+      base_tax_invoiced: 2.0000
+      base_tax_refunded:
+      base_to_global_rate: 1.0000
+      base_to_order_rate: 9000.0000
+      base_total_invoiced: 0.0000
+      base_total_invoiced_cost: 0.0000
+      base_total_offline_refunded:
+      base_total_online_refunded:
+      base_total_paid: 0.0000
+      base_total_qty_ordered:
+      base_total_refunded:
+      discount_amount: 0.0000
+      discount_invoiced: 0.0000
+      discount_refunded:
+      grand_total: 198000.0000
+      shipping_amount: 0.0000
+      shipping_invoiced: 0.0000
+      shipping_refunded:
+      shipping_tax_amount: 0.0000
+      shipping_tax_refunded:
+      store_to_base_rate: 1.0000
+      store_to_order_rate: 9000.0000
+      subtotal: 270000.0000
+      subtotal_invoiced: 270000.0000
+      subtotal_refunded:
+      tax_amount: 18000.0000
+      tax_invoiced: 0
+      tax_refunded:
+      total_invoiced: 0
+      total_offline_refunded:
+      total_online_refunded:
+      total_paid: 0
+      total_qty_ordered: 2.0000
+      total_refunded:
+      customer_is_guest: 0
+      customer_note_notify: 0
+      billing_address_id: 3
+      customer_group_id: 1
+      email_sent: 1
+      forced_shipment_with_invoice:
+      payment_auth_expiration:
+      quote_address_id:
+      quote_id: 4
+      shipping_address_id: 4
+      adjustment_negative:
+      adjustment_positive:
+      base_adjustment_negative:
+      base_adjustment_positive:
+      base_shipping_discount_amount: 0.0000
+      base_subtotal_incl_tax: 32.0000
+      base_total_due: 0.0000
+      payment_authorization_amount:
+      shipping_discount_amount: 0.0000
+      subtotal_incl_tax: 288000.0000
+      total_due: 0.0000
+      weight: 2.0000
+      customer_dob:
+      increment_id: 100000004
+      applied_rule_ids:
+      base_currency_code: USD
+      customer_email: referral@example.com
+      customer_firstname: referral
+      customer_lastname: referral
+      global_currency_code: USD
+      hold_before_state:
+      hold_before_status:
+      order_currency_code: BYR
+      original_increment_id:
+      remote_ip: 192.168.0.1
+      shipping_method: flatrate_flatrate
+      store_currency_code: USD
+      x_forwarded_for:
+      customer_note:
+      created_at: 2013-09-22 09:58:57
+      updated_at: 2013-09-22 10:01:11
+      total_item_count: 2
+      hidden_tax_amount: 0.0000
+      base_hidden_tax_amount: 0.0000
+      shipping_hidden_tax_amount: 0.0000
+      base_shipping_hidden_tax_amnt: 0.0000
+      hidden_tax_invoiced: 0.0000
+      base_hidden_tax_invoiced: 0.0000
+      hidden_tax_refunded:
+      base_hidden_tax_refunded:
+      shipping_incl_tax: 0.0000
+      base_shipping_incl_tax: 0.0000
+      coupon_rule_name:
+      paypal_ipn_customer_notified: 0
+      payment_authorization_expiration:
+      forced_do_shipment_with_invoice:
+      base_shipping_hidden_tax_amount: 0.0000
+    -
+      entity_id: 30005
+      state: new
+      status: pending
+      is_virtual: 0
+      store_id: 1
+      customer_id: 500012
+      base_discount_amount: 0
+      base_discount_invoiced: 0
+      base_discount_refunded:
+      base_grand_total: 32.0000
+      base_shipping_amount: 0.0000
+      base_shipping_invoiced: 0.0000
+      base_shipping_refunded:
+      base_shipping_tax_amount: 0.0000
+      base_shipping_tax_refunded:
+      base_subtotal: 30.0000
+      base_subtotal_invoiced: 30.0000
+      base_subtotal_refunded:
+      base_tax_amount: 2.0000
+      base_tax_invoiced: 2.0000
+      base_tax_refunded:
+      base_to_global_rate: 1.0000
+      base_to_order_rate: 9000.0000
+      base_total_invoiced: 0
+      base_total_invoiced_cost: 0.0000
+      base_total_offline_refunded:
+      base_total_online_refunded:
+      base_total_paid: 0
+      base_total_qty_ordered:
+      base_total_refunded:
+      discount_amount: 0.0000
+      discount_invoiced: 0.0000
+      discount_refunded:
+      grand_total: 198000.0000
+      shipping_amount: 0.0000
+      shipping_invoiced: 0.0000
+      shipping_refunded:
+      shipping_tax_amount: 0.0000
+      shipping_tax_refunded:
+      store_to_base_rate: 1.0000
+      store_to_order_rate: 9000.0000
+      subtotal: 270000.0000
+      subtotal_invoiced: 270000.0000
+      subtotal_refunded:
+      tax_amount: 18000.0000
+      tax_invoiced: 0
+      tax_refunded:
+      total_invoiced: 0
+      total_offline_refunded:
+      total_online_refunded:
+      total_paid: 0
+      total_qty_ordered: 2.0000
+      total_refunded:
+      customer_is_guest: 0
+      customer_note_notify: 0
+      billing_address_id: 3
+      customer_group_id: 1
+      email_sent: 1
+      forced_shipment_with_invoice:
+      payment_auth_expiration:
+      quote_address_id:
+      quote_id: 4
+      shipping_address_id: 4
+      adjustment_negative:
+      adjustment_positive:
+      base_adjustment_negative:
+      base_adjustment_positive:
+      base_shipping_discount_amount: 0.0000
+      base_subtotal_incl_tax: 32.0000
+      base_total_due: 0.0000
+      payment_authorization_amount:
+      shipping_discount_amount: 0.0000
+      subtotal_incl_tax: 288000.0000
+      total_due: 0.0000
+      weight: 2.0000
+      customer_dob:
+      increment_id: 100000005
+      applied_rule_ids:
+      base_currency_code: USD
+      customer_email: referral@example.com
+      customer_firstname: referral
+      customer_lastname: referral
+      global_currency_code: USD
+      hold_before_state:
+      hold_before_status:
+      order_currency_code: BYR
+      original_increment_id:
+      remote_ip: 192.168.0.1
+      shipping_method: flatrate_flatrate
+      store_currency_code: USD
+      x_forwarded_for:
+      customer_note:
+      created_at: 2013-09-24 09:58:57
+      updated_at: 2013-09-24 10:01:11
+      total_item_count: 2
+      hidden_tax_amount: 0.0000
+      base_hidden_tax_amount: 0.0000
+      shipping_hidden_tax_amount: 0.0000
+      base_shipping_hidden_tax_amnt: 0.0000
+      hidden_tax_invoiced: 0.0000
+      base_hidden_tax_invoiced: 0.0000
+      hidden_tax_refunded:
+      base_hidden_tax_refunded:
+      shipping_incl_tax: 0.0000
+      base_shipping_incl_tax: 0.0000
+      coupon_rule_name:
+      paypal_ipn_customer_notified: 0
+      payment_authorization_expiration:
+      forced_do_shipment_with_invoice:
+      base_shipping_hidden_tax_amount: 0.0000
+  sales/order_item:
+    -
+      item_id: 1
+      order_id: 30004
+      quote_item_id: 1
+      store_id: 1
+      created_at: 2013-10-21 14:39:31
+      updated_at: 2013-10-21 14:40:55
+      product_id: 1
+      product_type: simple
+      weight: 1.000
+      row_weight: 2.00
+      is_virtual: 0
+      sku: test1
+      name: test product 1
+      qty_invoiced: 0
+      qty_ordered: 2
+      qty_refunded: 0
+      qty_shipped: 0
+      price: 135000.00
+      original_price: 135000.00
+      price_incl_tax: 135000.00
+      tax_percent: 0
+      tax_amount: 0
+      tax_invoiced: 0
+      tax_before_discount: 0
+      discount_percent: 0
+      discount_amount: 0
+      discount_invoiced: 0
+      amount_refunded: 0
+      row_total: 270000.00
+      row_invoiced: 0
+      row_total_incl_tax: 270000.00
+      base_price: 15.00
+      base_original_price: 15.00
+      base_price_incl_tax: 15.00
+      base_tax_amount: 0
+      base_tax_invoiced: 0
+      base_tax_before_discount: 0
+      base_discount_amount: 0
+      base_discount_invoiced: 0
+      base_amount_refunded: 0
+      base_row_total: 30.00
+      base_row_invoiced: 0
+      base_row_total_incl_tax: 30.00
+      weee_tax_applied: a:0:{}
+    -
+      item_id: 2
+      order_id: 30005
+      quote_item_id: 1
+      store_id: 1
+      created_at: 2013-10-23 14:39:31
+      updated_at: 2013-10-23 14:40:55
+      product_id: 1
+      product_type: simple
+      weight: 1.000
+      row_weight: 2.00
+      is_virtual: 0
+      sku: test1
+      name: test product 1
+      qty_invoiced: 0
+      qty_ordered: 2
+      qty_refunded: 0
+      qty_shipped: 0
+      price: 135000.00
+      original_price: 135000.00
+      price_incl_tax: 135000.00
+      tax_percent: 0
+      tax_amount: 0
+      tax_invoiced: 0
+      tax_before_discount: 0
+      discount_percent: 0
+      discount_amount: 0
+      discount_invoiced: 0
+      amount_refunded: 0
+      row_total: 270000.00
+      row_invoiced: 0
+      row_total_incl_tax: 270000.00
+      base_price: 15.00
+      base_original_price: 15.00
+      base_price_incl_tax: 15.00
+      base_tax_amount: 0
+      base_tax_invoiced: 0
+      base_tax_before_discount: 0
+      base_discount_amount: 0
+      base_discount_invoiced: 0
+      base_amount_refunded: 0
+      base_row_total: 30.00
+      base_row_invoiced: 0
+      base_row_total_incl_tax: 30.00
+      weee_tax_applied: a:0:{}
+  sales/order_payment:
+    -
+      entity_id: 101
+      parent_id: 30001
+      method: checkmo
+      base_amount_paid: 0
+      base_amount_ordered:
+      base_shipping_amount:
+      base_shipping_captured:
+      amount_paid: 0
+      amount_ordered:
+      shipping_amount:
+      shipping_captured:
+  sales/invoice:
+    -
+      entity_id: 40001
+      order_id: 30001
+      increment_id: 110000001
+      store_id: 1
+      state: 2
+      store_to_order_rate: 9000
+      store_to_base_rate: 1
+      base_to_order_rate: 9000
+      base_to_global_rate: 1
+      store_currency_code: USD
+      order_currency_code: BYR
+      base_currency_code: USD
+      global_currency_code: USD
+      base_tax_amount: 0
+      base_shipping_tax_amount: 0
+      base_subtotal: 15.00
+      base_subtotal_incl_tax: 16.00
+      base_shipping_amount: 0.00
+      base_shipping_incl_tax: 0.00
+      base_discount_amount: 5.00
+      base_grand_total: 11.00
+      base_total_refunded:
+      is_used_for_refund:
+      tax_amount: 9000.00
+      hidden_tax_amount: 0
+      shipping_tax_amount: 0
+      shipping_hidden_tax_amount: 0
+      subtotal: 135000.00
+      subtotal_incl_tax: 144000.00
+      shipping_amount: 0.00
+      shipping_incl_tax: 0.00
+      discount_amount: 45000.00
+      grand_total: 99000.00
+      base_hidden_tax_amount: 0
+      base_shipping_hidden_tax_amnt: 0
+      total_qty: 1
+      billing_address_id: 1
+      shipping_address_id: 4
+      email_sent:
+      can_void_flag: 0
+      transaction_id:
+      created_at: 2013-09-19 10:01:11
+      updated_at: 2013-09-19 10:01:11
+    -
+      entity_id: 40002
+      order_id: 30002
+      increment_id: 110000002
+      store_id: 1
+      state: 2
+      store_to_order_rate: 1900
+      store_to_base_rate: 1
+      base_to_order_rate: 1900
+      base_to_global_rate: 1
+      store_currency_code: USD
+      order_currency_code: COP
+      base_currency_code: USD
+      global_currency_code: USD
+      base_tax_amount: 0
+      base_shipping_tax_amount: 0
+      base_subtotal: 1000.00
+      base_subtotal_incl_tax: 1000.00
+      base_shipping_amount: 5.00
+      base_shipping_incl_tax: 5.00
+      base_discount_amount: 0
+      base_grand_total: 1005.00
+      base_total_refunded:
+      is_used_for_refund:
+      tax_amount: 0
+      hidden_tax_amount: 0
+      shipping_tax_amount: 0
+      shipping_hidden_tax_amount: 0
+      subtotal: 1900000.00
+      subtotal_incl_tax: 1900000.00
+      shipping_amount: 9500.00
+      shipping_incl_tax: 9500.00
+      discount_amount: 0
+      grand_total: 1909500.00
+      base_hidden_tax_amount: 0
+      base_shipping_hidden_tax_amnt: 0
+      total_qty: 1
+      billing_address_id: 1
+      shipping_address_id: 4
+      email_sent:
+      can_void_flag: 0
+      transaction_id:
+      created_at: 2013-09-19 10:01:11
+      updated_at: 2013-09-19 10:01:11
+    -
+      entity_id: 40003
+      order_id: 30003
+      increment_id: 110000003
+      store_id: 1
+      state: 2
+      store_to_order_rate: 9000
+      store_to_base_rate: 1
+      base_to_order_rate: 9000
+      base_to_global_rate: 1
+      store_currency_code: USD
+      order_currency_code: BYR
+      base_currency_code: USD
+      global_currency_code: USD
+      base_tax_amount: 0
+      base_shipping_tax_amount: 0
+      base_subtotal: 15.00
+      base_subtotal_incl_tax: 16.00
+      base_shipping_amount: 0.00
+      base_shipping_incl_tax: 0.00
+      base_discount_amount: 5.00
+      base_grand_total: 11.00
+      base_total_refunded:
+      is_used_for_refund:
+      tax_amount: 9000.00
+      hidden_tax_amount: 0
+      shipping_tax_amount: 0
+      shipping_hidden_tax_amount: 0
+      subtotal: 135000.00
+      subtotal_incl_tax: 144000.00
+      shipping_amount: 0.00
+      shipping_incl_tax: 0.00
+      discount_amount: 45000.00
+      grand_total: 99000.00
+      base_hidden_tax_amount: 0
+      base_shipping_hidden_tax_amnt: 0
+      total_qty: 1
+      billing_address_id: 1
+      shipping_address_id: 4
+      email_sent:
+      can_void_flag: 0
+      transaction_id:
+      created_at: 2013-09-22 10:01:11
+      updated_at: 2013-09-22 10:01:11
+    -
+      entity_id: 40004
+      order_id: 30004
+      increment_id: 110000004
+      store_id: 1
+      state: 2
+      store_to_order_rate: 9000
+      store_to_base_rate: 1
+      base_to_order_rate: 9000
+      base_to_global_rate: 1
+      store_currency_code: USD
+      order_currency_code: BYR
+      base_currency_code: USD
+      global_currency_code: USD
+      base_tax_amount: 0
+      base_shipping_tax_amount: 0
+      base_subtotal: 15.00
+      base_subtotal_incl_tax: 16.00
+      base_shipping_amount: 0.00
+      base_shipping_incl_tax: 0.00
+      base_discount_amount: 0.00
+      base_grand_total: 16.00
+      base_total_refunded:
+      is_used_for_refund:
+      tax_amount: 9000.00
+      hidden_tax_amount: 0
+      shipping_tax_amount: 0
+      shipping_hidden_tax_amount: 0
+      subtotal: 135000.00
+      subtotal_incl_tax: 144000.00
+      shipping_amount: 0.00
+      shipping_incl_tax: 0.00
+      discount_amount: 0.00
+      grand_total: 144000.00
+      base_hidden_tax_amount: 0
+      base_shipping_hidden_tax_amnt: 0
+      total_qty: 1
+      billing_address_id: 1
+      shipping_address_id: 4
+      email_sent:
+      can_void_flag: 0
+      transaction_id:
+      created_at: 2013-09-22 10:01:11
+      updated_at: 2013-09-22 10:01:11
+  awaffiliate/affiliate:
+    -
+      id: 10001
+      customer_id: 500011
+      rate: 0
+      status: active
+      current_balance: 0
+      active_balance: 0
+  awaffiliate/campaign:
+    -
+      id: 20001
+      name: unit test percent rate campaign
+      status: 1
+      store_ids: 1
+      active_from: null
+      active_to: null
+      allowed_groups: 1
+      product_selection_rule:
+      type:
+      description: test entity
+    -
+      id: 20002
+      name: unit test flat rate campaign
+      status: 1
+      store_ids: 1
+      active_from: null
+      active_to: null
+      allowed_groups: 1
+      product_selection_rule:
+      type:
+      description: test entity
+  awaffiliate/client:
+    -
+      id: 60001
+      customer_id: 500012
+      campaign_id: 20001
+      affiliate_id: 10001
+      traffic_id: 70001
+      created_at: 2013-09-17 09:58:57
+    -
+      id: 60002
+      customer_id: 500012
+      campaign_id: 20002
+      affiliate_id: 10001
+      traffic_id: 70001
+      created_at: 2013-09-18 22:50:00
+  awaffiliate/traffic_source:
+    -
+      id: 70001
+      affiliate_id: 10001
+      traffic_name: no_matter
+  awaffiliate/profit:
+    -
+      id: 80001
+      campaign_id: 20001
+      type: fixed
+      rate_settings: a:3:{s:21:"rate_calculation_type";s:10:"last_month";s:11:"profit_rate";d:5;s:15:"profit_rate_cur";d:0;}
+    -
+      id: 80002
+      campaign_id: 20002
+      type: fixedcur
+      rate_settings: a:3:{s:21:"rate_calculation_type";s:10:"last_month";s:11:"profit_rate";d:3;s:15:"profit_rate_cur";d:0.4;}
+  awaffiliate/client_history:
+    -
+      id: 90001
+      client_id: 60001
+      created_at: 2013-09-19 09:58:57
+      action: order_placed
+      linked_item_type:
+      linked_item_id: 30002
+    -
+      id: 90002
+      client_id: 60002
+      created_at: 2013-09-22 09:58:57
+      action: order_placed
+      linked_item_type:
+      linked_item_id: 30005
+    -
+      id: 90003
+      client_id: 60002
+      created_at: 2013-09-21 09:58:57
+      action: order_placed
+      linked_item_type:
+      linked_item_id: 30004
+eav:
+  customer:
+    -
+      entity_id: 500011
+      attribute_set_id: 0
+      email: affiliate@example.com
+      firstname: affiliate
+      lastname: affiliate
+      is_active: 1
+      group_id: 1
+      store_id: 1
+      website_id: 1
+      created_in: Default Store
+    -
+      entity_id: 500012
+      attribute_set_id: 0
+      email: referral@example.com
+      firstname: referral
+      lastname: referral
+      is_active: 1
+      group_id: 1
+      store_id: 1
+      website_id: 1
+      created_in: Default Store
